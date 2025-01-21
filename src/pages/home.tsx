@@ -1,15 +1,12 @@
-import { HomeAbout, HomeHero } from "@/components/shared";
+import { HomeAbout, HomeHero, HomeOffers } from "@/components/shared";
 import { FC } from "react";
 
-interface Props {
-  className?: string;
-}
-
-export const Home: FC<Props> = ({ className }) => {
+export const Home: FC = () => {
   return (
     <div className="flex flex-col gap-20">
       <HomeHero />
       <HomeAbout />
+      <HomeOffers />
     </div>
   );
 };
