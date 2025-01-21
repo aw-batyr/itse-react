@@ -1,14 +1,10 @@
 import { FC } from "react";
 import { Container, Logo } from "./";
-import { MapPin, Smartphone } from "lucide-react";
+import { ArrowUpRight, MapPin, Smartphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 
 export const navData = [
-  {
-    title: "План выставки",
-    link: "",
-  },
   {
     title: "Медиа",
     link: "",
@@ -78,10 +74,18 @@ export const Header: FC = () => {
           </div>
 
           <div className="flex items-center gap-6">
-            <Button variant={"secondary"} size={"sm"}>
-              Забронируйте стенд
+            <Button variant="outline" size={"sm"}>
+              QACIS 2025
+              <ArrowUpRight />
             </Button>
-            <Button size={"sm"}>B2B | B2G</Button>
+
+            <Button variant={"secondary"} size={"sm"}>
+              Официальная поддержка
+            </Button>
+
+            <Link to="/B2B-B2G">
+              <Button size={"sm"}>B2B | B2G</Button>
+            </Link>
           </div>
         </Container>
       </div>
