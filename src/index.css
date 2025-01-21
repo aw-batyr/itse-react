@@ -41,4 +41,20 @@
   .p {
     @apply text-base leading-[130%];
   }
+
+  .dot {
+    @apply w-5 h-1 cursor-pointer bg-on_surface_v rounded-[2px];
+  }
+
+  .dot-active {
+    @apply w-5 h-1 bg-on_surface rounded-[2px];
+  }
+
+  .nav-btn {
+    @apply bg-[#D9D9D9] size-12 rounded-full flex items-center justify-center;
+  }
+
+  .progress-circle {
+    @apply size-14 rounded-full text-2xl text-[#5F6674] bg-[#D0D3D8];
+  }
 }
