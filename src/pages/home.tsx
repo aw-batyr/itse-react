@@ -1,7 +1,9 @@
 import { FC } from "react";
+
 import {
   HomeAbout,
   HomeHero,
+  HomeOffers,
   HomePartners,
   HomeTheme,
   HomeTime,
@@ -9,7 +11,7 @@ import {
 
 export const Home: FC = () => {
   return (
-    <div className="flex flex-col gap-20">
+    <div className="flex flex-col gap-20 pb-20">
       <HomeHero />
       <HomeAbout />
       <HomeOffers />
