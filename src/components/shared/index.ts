@@ -2,8 +2,9 @@ export { Logo } from "./logo";
 export { Header } from "./header";
 export { Footer } from "./footer";
 export { LangMenu } from "./lang-menu";
-export { HomeHero } from "./home-hero";
 export { Container } from "./container";
-export { HomeAbout } from "./home-about";
 export { AboutCard } from "./about-card";
-export { HomeOffers } from "./home-offers";
+export { ContactCard } from "./contact-card";
+export { TimeCard } from "./time-card";
+
+export * from "./home";

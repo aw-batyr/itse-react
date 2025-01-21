@@ -1,8 +1,8 @@
 import useEmblaCarousel from "embla-carousel-react";
 import { FC } from "react";
-import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
-import { Container } from "./";
+import { Container } from "../";
+import { Button } from "@/components/ui/button";
 
 interface Props {
   className?: string;

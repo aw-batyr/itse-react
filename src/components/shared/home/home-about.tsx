@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { AboutCard, Container } from "./";
-import { Button } from "../ui/button";
+import { AboutCard, Container } from "../";
+import { Button } from "@/components/ui/button";
 
 export const HomeAbout: FC = () => {
   return (

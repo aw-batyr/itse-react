@@ -24,6 +24,8 @@ export default {
         on_teritary: "#ffffff",
         teritary_container: "#FFDDBA",
         on_teritary_container: "#2B1700",
+        teritary_07: "#FF9E00",
+        teritary_11: "#553400",
 
         surface_high: "#E8E7EF",
         on_surface: "#26292E",

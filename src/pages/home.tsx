@@ -1,5 +1,11 @@
-import { HomeAbout, HomeHero, HomeOffers } from "@/components/shared";
 import { FC } from "react";
+import {
+  HomeAbout,
+  HomeHero,
+  HomePartners,
+  HomeTheme,
+  HomeTime,
+} from "@/components/shared";
 
 export const Home: FC = () => {
   return (
@@ -7,6 +13,10 @@ export const Home: FC = () => {
       <HomeHero />
       <HomeAbout />
       <HomeOffers />
+
+      <HomeTheme />
+      <HomeTime />
+      <HomePartners />
     </div>
   );
 };
