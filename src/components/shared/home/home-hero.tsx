@@ -4,10 +4,6 @@ import { Link } from "react-router-dom";
 import { Container } from "../";
 import { Button } from "@/components/ui/button";
 
-interface Props {
-  className?: string;
-}
-
 export const btns = [
   {
     title: "Программа",
@@ -27,7 +23,7 @@ export const btns = [
   },
 ];
 
-export const HomeHero: FC<Props> = ({ className }) => {
+export const HomeHero: FC = () => {
   const [embalRef] = useEmblaCarousel();
 
   return (
@@ -35,7 +31,7 @@ export const HomeHero: FC<Props> = ({ className }) => {
       <div ref={embalRef} className="embla">
         <div className="embla__container">
           <div className="embla__slide h-[600px] object-cover">
-            <img src="/banner.png" alt="" />
+            <img src="/banner.png" alt="" className="size-full object-cover" />
           </div>
         </div>
       </div>

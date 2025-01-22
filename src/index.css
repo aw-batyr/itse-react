@@ -55,6 +55,6 @@
   }
 
   .progress-circle {
-    @apply size-14 rounded-full text-2xl text-[#5F6674] bg-[#D0D3D8];
+    @apply size-14 rounded-full text-2xl text-[#5F6674];
   }
 }

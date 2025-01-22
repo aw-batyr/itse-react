@@ -8,5 +8,8 @@ export { ContactCard } from "./contact-card";
 export { TimeCard } from "./time-card";
 export { OfferCard } from "./offer-card";
 export { EmblaDots } from "./embla-dots";
+export { B2bForm } from "./b2b-form";
+export { Field } from "./field";
 
 export * from "./home";
+export * from "./b2b";

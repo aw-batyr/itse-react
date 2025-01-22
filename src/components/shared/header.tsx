@@ -35,7 +35,7 @@ export const Header: FC = () => {
     <header className="">
       <div className="h-12 bg-primary text-on_primary flex items-center overflow-hidden">
         <Container className="flex items-center justify-between">
-          <div className="flex-[0_1_566px] gap-4 flex items-center justify-between">
+          <div className="gap-8 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <MapPin />
               <h4 className="text-sm">Ашхабад, Туркменистан</h4>
@@ -61,13 +61,15 @@ export const Header: FC = () => {
 
       <div className="bg-white py-2 flex items-center justify-between h-20 overflow-hidden">
         <Container className="flex items-center justify-between ">
-          <div className="flex items-center justify-between flex-[0_1_660px]">
-            <Logo />
+          <div className="flex items-center gap-8">
+            <Link to="/">
+              <Logo />
+            </Link>
 
             <nav className="flex items-center gap-6">
               {navData2.map(({ title, link }) => (
-                <Link key={title} to={link}>
-                  {title}
+                <Link key={title} to={link} className="flex items-center gap-2">
+                  {title} <img src="/chevron.svg" />
                 </Link>
               ))}
             </nav>
