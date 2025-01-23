@@ -1,33 +1,46 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@font-face {
+  font-family: "Gilroy-Regular";
+  src: local("Gilroy-Regular"),
+    url(../fonts/Gilroy-Regular.woff2) format("woff2");
+  font-weight: 400;
+}
 
-/* @font-face {
+@font-face {
   font-family: "Gilroy-Medium";
-  src: local("Gilroy-Medium"),
-    url(../fonts/Gilroy-Medium.ttf) format("truetype");
+  src: local("Gilroy-Medium"), url(../fonts/Gilroy-Medium.woff2) format("woff2");
   font-weight: 500;
 }
 
 @font-face {
-  font-family: "Gilroy-Regular";
-  src: local("Gilroy-Regular"),
-    url(../fonts/Gilroy-Regular.ttf) format("truetype");
-  font-weight: 400;
-} */
+  font-family: "Gilroy-Semibold";
+  src: local("Gilroy-Semibold"),
+    url(../fonts/Gilroy-Semibold.woff2) format("woff2");
+  font-weight: 600;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   * {
     @apply box-border;
   }
   body {
-    font-family: "Gilroy";
-    font-weight: 500;
+    font-family: "Gilroy-Medium";
     @apply bg-background;
   }
 }
 
 @layer utilities {
+  .normal {
+    @apply font-["Gilroy-Regular"] font-normal;
+  }
+
+  .semibold {
+    @apply font-["Gilroy-Semibold"] font-semibold;
+  }
+
   .h1 {
     @apply text-[28px] leading-[130%] font-medium;
   }
@@ -41,7 +54,7 @@
   }
 
   .text-18 {
-    @apply text-lg font-normal text-on_surface_v;
+    @apply text-lg normal text-on_surface_v;
   }
 
   .dot {
