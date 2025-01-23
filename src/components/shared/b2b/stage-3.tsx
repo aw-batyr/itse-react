@@ -3,12 +3,13 @@ import { motion } from "motion/react";
 import { FieldError, useFormContext } from "react-hook-form";
 import { Field } from "../field";
 import { Button } from "@/components/ui/button";
+import { Loader } from "lucide-react";
 
 interface Props {
   className?: string;
 }
 
-export const Stage3: FC<Props> = ({ className }) => {
+export const Stage3: FC<Props> = () => {
   const { control, formState } = useFormContext();
 
   return (
@@ -116,8 +117,16 @@ export const Stage3: FC<Props> = ({ className }) => {
         />
       </div>
 
-      <Button type="submit" className="w-full mt-10">
-        Далее
+      <Button
+        disabled={formState.isSubmitting}
+        type="submit"
+        className="w-full mt-10"
+      >
+        {formState.isSubmitting ? (
+          <Loader className="animate-spin" />
+        ) : (
+          "Отправить"
+        )}
       </Button>
     </motion.div>
   );

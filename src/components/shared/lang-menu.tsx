@@ -5,7 +5,7 @@ interface Props {
   className?: string;
 }
 
-export const LangMenu: FC<Props> = ({ className }) => {
+export const LangMenu: FC<Props> = () => {
   return (
     <Popover>
       <PopoverTrigger className="flex items-center gap-2">

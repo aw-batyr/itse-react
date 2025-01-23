@@ -17,7 +17,6 @@ export const Stage2: FC<Props> = ({ handleNext }) => {
       initial={{ opacity: 0, y: -100 }}
       animate={{ opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.3 } }}
       exit={{ opacity: 0, y: 100 }}
-      transition={{ duration: 1 }}
     >
       <h3 className="h2 mb-8">Цели встречи:</h3>
 

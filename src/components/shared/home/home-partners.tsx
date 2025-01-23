@@ -12,12 +12,10 @@ interface Props {
 export const HomePartners: FC<Props> = ({ className }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel();
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [slides, setSlides] = useState<number[]>([]);
 
   useEffect(() => {
     if (!emblaApi) return;
 
-    setSlides(Array.from(Array(emblaApi.slideNodes().length).keys()));
     const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
     emblaApi.on("select", onSelect);
     onSelect();
