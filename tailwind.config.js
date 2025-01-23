@@ -11,6 +11,7 @@ export default {
       },
       colors: {
         primary: "#2C57A7",
+        primary_04: "#9AB4E4",
         on_primary: "#ffffff",
         primary_container: "#BBCDED",
         on_primary_container: "#112343",
@@ -25,6 +26,7 @@ export default {
         teritary_container: "#FFDDBA",
         on_teritary_container: "#2B1700",
         teritary_07: "#FF9E00",
+        teritary_08: "#D48400",
         teritary_11: "#553400",
         teritary_surface_container: "#FFF3E0",
 

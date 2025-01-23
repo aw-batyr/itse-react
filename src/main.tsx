@@ -22,6 +22,10 @@ const router = createBrowserRouter([
         element: <StandForm />,
         path: "/stand-form",
       },
+      {
+        element: <About />,
+        path: "/about",
+      },
     ],
   },
 ]);

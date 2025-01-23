@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Container } from "..";
 import { ThemeCard } from "../theme-card";
 
-const themes = [
+export const themes = [
   {
     title: "Пищевая продукция и сельское хозяйство",
     img: "/theme/1.svg",

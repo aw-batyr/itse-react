@@ -14,3 +14,4 @@ export { B2bFormProgress } from "./b2b-form-progress";
 
 export * from "./home";
 export * from "./b2b";
+export * from "./about";
