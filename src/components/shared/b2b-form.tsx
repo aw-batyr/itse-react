@@ -24,7 +24,7 @@
 // ]);
 
 import { AnimatePresence, motion } from "motion/react";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
@@ -44,6 +44,10 @@ interface Props {
 }
 
 export const B2bForm: FC<Props> = ({ stage, setStage }) => {
+  const [success, setSuccess] = useState(false);
+
+  console.log(success);
+
   const form = useForm<FormType>({
     resolver: zodResolver(formSchema),
     defaultValues: defaultValuesOfB2b,
@@ -61,13 +65,18 @@ export const B2bForm: FC<Props> = ({ stage, setStage }) => {
 
   const onSubmit = async (values: FormType) => {
     try {
-      return await fetch("https://itse.turkmenexpo.com/app/api/v1/form", {
-        method: "POST",
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        body: JSON.stringify(values),
-      });
+      const res = await axios.post(
+        "https://itse.turkmenexpo.com/app/api/v1/form",
+        values,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      setStage(0);
+      if (res.status === 201) setSuccess(true);
     } catch (error) {
       console.error(error, "b2b form error");
     }
@@ -121,9 +130,11 @@ export const B2bForm: FC<Props> = ({ stage, setStage }) => {
           <AnimatePresence>
             {stage === 2 && <Stage2 handleNext={handleNext} />}
           </AnimatePresence>
-          <AnimatePresence>{stage === 3 && <Stage3 />}</AnimatePresence>
+          <AnimatePresence>
+            {stage === 3 && success === false && <Stage3 />}
+          </AnimatePresence>
 
-          {form.formState.isSubmitSuccessful && (
+          {form.formState.isSubmitted && (
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}

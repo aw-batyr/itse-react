@@ -15,7 +15,7 @@ export const ContactCard: FC<Props> = ({ className, subtitle, title, img }) => {
 
       <div className="flex flex-col gap-2">
         <h5 className="text-sm text-[#454545]">{subtitle}</h5>
-        <h4 className="text-[#171717] font-semibold">{title}</h4>
+        <h4 className="text-[#171717] semibold">{title}</h4>
       </div>
     </div>
   );

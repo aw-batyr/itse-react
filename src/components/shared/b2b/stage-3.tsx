@@ -8,7 +8,7 @@ interface Props {
   className?: string;
 }
 
-export const Stage3: FC<Props> = ({}) => {
+export const Stage3: FC<Props> = ({ className }) => {
   const { control, formState } = useFormContext();
 
   return (

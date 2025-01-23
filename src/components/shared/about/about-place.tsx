@@ -16,7 +16,7 @@ export const AboutPlace: FC<Props> = ({ className }) => {
     >
       <Container>
         <h3 className="h2 w-[312px] mb-6">Место проведения</h3>
-        <p className="text-lg w-[490px] text-on_surface_v font-normal">
+        <p className="text-lg w-[490px] text-on_surface_v normal">
           Торгово-промышленная палата Туркменистана создана в целях содействия
           развитию экономики Туркменистана, ее интегрированию в мировую
           хозяйственную систему, формированию современной промышленной,

@@ -58,7 +58,7 @@ export const About: FC<Props> = ({ className }) => {
         <div className="flex flex-col gap-6">
           <h3 className="h2">Цели выставки</h3>
 
-          <ul className="list-disc pl-8 flex flex-col gap-3 text-lg text-on_surface_v font-normal">
+          <ul className="list-disc pl-8 flex flex-col gap-3 text-lg text-on_surface_v normal">
             <li>
               Поддержка малых и средних предприятий, их интеграция в
               международную экономику.
@@ -71,7 +71,7 @@ export const About: FC<Props> = ({ className }) => {
 
         <div className="flex flex-col gap-6">
           <h3 className="h2">Ключевые особенности мероприятия</h3>
-          <ul className="list-disc pl-8 flex flex-col gap-3 text-lg text-on_surface_v font-normal">
+          <ul className="list-disc pl-8 flex flex-col gap-3 text-lg text-on_surface_v normal">
             <li>Специализированные выставочные зоны </li>
             <li>Форумы по качеству продукции</li>
             <li>Воркшопы и бизнес-миссии</li>

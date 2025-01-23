@@ -49,7 +49,6 @@ export const StandForm: FC<Props> = ({ className }) => {
           onSubmit={form.handleSubmit(onSubmit)}
         >
           <FormField
-            defaultValue={""}
             control={form.control}
             name="space_and_package"
             render={({ field }) => (
