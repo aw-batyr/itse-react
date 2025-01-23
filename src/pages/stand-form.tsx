@@ -99,15 +99,27 @@ export const StandForm: FC<Props> = ({ className }) => {
             name="name"
             control={form.control}
           />
-          <Field label="Job title/Position" name="job" control={form.control} />
+          <Field
+            label="Job title/Position"
+            name="job_title"
+            control={form.control}
+          />
           <Field
             label="Number of the participants"
-            name="job"
+            name=""
             control={form.control}
           />
           <Field label="Country" name="country" control={form.control} />
-          <Field label="E-mail address" name="email" control={form.control} />
-          <Field label="Phone number" name="phone" control={form.control} />
+          <Field
+            label="E-mail address"
+            name="email_address"
+            control={form.control}
+          />
+          <Field
+            label="Phone number"
+            name="phone_number"
+            control={form.control}
+          />
 
           <FormField
             defaultValue={""}

@@ -27,7 +27,7 @@ export const Stage1: FC<Props> = ({ handleNext }) => {
       exit={{ opacity: 0, y: "100%", transition: { duration: 0.2 } }}
       className="w-full"
     >
-      <h3 className="h2 mb-8">Applicant Information (matchmaking):</h3>
+      <h3 className="h2 mb-8">Информация об экспоненте:</h3>
 
       <div className="flex flex-col gap-8">
         <FormField
@@ -36,7 +36,7 @@ export const Stage1: FC<Props> = ({ handleNext }) => {
           name="type"
           render={({ field }) => (
             <FormItem className="space-y-3">
-              <FormLabel className="text-xl">Type:</FormLabel>
+              <FormLabel className="text-xl">Тип:</FormLabel>
 
               <FormControl>
                 <RadioGroup
@@ -46,14 +46,20 @@ export const Stage1: FC<Props> = ({ handleNext }) => {
                 >
                   <FormItem className="flex items-center space-x-3 space-y-0">
                     <FormControl>
-                      <RadioGroupItem value={1} checked={field.value === 1} />
+                      <RadioGroupItem
+                        value={"B2B"}
+                        checked={field.value === "B2B"}
+                      />
                     </FormControl>
                     <FormLabel className="text-base">B2B</FormLabel>
                   </FormItem>
 
                   <FormItem className="flex items-center space-x-3 space-y-0">
                     <FormControl>
-                      <RadioGroupItem value={2} checked={field.value === 2} />
+                      <RadioGroupItem
+                        value={"B2G"}
+                        checked={field.value === "B2G"}
+                      />
                     </FormControl>
                     <FormLabel className="text-base">B2G</FormLabel>
                   </FormItem>
@@ -65,58 +71,58 @@ export const Stage1: FC<Props> = ({ handleNext }) => {
 
         <Field
           control={control}
-          name={"company"}
-          error={formState.errors.company as FieldError}
+          name={"company_name"}
+          error={formState.errors.company_name as FieldError}
           placeholder=""
-          label="Company/Organization Name"
+          label="Название компании/организации"
         />
         <Field
           control={control}
-          name={"name"}
-          error={formState.errors.name as FieldError}
+          name={"representative_name"}
+          error={formState.errors.representative_name as FieldError}
           placeholder=""
-          label="Name of Representative"
+          label="Имя представителя"
         />
         <Field
           control={control}
-          name={"job"}
-          error={formState.errors.job as FieldError}
+          name={"job_title"}
+          error={formState.errors.job_title as FieldError}
           placeholder=""
-          label="Job title/Position"
+          label="Название должности/позиция"
         />
         <Field
           control={control}
-          name={"participants_numbers"}
-          error={formState.errors.participants_numbers as FieldError}
+          name={"participants_number"}
+          error={formState.errors.participants_number as FieldError}
           placeholder=""
-          label="Number of the participants"
+          label="Количество участников"
         />
         <Field
           control={control}
           name={"country"}
           error={formState.errors.country as FieldError}
           placeholder=""
-          label="Country"
+          label="Страна"
         />
         <Field
           control={control}
-          name={"email"}
-          error={formState.errors.email as FieldError}
+          name={"email_address"}
+          error={formState.errors.email_address as FieldError}
           placeholder=""
-          label="E-mail address"
+          label="E-mail адрес"
         />
         <Field
           control={control}
-          name={"phone"}
-          error={formState.errors.phone as FieldError}
+          name={"phone_number"}
+          error={formState.errors.phone_number as FieldError}
           placeholder=""
-          label="Phone number"
+          label="Номер телефона"
         />
         <Field
           control={control}
-          name={"web_site"}
+          name={"website"}
           placeholder=""
-          label="Website"
+          label="Вебсайт"
         />
       </div>
 

@@ -40,7 +40,7 @@ export const AboutThemes: FC<Props> = ({ className }) => {
 
         <div className="flex items-center gap-3 mt-8 text-on_surface_v text-lg">
           <div className="w-1 h-[38px] bg-teritary_08" />
-          <p>
+          <p className="text-18">
             Участники смогут продемонстрировать свои инновационные решения,
             наладить взаимовыгодные партнерства и выйти на новые рынки.
           </p>

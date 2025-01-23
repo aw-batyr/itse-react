@@ -1,7 +1,33 @@
+// $validator = Validator::make($data, [
+//   'type' => 'required|string',
+//   'company_name' => 'required|string',
+//   'representative_name' => 'required|string',
+//   'job_title' => 'required|string',
+//   'participants_number' => 'required|string',
+//   'country' => 'required|string',
+//   'email_address' => 'required|email',
+//   'phone_number' => 'required|string',
+//   // 'website' => 'nullable|url',
+//   'meeting_objective' => 'nullable|string',
+//   // 'proposal_description' => 'nullable|string',
+//   'government_agency' => 'nullable|string',
+//   'sector_industry' => 'nullable|string',
+//   // 'key_services' => 'nullable|string',
+//   // 'government_experience' => 'nullable|string',
+//   'preferred_meeting_datetime' => 'nullable|string',
+//   'meeting_mode' => 'nullable|string',
+//   'language_preference' => 'nullable|string',
+//   // 'technical_requirements' => 'nullable|string',
+//   'company_profile' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+//   'proposal_presentation' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+//   'relevant_certification' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+// ]);
+
 import { AnimatePresence, motion } from "motion/react";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 import {
   defaultValuesOfB2b,
   formSchema,
@@ -33,11 +59,18 @@ export const B2bForm: FC<Props> = ({ stage, setStage }) => {
     }
   };
 
-  // Отправка формы на последнем этапе
-  const onSubmit = (values: FormType) => {
-    console.log("Submitted values:", values);
-    setStage(0);
-    // Здесь вы можете отправить данные на сервер
+  const onSubmit = async (values: FormType) => {
+    try {
+      return await fetch("https://itse.turkmenexpo.com/app/api/v1/form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        body: JSON.stringify(values),
+      });
+    } catch (error) {
+      console.error(error, "b2b form error");
+    }
   };
 
   const getFieldsForStage = (currentStage: number): (keyof FormType)[] => {
@@ -45,30 +78,33 @@ export const B2bForm: FC<Props> = ({ stage, setStage }) => {
       case 1:
         return [
           "type",
-          "company",
-          "name",
-          "job",
-          "participants_numbers",
+          "company_name",
+          "representative_name",
+          "job_title",
+          "participants_number",
           "country",
-          "email",
-          "phone",
-          "web_site",
+          "email_address",
+          "phone_number",
+          "website",
         ];
       case 2:
         return [
-          "primary_meeting",
-          "brief_desc",
-          "relevant_government_agency",
-          "industry",
+          "meeting_objective",
+          "proposal_description",
+          "government_agency",
+          "sector_industry",
           "key_services",
-          "experience",
+          "government_experience",
         ];
       case 3:
         return [
-          "preffered_date",
-          "preferred_mode",
-          "lang",
-          "additional_technical",
+          "preferred_meeting_datetime",
+          "meeting_mode",
+          "language_preference",
+          "technical_requirements",
+          "company_profile",
+          "proposal_presentation",
+          "relevant_certification",
         ];
       default:
         return [];

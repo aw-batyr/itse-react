@@ -19,53 +19,59 @@ export const Stage2: FC<Props> = ({ handleNext }) => {
       exit={{ opacity: 0, y: 100 }}
       transition={{ duration: 1 }}
     >
-      <h3 className="h2 mb-8">Meeting Purposes:</h3>
+      <h3 className="h2 mb-8">Цели встречи:</h3>
 
       <div className="flex flex-col gap-8">
         <Field
           control={control}
-          name={"primary_meeting"}
-          error={formState.errors.primary_meeting as FieldError}
+          name={"meeting_objective"}
+          error={formState.errors.meeting_objective as FieldError}
           placeholder=""
-          label="Primary objective of the meeting"
+          label="Основная цель встречи"
         />
         <Field
           control={control}
-          name={"brief_desc"}
-          error={formState.errors.brief_desc as FieldError}
+          name={"proposal_description"}
+          error={formState.errors.proposal_description as FieldError}
           placeholder=""
-          label="Brief description of your proposal/project/request"
+          label="Краткое описание вашего предложения/проекта/запроса"
         />
         <Field
           control={control}
-          name={"relevant_government_agency"}
-          error={formState.errors.relevant_government_agency as FieldError}
+          name={"government_agency"}
+          error={formState.errors.government_agency as FieldError}
           placeholder=""
-          label="Relevant government agency/department"
+          label="Соответствующее государственное учреждение/департамент"
         />
 
-        <h3 className="h2 mt-4">Company/Organization Profile:</h3>
+        <h3 className="h2 mt-4">
+          Информация о компании/организации:
+          {/* Company/Organization Profile: */}
+        </h3>
 
         <Field
           control={control}
-          name={"industry"}
-          error={formState.errors.industry as FieldError}
+          name={"sector_industry"}
+          error={formState.errors.sector_industry as FieldError}
           placeholder=""
-          label="Sector Industry"
+          // label="Sector sector_industry"
+          label="Отраслевая промышленность"
         />
         <Field
           control={control}
           name={"key_services"}
           error={formState.errors.key_services as FieldError}
           placeholder=""
-          label="Key Services/Products"
+          label="Ключевые услуги/продукты"
+          // label="Key Services/Products"
         />
         <Field
           control={control}
-          name={"experience"}
-          error={formState.errors.experience as FieldError}
+          name={"government_experience"}
+          error={formState.errors.government_experience as FieldError}
           placeholder=""
-          label="Previous Experience working with Governments (if applicable)"
+          label="Предыдущий опыт работы с правительствами (если применимо)"
+          // label="Previous Experience working with Governments (if applicable)"
         />
       </div>
 

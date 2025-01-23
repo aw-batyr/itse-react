@@ -22,7 +22,7 @@ export const TimeCard: FC<Props> = ({
 
       <div
         className={cn(
-          "h-14 bg-bg_surface_container flex items-center text-lg px-4",
+          "h-14 bg-bg_surface_container font-semibold flex items-center text-lg px-4",
           bottomClassName
         )}
       >

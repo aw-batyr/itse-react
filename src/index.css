@@ -40,6 +40,10 @@
     @apply text-base leading-[130%];
   }
 
+  .text-18 {
+    @apply text-lg font-normal text-on_surface_v;
+  }
+
   .dot {
     @apply w-5 h-1 cursor-pointer bg-on_surface_v rounded-[2px];
   }

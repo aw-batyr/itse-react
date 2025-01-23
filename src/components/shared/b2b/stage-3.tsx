@@ -17,37 +17,55 @@ export const Stage3: FC<Props> = ({}) => {
       animate={{ opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.3 } }}
       transition={{ duration: 1 }}
     >
-      <h3 className="h2 mb-8">Meeting Logistics</h3>
+      <h3 className="h2 mb-8">
+        Логистика встречи:
+        {/* Meeting Logistics */}
+      </h3>
 
       <div className="flex flex-col gap-6">
         <Field
           control={control}
-          name={"preffered_date"}
-          error={formState.errors.preffered_date as FieldError}
+          name={"preferred_meeting_datetime"}
+          error={formState.errors.preferred_meeting_datetime as FieldError}
           placeholder=""
-          label="Preferred date and time for the meeting"
+          label="Предпочтительная дата и время "
+          // label="Preferred date and time for the meeting"
         />
         <Field
           control={control}
           name={"preferred_mode"}
           error={formState.errors.preferred_mode as FieldError}
           placeholder=""
-          label="Preferred mode of meeting (in-person, virtual (via zoom/teams/other), hybrid)"
+          label="Предпочтительный способ проведения встречи (лично, виртуально (через zoom/ teams/другое), гибридный)"
+          // label="Preferred mode of meeting (in-person, virtual (via zoom/teams/other), hybrid)"
         />
+        <Field
+          control={control}
+          name={"language_preference"}
+          error={formState.errors.language_preference as FieldError}
+          placeholder=""
+          label="Предпочитаемый язык (английский, туркменский, русский, другой)"
+          // label="Additional technical or logistical requirements (e.g. AV equipment, interpreters, etc)"
+        />
+
         <Field
           control={control}
           name={"additional_technical"}
           error={formState.errors.additional_technical as FieldError}
           placeholder=""
-          label="Additional technical or logistical requirements (e.g. AV equipment, interpreters, etc)"
+          label="Дополнительные технические или логистические требования (например, аудио-видео оборудование, переводчики и т.д.)"
+          // label="Additional technical or logistical requirements (e.g. AV equipment, interpreters, etc)"
         />
 
-        <h3 className="h2 mt-4">Company/Organization Profile:</h3>
+        <h3 className="h2 mt-4">
+          Название компании/организации
+          {/* Company/Organization Profile: */}
+        </h3>
 
         <Field
           control={control}
-          name={"industry"}
-          error={formState.errors.industry as FieldError}
+          name={"sector_industry"}
+          error={formState.errors.sector_industry as FieldError}
           placeholder=""
           label="Sector Industry"
         />
@@ -60,8 +78,8 @@ export const Stage3: FC<Props> = ({}) => {
         />
         <Field
           control={control}
-          name={"experience"}
-          error={formState.errors.experience as FieldError}
+          name={"government_experience"}
+          error={formState.errors.government_experience as FieldError}
           placeholder=""
           label="Previous Experience working with Governments (if applicable)"
         />
@@ -77,7 +95,7 @@ export const Stage3: FC<Props> = ({}) => {
 
         <Field
           control={control}
-          name="company_file"
+          name="company_profile"
           label="Company/organization profile"
           type="file"
           textDark

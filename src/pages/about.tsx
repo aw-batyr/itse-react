@@ -5,6 +5,7 @@ import {
   AboutTime,
   Container,
 } from "@/components/shared";
+import { useScrollTop } from "@/hooks/use-scroll-top";
 import { cn } from "@/lib/utils";
 import { FC } from "react";
 
@@ -13,6 +14,8 @@ interface Props {
 }
 
 export const About: FC<Props> = ({ className }) => {
+  useScrollTop();
+
   return (
     <div className={cn("", className)}>
       <div className="relative flex items-center h-[216px] w-full justify-center ">
@@ -26,7 +29,7 @@ export const About: FC<Props> = ({ className }) => {
       <Container className="flex flex-col my-20 gap-16">
         <div className="flex flex-col gap-6">
           <h3 className="h2">InternatiInternational Trade & Services Expo</h3>
-          <p className="font-normal text-on_surface_v">
+          <p className="text-18">
             Международная выставка-ярмарка «Торговля и услуги» в Ашхабаде: новые
             возможности для бизнеса С 29 апреля по 1 мая 2025 года столица
             Туркменистана, Ашхабад, станет центром международного делового
@@ -40,7 +43,7 @@ export const About: FC<Props> = ({ className }) => {
 
         <div className="flex flex-col gap-6">
           <h3 className="h2">InternatiInternational Trade & Services Expo</h3>
-          <p className="font-normal text-on_surface_v">
+          <p className="text-18">
             Международная выставка-ярмарка «Торговля и услуги» в Ашхабаде: новые
             возможности для бизнеса С 29 апреля по 1 мая 2025 года столица
             Туркменистана, Ашхабад, станет центром международного делового
@@ -74,7 +77,7 @@ export const About: FC<Props> = ({ className }) => {
             <li>Воркшопы и бизнес-миссии</li>
           </ul>
 
-          <p className="text-lg text-on_surface_v">
+          <p className="text-18">
             Участники смогут обсудить современные технологии, лучшие практики и
             эффективные стратегии для устойчивого бизнеса.
           </p>

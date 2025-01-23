@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { AboutCard, Container } from "../";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export const HomeAbout: FC = () => {
   return (
@@ -30,10 +31,9 @@ export const HomeAbout: FC = () => {
             text="Участники принимают участие в принятии решений о закупках"
           />
         </div>
-
-        <Button variant={"outline"} className="w-fit mx-auto">
-          Подробнее о выставке
-        </Button>
+        <Link to="/about" className="mx-auto">
+          <Button variant={"outline"}>Подробнее о выставке</Button>
+        </Link>
       </Container>
     </section>
   );

@@ -6,19 +6,19 @@ import { Button } from "@/components/ui/button";
 
 export const btns = [
   {
+    title: "План выставки",
+    link: "",
+  },
+  {
+    title: "Забронировать стенд",
+    link: "/form-stand",
+  },
+  {
     title: "Программа",
     link: "",
   },
   {
-    title: "Забронировать стенд ",
-    link: "",
-  },
-  {
-    title: "Гид",
-    link: "",
-  },
-  {
-    title: "План выставки",
+    title: "Гид по поездке и проживанию",
     link: "",
   },
 ];
