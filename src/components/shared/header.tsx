@@ -18,7 +18,7 @@ export const navData = [
 export const navData2 = [
   {
     title: "О выставке",
-    link: "",
+    link: "/about",
   },
   {
     title: "Посетителям",

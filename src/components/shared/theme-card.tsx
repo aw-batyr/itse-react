@@ -15,7 +15,7 @@ export const ThemeCard: FC<Props> = ({ className, img, title }) => {
         className
       )}
     >
-      <div className="bg-primary size-full -z-10 absolute top-2.5 left-2.5" />
+      <div className="bg-primary size-full -z-[10] absolute top-2.5 left-2.5" />
       <img src={img} alt="theme icon" />
       <h3 className="mt-6 text-xl">{title}</h3>
     </article>

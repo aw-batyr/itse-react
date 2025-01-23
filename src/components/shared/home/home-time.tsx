@@ -7,7 +7,7 @@ interface Props {
   className?: string;
 }
 
-const times = [
+export const times = [
   {
     name: "Монтаж выставки",
     date: "1 — 27 апреля 2025 года",

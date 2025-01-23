@@ -13,3 +13,4 @@ export { Field } from "./field";
 
 export * from "./home";
 export * from "./b2b";
+export * from "./about";
