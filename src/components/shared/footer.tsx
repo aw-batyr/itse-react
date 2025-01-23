@@ -17,7 +17,7 @@ export const Footer: FC = () => {
 
         <hr className="border-outline_v" />
 
-        <h5 className="text-base text-center text-on_surface_v">
+        <h5 className="text-base text-center font-normal  text-on_surface_v">
           ©2025 Все права защищены
         </h5>
       </Container>

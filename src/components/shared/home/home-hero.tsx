@@ -10,7 +10,7 @@ export const btns = [
     link: "",
   },
   {
-    title: "Документы",
+    title: "Забронировать стенд ",
     link: "",
   },
   {

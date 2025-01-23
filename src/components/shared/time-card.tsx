@@ -14,7 +14,7 @@ export const TimeCard: FC<Props> = ({ className, name, date }) => {
         {name}
       </div>
 
-      <div className="h-14 bg-bg_surface_container flex items-center text-lg px-4">
+      <div className="h-14 bg-bg_surface_container font-semibold flex items-center text-lg px-4">
         {date}
       </div>
     </div>

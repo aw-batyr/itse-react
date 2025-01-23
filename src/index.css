@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
+/* @font-face {
   font-family: "Gilroy-Medium";
   src: local("Gilroy-Medium"),
     url(../fonts/Gilroy-Medium.ttf) format("truetype");
@@ -14,22 +14,20 @@
   src: local("Gilroy-Regular"),
     url(../fonts/Gilroy-Regular.ttf) format("truetype");
   font-weight: 400;
-}
+} */
 
 @layer base {
   * {
     @apply box-border;
   }
   body {
-    @apply bg-background font-['Gilroy-Medium'];
+    font-family: "Gilroy";
+    font-weight: 500;
+    @apply bg-background;
   }
 }
 
 @layer utilities {
-  .w-regular {
-    font-family: "Gilroy-Regular";
-  }
-
   .h1 {
     @apply text-[28px] leading-[130%] font-medium;
   }
@@ -55,6 +53,6 @@
   }
 
   .progress-circle {
-    @apply size-14 rounded-full text-2xl text-[#5F6674];
+    @apply size-14 rounded-full text-2xl z-10 text-[#5F6674];
   }
 }

@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { FC } from "react";
 import { ContactCard, Container, TimeCard } from "../";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 interface Props {
   className?: string;
@@ -59,9 +60,9 @@ export const HomeTime: FC<Props> = ({ className }) => {
             ))}
           </div>
 
-          <Button className="w-fit mx-auto">
-            Забронируйте стенд в качестве экспонента
-          </Button>
+          <Link to="/stand-form" className="w-fit mx-auto">
+            <Button>Забронируйте стенд в качестве экспонента</Button>
+          </Link>
         </div>
       </Container>
     </section>

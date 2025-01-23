@@ -27,9 +27,9 @@ export const formSchema = z.object({
   preferred_mode: z.string().optional(),
   lang: z.string().optional(),
   additional_technical: z.string().optional(),
-  company_file: z.string(),
-  proposal_presentation: z.string(),
-  relevant_certification: z.string(),
+  company_file: z.string().optional(),
+  proposal_presentation: z.string().optional(),
+  relevant_certification: z.string().optional(),
 });
 
 export const defaultValuesOfB2b = {

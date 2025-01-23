@@ -8,14 +8,13 @@ interface Props {
   className?: string;
 }
 
-export const Stage3: FC<Props> = ({ className }) => {
+export const Stage3: FC<Props> = ({}) => {
   const { control, formState } = useFormContext();
 
   return (
     <motion.div
       initial={{ opacity: 0, y: -100 }}
       animate={{ opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.3 } }}
-      exit={{ opacity: 0, y: 100 }}
       transition={{ duration: 1 }}
     >
       <h3 className="h2 mb-8">Meeting Logistics</h3>

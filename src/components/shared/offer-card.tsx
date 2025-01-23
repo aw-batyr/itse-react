@@ -7,9 +7,10 @@ interface Props {
   title: string;
   text: string;
   className?: string;
+  img: string;
 }
 
-export const OfferCard: FC<Props> = ({ className, title, text }) => {
+export const OfferCard: FC<Props> = ({ className, title, text, img }) => {
   return (
     <article
       className={cn(
@@ -17,11 +18,8 @@ export const OfferCard: FC<Props> = ({ className, title, text }) => {
         className
       )}
     >
-      <div className="absolute size-full  top-0 left-0 bg-gradient-to-r from-25% from-[#2C57A7] to-[#2C57A7]/20 " />
-      <img
-        src="/offer-1.png"
-        className="absolute -z-10 top-0 right-0 object-cover"
-      />
+      <div className="absolute size-full z-10  top-0 left-0 bg-gradient-to-r from-25% from-[#2C57A7] to-[#2C57A7]/20 " />
+      <img src={img} className="absolute top-0 right-0 object-cover" />
 
       <div className="relative z-20">
         <h4 className="text-2xl mb-12 z-20">{title}</h4>

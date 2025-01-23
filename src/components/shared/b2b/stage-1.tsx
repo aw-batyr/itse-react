@@ -24,7 +24,7 @@ export const Stage1: FC<Props> = ({ handleNext }) => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0, x: "100%", transition: { duration: 0.2 } }}
+      exit={{ opacity: 0, y: "100%", transition: { duration: 0.2 } }}
       className="w-full"
     >
       <h3 className="h2 mb-8">Applicant Information (matchmaking):</h3>

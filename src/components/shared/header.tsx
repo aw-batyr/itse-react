@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Container, Logo } from "./";
+import { Container, LangMenu, Logo } from "./";
 import { ArrowUpRight, MapPin, Smartphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
@@ -55,6 +55,8 @@ export const Header: FC = () => {
               <Smartphone size={16} strokeWidth="3px" />
               <h4 className="text-sm">+993(62) 00-62-00</h4>
             </div>
+
+            <LangMenu />
           </div>
         </Container>
       </div>

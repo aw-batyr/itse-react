@@ -1,4 +1,4 @@
-import { AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,6 +9,8 @@ import {
 } from "@/lib/get-b2b-form-details";
 import { Form } from "../ui/form";
 import { Stage1, Stage2, Stage3 } from "./b2b";
+import { Button } from "../ui/button";
+import { Link } from "react-router-dom";
 
 interface Props {
   stage: number;
@@ -34,6 +36,7 @@ export const B2bForm: FC<Props> = ({ stage, setStage }) => {
   // Отправка формы на последнем этапе
   const onSubmit = (values: FormType) => {
     console.log("Submitted values:", values);
+    setStage(0);
     // Здесь вы можете отправить данные на сервер
   };
 
@@ -79,8 +82,25 @@ export const B2bForm: FC<Props> = ({ stage, setStage }) => {
           <AnimatePresence>
             {stage === 1 && <Stage1 handleNext={handleNext} />}
           </AnimatePresence>
-          {stage === 2 && <Stage2 handleNext={handleNext} />}
-          {stage === 3 && <Stage3 />}
+          <AnimatePresence>
+            {stage === 2 && <Stage2 handleNext={handleNext} />}
+          </AnimatePresence>
+          <AnimatePresence>{stage === 3 && <Stage3 />}</AnimatePresence>
+
+          {form.formState.isSubmitSuccessful && (
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="flex flex-col gap-8 mt-20"
+            >
+              <h3 className="text-3xl text-center ">
+                Форма успешно отправлена!
+              </h3>
+              <Link className="w-fit mx-auto" to="/">
+                <Button variant={"outline"}>Вернуться на главную</Button>
+              </Link>
+            </motion.div>
+          )}
         </div>
       </form>
     </Form>
