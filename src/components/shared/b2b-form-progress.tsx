@@ -60,7 +60,7 @@ export const B2bFormProgress: FC<Props> = ({ className, stage }) => {
           </motion.div>
           <div
             className={cn(
-              "progress-circle absolute -top-6 right-[17%] transition-all duration-[1000] -translate-x-1/2 flex items-center justify-center",
+              "progress-circle absolute -top-6 right-[17%] transition-all -translate-x-1/2 flex items-center justify-center",
               {
                 "bg-[#D0D3D8]": stage === 1,
                 "bg-primary_container": stage === 2,
