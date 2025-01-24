@@ -1,4 +1,4 @@
-import { Field } from "@/components/shared";
+import { Field, FormSuccesStatus } from "@/components/shared";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -7,31 +7,44 @@ import {
   FormItem,
   FormLabel,
 } from "@/components/ui/form";
+import axios from "axios";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { AnimatePresence, motion } from "motion/react";
 import {
   standDefaultValues,
   standFormSchema,
   StandFormType,
 } from "@/lib/get-stand-form-details";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Loader } from "lucide-react";
 
 interface Props {
   className?: string;
 }
 
 export const StandForm: FC<Props> = ({ className }) => {
+  const [success, setSuccess] = useState(false);
   const form = useForm<StandFormType>({
     resolver: zodResolver(standFormSchema),
     defaultValues: standDefaultValues,
   });
 
-  const onSubmit = (data: StandFormType) => console.log(data);
+  const onSubmit = async (data: StandFormType) => {
+    const res = await axios.post(
+      "https://itse.turkmenexpo.com/app/api/v1/book_stand_form",
+      data
+    );
+
+    if (res.status === 201) setSuccess(true);
+  };
 
   useEffect(() => {
     window.scrollTo({ behavior: "smooth", top: 0 });
-  }, []);
+  }, [status]);
+
+  const { errors } = form.formState;
 
   return (
     <div className={className}>
@@ -43,125 +56,156 @@ export const StandForm: FC<Props> = ({ className }) => {
         <h1 className="text-on_primary text-5xl">Забронировать стенд</h1>
       </div>
 
-      <Form {...form}>
-        <form
-          className="w-[808px] mx-auto mt-20 mb-[120px] flex flex-col gap-8"
-          onSubmit={form.handleSubmit(onSubmit)}
-        >
-          <FormField
-            control={form.control}
-            name="space_and_package"
-            render={({ field }) => (
-              <FormItem className="space-y-5">
-                <FormLabel className="text-xl">
-                  Select your space and package option:
-                </FormLabel>
+      <AnimatePresence>
+        {!success && (
+          <Form {...form}>
+            <motion.form
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="w-[808px] mx-auto mt-20 mb-[120px] flex flex-col gap-8"
+              onSubmit={form.handleSubmit(onSubmit)}
+            >
+              <FormField
+                control={form.control}
+                name="space_package"
+                render={({ field }) => (
+                  <FormItem className="space-y-5">
+                    <FormLabel className="text-xl">
+                      Select your space and package option:
+                    </FormLabel>
 
-                <FormControl>
-                  <RadioGroup
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                    className="flex flex-col space-y-4 ml-3"
-                  >
-                    <FormItem className="flex items-center space-x-5 space-y-0">
-                      <FormControl>
-                        <RadioGroupItem
-                          value={"space"}
-                          checked={field.value === "space"}
-                        />
-                      </FormControl>
-                      <FormLabel className="text-base">Space Only</FormLabel>
-                    </FormItem>
+                    <FormControl>
+                      <RadioGroup
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                        className="flex flex-col space-y-4 ml-3"
+                      >
+                        <FormItem className="flex items-center space-x-5 space-y-0">
+                          <FormControl>
+                            <RadioGroupItem
+                              value={"space"}
+                              checked={field.value === "space"}
+                            />
+                          </FormControl>
+                          <FormLabel className="text-base">
+                            Space Only
+                          </FormLabel>
+                        </FormItem>
 
-                    <FormItem className="flex items-center space-x-5 space-y-0">
-                      <FormControl>
-                        <RadioGroupItem
-                          value={"package"}
-                          checked={field.value === "package"}
-                        />
-                      </FormControl>
-                      <FormLabel className="text-base">Stand Package</FormLabel>
-                    </FormItem>
-                  </RadioGroup>
-                </FormControl>
-              </FormItem>
-            )}
-          />
+                        <FormItem className="flex items-center space-x-5 space-y-0">
+                          <FormControl>
+                            <RadioGroupItem
+                              value={"package"}
+                              checked={field.value === "package"}
+                            />
+                          </FormControl>
+                          <FormLabel className="text-base">
+                            Stand Package
+                          </FormLabel>
+                        </FormItem>
+                      </RadioGroup>
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
 
-          <Field
-            label="Company/Organization Name"
-            name="company"
-            control={form.control}
-          />
-          <Field
-            label="Name of Representative"
-            name="name"
-            control={form.control}
-          />
-          <Field
-            label="Job title/Position"
-            name="job_title"
-            control={form.control}
-          />
-          <Field
-            label="Number of the participants"
-            name=""
-            control={form.control}
-          />
-          <Field label="Country" name="country" control={form.control} />
-          <Field
-            label="E-mail address"
-            name="email_address"
-            control={form.control}
-          />
-          <Field
-            label="Phone number"
-            name="phone_number"
-            control={form.control}
-          />
+              <Field
+                label="Название компании/организации"
+                name="company_name"
+                control={form.control}
+                error={errors.company_name}
+              />
+              <Field
+                label="Имя представителя"
+                name="rep_name"
+                control={form.control}
+                error={errors.rep_name}
+              />
+              <Field
+                label="Название должности/позиция"
+                name="job_title"
+                control={form.control}
+                error={errors.job_title}
+              />
+              <Field
+                label="Количество участников"
+                type="number"
+                name="participants_number"
+                control={form.control}
+                error={errors.participants_number}
+              />
+              <Field
+                label="Страна"
+                name="country"
+                control={form.control}
+                error={errors.country}
+              />
+              <Field
+                label="E-mail адрес"
+                name="email"
+                control={form.control}
+                error={errors.email}
+              />
+              <Field
+                label="Номер телефона"
+                name="phone"
+                control={form.control}
+                error={errors.phone}
+              />
+              <Field label="Вебсайт" name="website" control={form.control} />
 
-          <FormField
-            defaultValue={""}
-            control={form.control}
-            name="visa_support"
-            render={({ field }) => (
-              <FormItem className="space-y-5">
-                <FormLabel className="text-xl">Visa support: </FormLabel>
+              <FormField
+                control={form.control}
+                name="visa_support"
+                render={({ field }) => (
+                  <FormItem className="space-y-5">
+                    <FormLabel className="text-xl">Visa support:</FormLabel>
 
-                <FormControl>
-                  <RadioGroup
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                    className="flex flex-col space-y-4 ml-3"
-                  >
-                    <FormItem className="flex items-center space-x-5 space-y-0">
-                      <FormControl>
-                        <RadioGroupItem
-                          value={"yes"}
-                          checked={field.value === "yes"}
-                        />
-                      </FormControl>
-                      <FormLabel className="text-base">Yes</FormLabel>
-                    </FormItem>
+                    <FormControl>
+                      <RadioGroup
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                        className="flex flex-col space-y-4 ml-3"
+                      >
+                        <FormItem className="flex items-center space-x-5 space-y-0">
+                          <FormControl>
+                            <RadioGroupItem
+                              value={"yes"}
+                              checked={field.value === "yes"}
+                            />
+                          </FormControl>
+                          <FormLabel className="text-base">Yes</FormLabel>
+                        </FormItem>
 
-                    <FormItem className="flex items-center space-x-5 space-y-0 ">
-                      <FormControl>
-                        <RadioGroupItem
-                          value={"no"}
-                          checked={field.value === "no"}
-                        />
-                      </FormControl>
-                      <FormLabel className="text-base">No</FormLabel>
-                    </FormItem>
-                  </RadioGroup>
-                </FormControl>
-              </FormItem>
-            )}
-          />
+                        <FormItem className="flex items-center space-x-5 space-y-0 ">
+                          <FormControl>
+                            <RadioGroupItem
+                              value={"no"}
+                              checked={field.value === "no"}
+                            />
+                          </FormControl>
+                          <FormLabel className="text-base">No</FormLabel>
+                        </FormItem>
+                      </RadioGroup>
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
 
-          <Button className="mt-5">Отправить</Button>
-        </form>
-      </Form>
+              <Button disabled={form.formState.isSubmitting} className="mt-5">
+                {form.formState.isSubmitting ? (
+                  <Loader className="animate-spin" />
+                ) : (
+                  "Отправить"
+                )}
+              </Button>
+            </motion.form>
+          </Form>
+        )}
+      </AnimatePresence>
+
+      {success && <FormSuccesStatus delay={0.3} />}
     </div>
   );
 };

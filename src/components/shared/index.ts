@@ -11,6 +11,7 @@ export { EmblaDots } from "./embla-dots";
 export { B2bForm } from "./b2b-form";
 export { Field } from "./field";
 export { B2bFormProgress } from "./b2b-form-progress";
+export { FormSuccesStatus } from "./form-succes-status";
 
 export * from "./home";
 export * from "./b2b";

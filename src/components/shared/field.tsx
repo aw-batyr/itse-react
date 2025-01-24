@@ -63,7 +63,7 @@ export const Field = ({
                   placeholder={placeholder}
                   {...field}
                   disabled={disabled}
-                  className={error?.message && "border-[#BA1A1A]"}
+                  className={error && "border-[#BA1A1A]"}
                 />
               )}
 
@@ -90,7 +90,7 @@ export const Field = ({
           <FormMessage
             className={cn(
               "absolute -bottom-5 left-0 text-sm font-medium leading-[130%] ",
-              error?.message ? "text-[#BA1A1A]" : "text-on_surface_v"
+              Boolean(error) && "text-[#BA1A1A]"
             )}
           >
             {error ? error.message : supporText}

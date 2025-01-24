@@ -43,7 +43,7 @@ const contacts = [
 
 export const HomeTime: FC<Props> = ({ className }) => {
   return (
-    <section className={cn("bg-surface_high py-10", className)}>
+    <section className={cn("bg-surface_high pt-10 pb-20", className)}>
       <Container>
         <h2 className="h2 mb-10">Время мероприятий</h2>
 
@@ -60,7 +60,7 @@ export const HomeTime: FC<Props> = ({ className }) => {
             ))}
           </div>
 
-          <Link to="/" className="w-fit mx-auto">
+          <Link to="/stand-form" className="w-fit mx-auto">
             <Button>Забронируйте стенд в качестве экспонента</Button>
           </Link>
         </div>
