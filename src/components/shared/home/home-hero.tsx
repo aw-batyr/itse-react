@@ -11,7 +11,7 @@ export const btns = [
   },
   {
     title: "Забронировать стенд",
-    link: "",
+    link: "/stand-form",
   },
   {
     title: "Программа",
