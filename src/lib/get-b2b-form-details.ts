@@ -1,17 +1,33 @@
 import { z } from "zod";
 
-export type FormType = z.infer<typeof formSchema>;
+// Максимальный размер файла (2 МБ)
+export const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2 МБ
 
+// Пользовательская валидация для файлов
+
+// Схема формы
 export const formSchema = z.object({
   // stage 1
   type: z.string(),
-  company_name: z.string().min(3),
-  representative_name: z.string().min(3),
-  job_title: z.string().min(3),
-  participants_number: z.string().min(1),
-  country: z.string().min(3),
-  email_address: z.string().email(),
-  phone_number: z.string().min(5),
+  company_name: z
+    .string()
+    .min(3, { message: "Название компании должно быть не менее 3 символов" }),
+  representative_name: z
+    .string()
+    .min(3, { message: "Имя представителя должно быть не менее 3 символов" }),
+  job_title: z
+    .string()
+    .min(3, { message: "Должность должна быть не менее 3 символов" }),
+  participants_number: z
+    .string()
+    .min(1, { message: "Укажите количество участников" }),
+  country: z
+    .string()
+    .min(3, { message: "Название страны должно быть не менее 3 символов" }),
+  email_address: z.string().email({ message: "Укажите корректный email" }),
+  phone_number: z
+    .string()
+    .min(5, { message: "Номер телефона должен быть не менее 5 символов" }),
   website: z.string().optional(),
 
   // stage 2
@@ -27,20 +43,53 @@ export const formSchema = z.object({
   meeting_mode: z.string().optional(),
   language_preference: z.string().optional(),
   technical_requirements: z.string().optional(),
-  company_profile: z.instanceof(File).optional(),
-  proposal_presentation: z.instanceof(File).optional(),
-  relevant_certification: z.instanceof(File).optional(),
+  company_profile: z
+    .any()
+    // .refine((files) => files?.length === 1, "Файл обязателен")
+    .refine(
+      (files) =>
+        files?.[0]?.type === "image/jpeg" || files?.[0]?.type === "image/png",
+      "Разрешены только файлы JPEG или PNG"
+    ),
+  proposal_presentation: z.any().refine((file) => file.size < MAX_FILE_SIZE, {
+    message: `Файл должен быть меньше ${MAX_FILE_SIZE / (1024 * 1024)} MB`,
+  }),
+  // .refine(
+  //   (file) =>
+  //     file.type === "image/png" ||
+  //     file.type === "image/jpeg" ||
+  //     file.type === "image/jpg",
+  //   {
+  //     message: "Файл должен быть формата JPG, JPEG, PNG или PDF",
+  //   }
+  // )
+  relevant_certification: z.any().refine((file) => file.size < MAX_FILE_SIZE, {
+    message: `Файл должен быть меньше ${MAX_FILE_SIZE / (1024 * 1024)} MB`,
+  }),
+  // .refine(
+  //   (file) =>
+  //     file.type === "image/png" ||
+  //     file.type === "image/jpeg" ||
+  //     file.type === "image/jpg",
+  //   {
+  //     message: "Файл должен быть формата JPG, JPEG, PNG или PDF",
+  //   }
+  // )
 });
 
+// Тип для формы
+export type FormType = z.infer<typeof formSchema>;
+
+// Значения по умолчанию
 export const defaultValuesOfB2b = {
   type: "B2B",
-  company_name: "",
-  representative_name: "",
-  job_title: "",
-  participants_number: "",
-  country: "",
-  email_address: "awbatyr@gmail.com",
-  phone_number: "",
+  company_name: "test",
+  representative_name: "test",
+  job_title: "test",
+  participants_number: "test",
+  country: "test",
+  email_address: "test@gmail.co",
+  phone_number: "stest",
   website: "",
   meeting_objective: "",
   proposal_description: "",

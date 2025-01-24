@@ -8,6 +8,7 @@ import {
 } from "../ui/form";
 import { Input } from "../ui/input";
 import { cn } from "@/lib/utils";
+import { LegacyRef } from "react";
 
 type Props = {
   control: any;
@@ -16,11 +17,13 @@ type Props = {
   placeholder?: string;
   error?: FieldError | undefined;
   area?: boolean;
+  ref?: LegacyRef<HTMLInputElement>;
   type?: string;
   className?: string;
   disabled?: boolean;
   textDark?: boolean;
   supporText?: string;
+  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const Field = ({
@@ -29,12 +32,13 @@ export const Field = ({
   label,
   placeholder,
   error,
-  area = false,
   type = "text",
   className,
   disabled,
+  ref,
   textDark,
   supporText,
+  handleChange,
 }: Props) => {
   return (
     <FormField
@@ -44,7 +48,7 @@ export const Field = ({
         <FormItem className={cn(className, "flex flex-col w-full relative")}>
           <FormLabel
             className={cn(
-              " text-xl",
+              "text-xl",
               textDark ? "text-on_surface" : "text-on_surface_v"
             )}
           >
@@ -52,21 +56,41 @@ export const Field = ({
           </FormLabel>
 
           <FormControl>
-            {!area && (
-              <Input
-                type={type}
-                placeholder={placeholder}
-                {...field}
-                disabled={disabled}
-                className={error?.message && "border-[#BA1A1A]"}
-              />
-            )}
-          </FormControl>
+            <>
+              {type !== "file" && (
+                <Input
+                  type={type}
+                  placeholder={placeholder}
+                  {...field}
+                  disabled={disabled}
+                  className={error?.message && "border-[#BA1A1A]"}
+                />
+              )}
 
+              {/* Обработка файлов */}
+              {type === "file" && (
+                <>
+                  <Input
+                    ref={ref}
+                    type="file"
+                    placeholder={placeholder}
+                    onChange={handleChange}
+                    disabled={disabled}
+                    className={error?.message && "border-[#BA1A1A]"}
+                  />
+                  {field.value && console.log(field.value.name) && (
+                    <div className="text-sm mt-2 text-gray-500">
+                      Выбранный файл: {field.value.name}
+                    </div>
+                  )}
+                </>
+              )}
+            </>
+          </FormControl>
           <FormMessage
             className={cn(
               "absolute -bottom-5 left-0 text-sm font-medium leading-[130%] ",
-              error ? "text-[#BA1A1A]" : "text-on_surface_v"
+              error?.message ? "text-[#BA1A1A]" : "text-on_surface_v"
             )}
           >
             {error ? error.message : supporText}
