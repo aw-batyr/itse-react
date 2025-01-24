@@ -134,7 +134,7 @@ export const B2bForm: FC<Props> = ({ stage, setStage }) => {
             {stage === 3 && success === false && <Stage3 />}
           </AnimatePresence>
 
-          {form.formState.isSubmitted && (
+          {success && (
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}

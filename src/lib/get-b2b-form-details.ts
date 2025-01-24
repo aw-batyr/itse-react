@@ -27,7 +27,7 @@ export const formSchema = z.object({
   email_address: z.string().email({ message: "Укажите корректный email" }),
   phone_number: z
     .string()
-    .min(5, { message: "Номер телефона должен быть не менее 5 символов" }),
+    .min(8, { message: "Номер телефона должен быть не менее 8 символов" }),
   website: z.string().optional(),
 
   // stage 2
@@ -43,17 +43,8 @@ export const formSchema = z.object({
   meeting_mode: z.string().optional(),
   language_preference: z.string().optional(),
   technical_requirements: z.string().optional(),
-  company_profile: z
-    .any()
-    // .refine((files) => files?.length === 1, "Файл обязателен")
-    .refine(
-      (files) =>
-        files?.[0]?.type === "image/jpeg" || files?.[0]?.type === "image/png",
-      "Разрешены только файлы JPEG или PNG"
-    ),
-  proposal_presentation: z.any().refine((file) => file.size < MAX_FILE_SIZE, {
-    message: `Файл должен быть меньше ${MAX_FILE_SIZE / (1024 * 1024)} MB`,
-  }),
+  company_profile: z.any().optional(),
+  proposal_presentation: z.any().optional(),
   // .refine(
   //   (file) =>
   //     file.type === "image/png" ||
@@ -63,9 +54,7 @@ export const formSchema = z.object({
   //     message: "Файл должен быть формата JPG, JPEG, PNG или PDF",
   //   }
   // )
-  relevant_certification: z.any().refine((file) => file.size < MAX_FILE_SIZE, {
-    message: `Файл должен быть меньше ${MAX_FILE_SIZE / (1024 * 1024)} MB`,
-  }),
+  relevant_certification: z.any().optional(),
   // .refine(
   //   (file) =>
   //     file.type === "image/png" ||
