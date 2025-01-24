@@ -69,21 +69,26 @@ export const Field = ({
 
               {/* Обработка файлов */}
               {type === "file" && (
-                <>
+                <div className="relative">
                   <Input
                     ref={ref}
                     type="file"
                     placeholder={placeholder}
-                    onChange={handleChange}
+                    onChange={(e) => {
+                      const file = e.target.files?.[0] || null;
+                      console.log("Выбранный файл:", file); // Проверим, выбран ли файл
+                      field.onChange(file); // Передаем файл в react-hook-form
+                      if (handleChange) handleChange(e); // Дополнительный обработчик
+                    }}
                     disabled={disabled}
                     className={error?.message && "border-[#BA1A1A]"}
                   />
-                  {field.value && console.log(field.value.name) && (
-                    <div className="text-sm mt-2 text-gray-500">
+                  {field.value && (
+                    <div className="text-sm mt-2 text-gray-500 absolute top-8">
                       Выбранный файл: {field.value.name}
                     </div>
                   )}
-                </>
+                </div>
               )}
             </>
           </FormControl>

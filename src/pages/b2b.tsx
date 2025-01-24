@@ -1,12 +1,16 @@
 import { B2bForm, B2bFormProgress } from "@/components/shared";
-import { FC, useEffect, useState } from "react";
+import { useFormStore } from "@/store/form";
+import { FC, useEffect } from "react";
 
 interface Props {
   className?: string;
 }
 
 export const B2b: FC<Props> = () => {
-  const [stage, setStage] = useState(1);
+  const [stage, setStage] = useFormStore((state) => [
+    state.stage,
+    state.setStage,
+  ]);
 
   useEffect(() => {
     window.scrollTo({ behavior: "smooth", top: 0 });

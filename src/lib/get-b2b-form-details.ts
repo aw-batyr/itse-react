@@ -1,11 +1,7 @@
 import { z } from "zod";
 
-// Максимальный размер файла (2 МБ)
 export const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2 МБ
 
-// Пользовательская валидация для файлов
-
-// Схема формы
 export const formSchema = z.object({
   // stage 1
   type: z.string(),
@@ -43,27 +39,45 @@ export const formSchema = z.object({
   meeting_mode: z.string().optional(),
   language_preference: z.string().optional(),
   technical_requirements: z.string().optional(),
-  company_profile: z.any().optional(),
-  proposal_presentation: z.any().optional(),
-  // .refine(
-  //   (file) =>
-  //     file.type === "image/png" ||
-  //     file.type === "image/jpeg" ||
-  //     file.type === "image/jpg",
-  //   {
-  //     message: "Файл должен быть формата JPG, JPEG, PNG или PDF",
-  //   }
-  // )
-  relevant_certification: z.any().optional(),
-  // .refine(
-  //   (file) =>
-  //     file.type === "image/png" ||
-  //     file.type === "image/jpeg" ||
-  //     file.type === "image/jpg",
-  //   {
-  //     message: "Файл должен быть формата JPG, JPEG, PNG или PDF",
-  //   }
-  // )
+  company_profile: z
+    .custom<File>((value) => value instanceof File, {
+      message: "Выберите корректный файл",
+    })
+    .refine(
+      (file) =>
+        file &&
+        ["image/jpeg", "image/png", "application/pdf"].includes(file.type),
+      {
+        message: "Допускаются только файлы JPG, PNG и PDF",
+      }
+    )
+    .optional(),
+  proposal_presentation: z
+    .custom<File>((value) => value instanceof File, {
+      message: "Выберите корректный файл",
+    })
+    .refine(
+      (file) =>
+        file &&
+        ["image/jpeg", "image/png", "application/pdf"].includes(file.type),
+      {
+        message: "Допускаются только файлы JPG, PNG и PDF",
+      }
+    )
+    .optional(),
+  relevant_certification: z
+    .custom<File>((value) => value instanceof File, {
+      message: "Выберите корректный файл",
+    })
+    .refine(
+      (file) =>
+        file &&
+        ["image/jpeg", "image/png", "application/pdf"].includes(file.type),
+      {
+        message: "Допускаются только файлы JPG, PNG и PDF",
+      }
+    )
+    .optional(),
 });
 
 // Тип для формы
@@ -72,13 +86,13 @@ export type FormType = z.infer<typeof formSchema>;
 // Значения по умолчанию
 export const defaultValuesOfB2b = {
   type: "B2B",
-  company_name: "",
-  representative_name: "",
-  job_title: "",
-  participants_number: "",
-  country: "",
-  email_address: "",
-  phone_number: "",
+  company_name: "test",
+  representative_name: "test",
+  job_title: "test",
+  participants_number: "test",
+  country: "test",
+  email_address: "awdas@gmail.com",
+  phone_number: "309249230392048",
   website: "",
   meeting_objective: "",
   proposal_description: "",
