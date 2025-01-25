@@ -72,7 +72,7 @@ export const StandForm: FC<Props> = ({ className }) => {
                 render={({ field }) => (
                   <FormItem className="space-y-5">
                     <FormLabel className="text-xl">
-                      Select your space and package option:
+                      Выберите один из вариантов:
                     </FormLabel>
 
                     <FormControl>
@@ -89,7 +89,7 @@ export const StandForm: FC<Props> = ({ className }) => {
                             />
                           </FormControl>
                           <FormLabel className="text-base">
-                            Space Only
+                            Только стенд
                           </FormLabel>
                         </FormItem>
 
@@ -101,7 +101,7 @@ export const StandForm: FC<Props> = ({ className }) => {
                             />
                           </FormControl>
                           <FormLabel className="text-base">
-                            Stand Package
+                            Комплексное предложение
                           </FormLabel>
                         </FormItem>
                       </RadioGroup>
@@ -160,7 +160,9 @@ export const StandForm: FC<Props> = ({ className }) => {
                 name="visa_support"
                 render={({ field }) => (
                   <FormItem className="space-y-5">
-                    <FormLabel className="text-xl">Visa support:</FormLabel>
+                    <FormLabel className="text-xl">
+                      Визовая поддержка:
+                    </FormLabel>
 
                     <FormControl>
                       <RadioGroup
@@ -175,7 +177,7 @@ export const StandForm: FC<Props> = ({ className }) => {
                               checked={field.value === "yes"}
                             />
                           </FormControl>
-                          <FormLabel className="text-base">Yes</FormLabel>
+                          <FormLabel className="text-base">Да</FormLabel>
                         </FormItem>
 
                         <FormItem className="flex items-center space-x-5 space-y-0 ">
@@ -185,7 +187,7 @@ export const StandForm: FC<Props> = ({ className }) => {
                               checked={field.value === "no"}
                             />
                           </FormControl>
-                          <FormLabel className="text-base">No</FormLabel>
+                          <FormLabel className="text-base">Нет</FormLabel>
                         </FormItem>
                       </RadioGroup>
                     </FormControl>

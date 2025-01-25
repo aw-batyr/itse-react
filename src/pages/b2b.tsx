@@ -1,17 +1,12 @@
 import { B2bForm, B2bFormProgress } from "@/components/shared";
-import { useFormStore } from "@/store/form";
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
 
 interface Props {
   className?: string;
 }
 
 export const B2b: FC<Props> = () => {
-  const [stage, setStage] = useFormStore((state) => [
-    state.stage,
-    state.setStage,
-  ]);
-
+  const [stage, setStage] = useState(1);
   useEffect(() => {
     window.scrollTo({ behavior: "smooth", top: 0 });
   }, [stage]);
@@ -23,7 +18,7 @@ export const B2b: FC<Props> = () => {
           src="/b2b-cover.png"
           className="-z-10 absolute size-full object-cover top-0 left-0"
         />
-        <h1 className="text-on_primary text-5xl">B2B | B2G</h1>
+        <h1 className="text-on_primary text-5xl">B2B | B2G встречи</h1>
       </div>
 
       {stage !== 0 && <B2bFormProgress stage={stage} />}

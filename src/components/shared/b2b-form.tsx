@@ -37,7 +37,6 @@ import { Form } from "../ui/form";
 import { Stage1, Stage2, Stage3 } from "./b2b";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
-import { useB2bForm } from "@/hooks/use-b2b-form";
 
 interface Props {
   stage: number;
@@ -53,16 +52,54 @@ export const B2bForm: FC<Props> = ({ stage, setStage }) => {
     mode: "onChange",
   });
 
-  const { handleNext } = useB2bForm(form);
+  // const { handleNext } = useB2bForm(form);
 
-  // const handleNext = async () => {
-  //   const fieldsToValidate = getFieldsForStage(stage);
-  //   const isValid = await form.trigger(fieldsToValidate);
+  const getFieldsForStage = (currentStage: number): (keyof FormType)[] => {
+    switch (currentStage) {
+      case 1:
+        return [
+          "type",
+          "company_name",
+          "representative_name",
+          "job_title",
+          "participants_number",
+          "country",
+          "email_address",
+          "phone_number",
+          "website",
+        ];
+      case 2:
+        return [
+          "meeting_objective",
+          "proposal_description",
+          "government_agency",
+          "sector_industry",
+          "key_services",
+          "government_experience",
+        ];
+      case 3:
+        return [
+          "preferred_meeting_datetime",
+          "meeting_mode",
+          "language_preference",
+          "technical_requirements",
+          "company_profile",
+          "proposal_presentation",
+          "relevant_certification",
+        ];
+      default:
+        return [];
+    }
+  };
 
-  //   if (isValid) {
-  //     setStage((prev: number) => prev + 1);
-  //   }
-  // };
+  const handleNext = async () => {
+    const fieldsToValidate = getFieldsForStage(stage);
+    const isValid = await form.trigger(fieldsToValidate);
+
+    if (isValid) {
+      setStage((prev: number) => prev + 1);
+    }
+  };
 
   const onSubmit = async (values: FormType) => {
     try {

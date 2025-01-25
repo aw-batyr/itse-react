@@ -77,7 +77,7 @@ export const Header: FC = () => {
             </nav>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-2">
             <Button variant="outline" size={"sm"}>
               QACIS 2025
               <ArrowUpRight />
@@ -88,7 +88,7 @@ export const Header: FC = () => {
             </Button>
 
             <Link to="/B2B-B2G">
-              <Button size={"sm"}>B2B | B2G</Button>
+              <Button size={"sm"}>B2B | B2G встречи</Button>
             </Link>
           </div>
         </Container>
