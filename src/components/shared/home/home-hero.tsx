@@ -30,8 +30,12 @@ export const HomeHero: FC = () => {
     <section className="flex flex-col gap-5">
       <div ref={embalRef} className="embla">
         <div className="embla__container">
-          <div className="embla__slide h-[600px] object-cover">
-            <img src="/banner.png" alt="" className="size-full object-cover" />
+          <div className="embla__slide">
+            <img
+              src="/banner.png"
+              alt=""
+              className=" max-h-[600px] min-h-[420px] object-cover"
+            />
           </div>
         </div>
       </div>
