@@ -83,12 +83,21 @@ export const Header: FC = () => {
               <ArrowUpRight />
             </Button>
 
-            <Button variant={"secondary"} size={"sm"}>
+            <Button
+              variant={"secondary"}
+              size={"sm"}
+              className="bg-teritary_04 text-on_teritary hover:bg-teritary_04/90"
+            >
               Официальная поддержка
             </Button>
 
             <Link to="/B2B-B2G">
-              <Button size={"sm"}>B2B | B2G встречи</Button>
+              <Button
+                size={"sm"}
+                className="bg-[#FFAE2A] text-on_teritary hover:bg-[#FFAE2A]/90"
+              >
+                B2B | B2G встречи
+              </Button>
             </Link>
           </div>
         </Container>
