@@ -18,7 +18,7 @@ export const btns = [
     link: "",
   },
   {
-    title: "Гид по поездке и проживанию",
+    title: "Стать спонсором",
     link: "",
   },
 ];
@@ -46,7 +46,7 @@ export const HomeHero: FC = () => {
             <Button
               size={"lg"}
               variant={"secondary"}
-              className="w-full drop-shadow-sm shadow-md "
+              className="w-full drop-shadow-sm shadow-md bg-[#FFAE2A] text-on_teritary hover:bg-[#FFAE2A]/90"
             >
               {title}
             </Button>
