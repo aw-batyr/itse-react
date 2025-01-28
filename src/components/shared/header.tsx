@@ -32,7 +32,7 @@ export const navData2 = [
 
 export const Header: FC = () => {
   return (
-    <header className="">
+    <header>
       <div className="h-12 hidden lg:flex bg-primary text-on_primary items-center overflow-hidden">
         <Container className="flex items-center justify-between">
           <div className="gap-8 flex items-center justify-between">
@@ -53,7 +53,7 @@ export const Header: FC = () => {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
               <Smartphone size={16} strokeWidth="3px" />
-              <h4 className="text-sm">+993(62) 00-62-00</h4>
+              <h4 className="text-sm">+99371871814</h4>
             </div>
 
             <LangMenu />
@@ -79,11 +79,13 @@ export const Header: FC = () => {
 
           <LangMenu className="lg:hidden" />
 
-          <div className="lg:flex hidden items-center gap-2 ">
-            <Button variant="outline" size={"sm"}>
-              QACIS 2025
-              <ArrowUpRight />
-            </Button>
+          <div className="lg:flex hidden items-center gap-2">
+            <Link to="https://qacis.turkmenexpo.com/" target="_blank">
+              <Button variant="outline" size={"sm"}>
+                QACIS 2025
+                <ArrowUpRight />
+              </Button>
+            </Link>
 
             <Button
               variant={"secondary"}
