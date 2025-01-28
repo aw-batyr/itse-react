@@ -23,7 +23,7 @@ export const B2b: FC<Props> = () => {
 
       {stage !== 0 && <B2bFormProgress stage={stage} />}
 
-      <div className="w-[808px] mx-auto">
+      <div className="max-w-[808px] md:mx-auto mx-5">
         <B2bForm stage={stage} setStage={setStage} />
       </div>
     </div>
