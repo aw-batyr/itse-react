@@ -1,14 +1,17 @@
 import { FC } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { cn } from "@/lib/utils";
 
 interface Props {
   className?: string;
 }
 
-export const LangMenu: FC<Props> = () => {
+export const LangMenu: FC<Props> = ({ className }) => {
   return (
     <Popover>
-      <PopoverTrigger className="flex items-center gap-2 pointer-events-none">
+      <PopoverTrigger
+        className={cn("flex items-center gap-2 pointer-events-none", className)}
+      >
         <img src="/ru.svg" alt="" />
         Ру
         <svg
