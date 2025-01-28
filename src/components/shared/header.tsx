@@ -3,6 +3,7 @@ import { Container, LangMenu, Logo } from "./";
 import { ArrowUpRight, MapPin, Smartphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
+import { Burger } from "./burger";
 
 export const navData = [
   {
@@ -77,7 +78,10 @@ export const Header: FC = () => {
             </nav>
           </div>
 
-          <LangMenu className="lg:hidden" />
+          <div className="flex items-center">
+            <LangMenu className="lg:hidden" />
+            <Burger />
+          </div>
 
           <div className="lg:flex hidden items-center gap-2">
             <Link to="https://qacis.turkmenexpo.com/" target="_blank">
