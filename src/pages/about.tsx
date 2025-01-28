@@ -4,6 +4,7 @@ import {
   AboutThemes,
   AboutTime,
   Container,
+  Cover,
 } from "@/components/shared";
 import { useScrollTop } from "@/hooks/use-scroll-top";
 import { cn } from "@/lib/utils";
@@ -18,15 +19,9 @@ export const About: FC<Props> = ({ className }) => {
 
   return (
     <div className={cn("", className)}>
-      <div className="relative flex items-center h-[216px] w-full justify-center ">
-        <img
-          src="/b2b-cover.png"
-          className="-z-10 absolute size-full object-cover top-0 left-0"
-        />
-        <h1 className="text-on_primary text-5xl">О выставке</h1>
-      </div>
+      <Cover title="О выставке" />
 
-      <Container className="flex flex-col my-20 gap-16">
+      <Container className="flex flex-col md:my-20 my-10 gap-16">
         <div className="flex flex-col gap-6">
           <h3 className="h2">
             Международная выставка-ярмарка «Торговля и услуги»
