@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { FC } from "react";
 import { motion } from "motion/react";
+import { useMediaQuery } from "usehooks-ts";
 
 interface Props {
   className?: string;
@@ -8,9 +9,11 @@ interface Props {
 }
 
 export const B2bFormProgress: FC<Props> = ({ className, stage }) => {
+  const md = useMediaQuery("(min-width: 768px");
+
   return (
     <div className={className}>
-      <div className="w-[808px] mx-auto my-20">
+      <div className="max-w-[808px] md:mx-auto my-20 mx-5">
         <div className="relative h-14 w-full">
           <div
             className={cn(
@@ -35,7 +38,7 @@ export const B2bFormProgress: FC<Props> = ({ className, stage }) => {
           />
           <motion.div
             initial={{
-              width: "50%",
+              width: md ? "50%" : "35%",
             }}
             animate={
               stage === 2 ? { width: "75%" } : stage === 3 && { width: "100%" }
@@ -50,7 +53,7 @@ export const B2bFormProgress: FC<Props> = ({ className, stage }) => {
             className={cn(
               "progress-circle absolute transition-all duration-500 -top-6 flex items-center justify-center",
               {
-                "bg-primary_container left-1/2": stage === 1,
+                "bg-primary_container md:left-1/2 left-1/3": stage === 1,
                 "bg-primary left-[20%] !text-on_primary":
                   stage === 2 || stage === 3,
               }
