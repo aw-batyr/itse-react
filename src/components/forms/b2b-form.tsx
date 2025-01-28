@@ -1,28 +1,3 @@
-// $validator = Validator::make($data, [
-//   'type' => 'required|string',
-//   'company_name' => 'required|string',
-//   'representative_name' => 'required|string',
-//   'job_title' => 'required|string',
-//   'participants_number' => 'required|string',
-//   'country' => 'required|string',
-//   'email_address' => 'required|email',
-//   'phone_number' => 'required|string',
-//   // 'website' => 'nullable|url',
-//   'meeting_objective' => 'nullable|string',
-//   // 'proposal_description' => 'nullable|string',
-//   'government_agency' => 'nullable|string',
-//   'sector_industry' => 'nullable|string',
-//   // 'key_services' => 'nullable|string',
-//   // 'government_experience' => 'nullable|string',
-//   'preferred_meeting_datetime' => 'nullable|string',
-//   'meeting_mode' => 'nullable|string',
-//   'language_preference' => 'nullable|string',
-//   // 'technical_requirements' => 'nullable|string',
-//   'company_profile' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
-//   'proposal_presentation' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
-//   'relevant_certification' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
-// ]);
-
 import { AnimatePresence, motion } from "motion/react";
 import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
