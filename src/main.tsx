@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { About, B2b, Contacts, Home, StandForm } from "./pages";
+import { BecomeSponsor } from "./pages/become-sponsor.tsx";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         element: <Contacts />,
         path: "/contacts",
+      },
+      {
+        element: <BecomeSponsor />,
+        path: "/become-sponsor",
       },
     ],
   },
