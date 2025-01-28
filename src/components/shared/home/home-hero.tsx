@@ -12,7 +12,7 @@ export const btns = [
   },
   {
     title: "Забронировать стенд",
-    link: "/stand-form",
+    link: "/stend-form",
   },
   {
     title: "B2B | B2G встречи",
@@ -44,13 +44,13 @@ export const HomeHero: FC = () => {
             <img
               src={getBanner()}
               alt=""
-              className=" max-h-[600px] object-cover"
+              className="size-full object-cover lg:max-h-[600px] lg:min-h-[320px]"
             />
           </div>
         </div>
       </div>
 
-      <Container className="flex items-center gap-6 text-2xl">
+      <Container className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-center gap-6 text-2xl">
         {btns.map(({ title, link }) => (
           <Link key={title} to={link} className="w-full">
             <Button
