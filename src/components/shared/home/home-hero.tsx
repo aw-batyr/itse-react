@@ -20,7 +20,7 @@ export const btns = [
   },
   {
     title: "Стать спонсором",
-    link: "",
+    link: "/become-sponsor",
   },
 ];
 

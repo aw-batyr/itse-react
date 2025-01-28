@@ -11,10 +11,7 @@ interface Props {
 export const AboutThemes: FC<Props> = ({ className }) => {
   return (
     <section
-      className={cn(
-        "relative w-full bg-[#FDE8C4] -z-10 h-[722px] py-10",
-        className
-      )}
+      className={cn("relative w-full bg-[#FDE8C4] -z-10 py-10", className)}
     >
       <img
         src="/about-bg.svg"
@@ -28,7 +25,7 @@ export const AboutThemes: FC<Props> = ({ className }) => {
           Мероприятие объединит ключевых игроков в таких отраслях, как:
         </p>
 
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-4 grid-cols-2 gap-6">
           {themes.map((item) => (
             <ThemeCard
               className="!bg-teritary_surface_container"
@@ -39,7 +36,7 @@ export const AboutThemes: FC<Props> = ({ className }) => {
         </div>
 
         <div className="flex items-center gap-3 mt-8 text-on_surface_v text-lg">
-          <div className="w-1 h-[38px] bg-teritary_08" />
+          <div className="md:w-1 w-4 md:h-[38px] h-40 bg-teritary_08" />
           <p className="text-18">
             Участники смогут продемонстрировать свои инновационные решения,
             наладить взаимовыгодные партнерства и выйти на новые рынки.

@@ -10,10 +10,12 @@ interface Props {
 
 export const AboutTime: FC<Props> = ({ className }) => {
   return (
-    <section className={cn("bg-bg_surface_container py-[160px]", className)}>
+    <section
+      className={cn("bg-bg_surface_container py-10 md:py-[160px]", className)}
+    >
       <Container>
         <h3 className="h2 mb-6">Время выставки</h3>
-        <div className="flex items-center gap-6">
+        <div className="flex flex-col md:flex-row items-center gap-6">
           {times.map((item) => (
             <TimeCard
               bottomClassName="!bg-white rounded-b-[2px]"

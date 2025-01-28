@@ -51,8 +51,6 @@ export const HomeAbout: FC = () => {
                 key={item.text}
                 {...item}
                 className="embla__slide flex-[0_0_288px]"
-                nums="4,200 m²"
-                text="выставочной площади"
               />
             ))}
           </div>
