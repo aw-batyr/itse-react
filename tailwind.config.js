@@ -22,7 +22,7 @@ export default {
         secondary_container: "#C7D0E1",
         on_secondary_container: "#1D2637",
 
-        teritary: "#835415",
+        teritary: "#FFAE2A",
         on_teritary: "#2A1A00",
         teritary_container: "#FFDDBA",
         on_teritary_container: "#2B1700",
