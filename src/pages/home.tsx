@@ -14,10 +14,8 @@ export const Home: FC = () => {
       <HomeHero />
       <HomeAbout />
       <HomeOffers />
-
       <HomeTheme />
       <HomeTime />
-      {/* <HomePartners /> */}
     </div>
   );
 };
