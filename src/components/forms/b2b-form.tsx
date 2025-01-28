@@ -34,7 +34,7 @@ import {
   FormType,
 } from "@/lib/get-b2b-form-details";
 import { Form } from "../ui/form";
-import { Stage1, Stage2, Stage3 } from "./b2b";
+import { Stage1, Stage2, Stage3 } from "../shared/b2b";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
 
