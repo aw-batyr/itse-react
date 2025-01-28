@@ -45,7 +45,7 @@ export const HomeTheme: FC = () => {
           Тематические направления выставки
         </h2>
 
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-4 grid-cols-2 gap-6">
           {themes.map((item) => (
             <ThemeCard key={item.title} {...item} />
           ))}
