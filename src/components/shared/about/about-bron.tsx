@@ -30,7 +30,7 @@ export const AboutBron: FC<Props> = ({ className }) => {
         </p>
 
         <div className="flex items-center gap-6">
-          <Link to={"/stand-form"} className="w-full">
+          <Link to={"/stend-form"} className="w-full">
             <Button className="bg-white w-full text-primary hover:bg-white/90">
               {" "}
               Забронировать стенд
