@@ -35,7 +35,7 @@ const contacts = [
     img: "/contacts/location.svg",
   },
   {
-    title: "+993(62) 00-62-00",
+    title: "+99371871814; 99363719588",
     subtitle: "Контактный номер",
     img: "/contacts/mobile.svg",
   },
