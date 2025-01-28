@@ -2,16 +2,38 @@ import { FC } from "react";
 import { AboutCard, Container } from "../";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import useEmblaCarousel from "embla-carousel-react";
+
+const data = [
+  {
+    nums: "4,200 m²",
+    text: "выставочной площади",
+  },
+  {
+    nums: "10000+",
+    text: "Посетители посетят выставку",
+  },
+  {
+    nums: "100+",
+    text: "Экспоненты из более чем 30 стран",
+  },
+  {
+    nums: "80%",
+    text: "Участники принимают участие в принятии решений о закупках",
+  },
+];
 
 export const HomeAbout: FC = () => {
+  const [ebmblaRef] = useEmblaCarousel();
+
   return (
     <section>
       <Container className="flex flex-col gap-6">
         <div className="text-center">
-          <h2 className="h2 mb-3">
+          <h2 className="h2 md:mb-3 mb-6 text-left sm:text-center">
             Выставка-ярмарка «Международная Торговля и Услуги» в Ашхабаде
           </h2>
-          <p className="text-base normal text-[#454545]">
+          <p className="md:text-base text-sm normal text-left sm:text-center text-[#454545]">
             С 29 апреля по 1 мая 2025 года столица Туркменистана, Ашхабад,
             станет центром международного делового сообщества благодаря
             крупнейшей выставке-ярмарке «Торговля и услуги». Организованная
@@ -22,14 +44,18 @@ export const HomeAbout: FC = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-6">
-          <AboutCard nums="4,200 m²" text="выставочной площади" />
-          <AboutCard nums="10000+" text="Посетители посетят выставку" />
-          <AboutCard nums="100+" text="Экспоненты из более чем 30 стран" />
-          <AboutCard
-            nums="80%"
-            text="Участники принимают участие в принятии решений о закупках"
-          />
+        <div ref={ebmblaRef} className="embla overflow-hidden">
+          <div className="flex embla__container items-center gap-6">
+            {data.map((item) => (
+              <AboutCard
+                key={item.text}
+                {...item}
+                className="embla__slide flex-[0_0_288px]"
+                nums="4,200 m²"
+                text="выставочной площади"
+              />
+            ))}
+          </div>
         </div>
         <Link to="/about" className="mx-auto">
           <Button variant={"outline"}>Подробнее о выставке</Button>
