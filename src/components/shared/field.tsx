@@ -38,11 +38,11 @@ export const Field = ({
   type = "text",
   className,
   disabled,
-  ref,
   textArea = false,
   textDark,
   supporText,
   handleChange,
+
   onPrimary = false,
 }: Props) => {
   return (
@@ -63,7 +63,7 @@ export const Field = ({
 
           <FormControl>
             <>
-              {textArea && (
+              {textArea ? (
                 <Textarea
                   rows={3}
                   {...field}
@@ -74,8 +74,7 @@ export const Field = ({
                       "border-primary_outline_reverse focus:border-white hover:border-white focus:border-1 text-on_primary"
                   )}
                 />
-              )}
-              {!textArea && type !== "!file" ? (
+              ) : type !== "file" ? (
                 <Input
                   {...field}
                   type={type}
@@ -88,28 +87,24 @@ export const Field = ({
                   )}
                 />
               ) : (
-                !textArea &&
-                type === "file" && (
-                  <div className="relative">
-                    <Input
-                      ref={ref}
-                      type="file"
-                      placeholder={placeholder}
-                      onChange={(e) => {
-                        const file = e.target.files?.[0] || null;
-                        console.log("Выбранный файл:", file); // Проверим, выбран ли файл
-                        field.onChange(file); // Передаем файл в react-hook-form
-                        if (handleChange) handleChange(e); // Дополнительный обработчик
-                      }}
-                      disabled={disabled}
-                    />
-                    {field.value && (
-                      <div className="text-sm mt-2 text-gray-500 absolute top-8">
-                        Выбранный файл: {field.value.name}
-                      </div>
-                    )}
-                  </div>
-                )
+                <div className="relative">
+                  <Input
+                    type="file"
+                    placeholder={placeholder}
+                    onChange={(e) => {
+                      const file = e.target.files?.[0] || null;
+                      console.log("Выбранный файл:", file); // Проверим, выбран ли файл
+                      field.onChange(file); // Передаем файл в react-hook-form
+                      if (handleChange) handleChange(e); // Дополнительный обработчик
+                    }}
+                    disabled={disabled}
+                  />
+                  {field.value && (
+                    <div className="text-sm mt-2 text-gray-500 absolute top-8">
+                      Выбранный файл: {field.value.name}
+                    </div>
+                  )}
+                </div>
               )}
             </>
           </FormControl>
