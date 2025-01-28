@@ -11,7 +11,7 @@ export const navData = [
   },
   {
     title: "Контакты",
-    link: "",
+    link: "/contacts",
   },
 ];
 
@@ -33,7 +33,7 @@ export const navData2 = [
 export const Header: FC = () => {
   return (
     <header className="">
-      <div className="h-12 bg-primary text-on_primary flex items-center overflow-hidden">
+      <div className="h-12 hidden lg:flex bg-primary text-on_primary items-center overflow-hidden">
         <Container className="flex items-center justify-between">
           <div className="gap-8 flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -68,7 +68,7 @@ export const Header: FC = () => {
               <Logo />
             </Link>
 
-            <nav className="flex items-center gap-6">
+            <nav className="lg:flex hidden items-center gap-6">
               {navData2.map(({ title, link }) => (
                 <Link key={title} to={link} className="flex items-center gap-2">
                   {title} <img src="/chevron.svg" />
@@ -77,7 +77,9 @@ export const Header: FC = () => {
             </nav>
           </div>
 
-          <div className="flex items-center gap-2">
+          <LangMenu className="lg:hidden" />
+
+          <div className="lg:flex hidden items-center gap-2 ">
             <Button variant="outline" size={"sm"}>
               QACIS 2025
               <ArrowUpRight />
@@ -90,15 +92,6 @@ export const Header: FC = () => {
             >
               Официальная поддержка
             </Button>
-
-            {/* <Link to="/B2B-B2G">
-              <Button
-                size={"sm"}
-                className="bg-[#FFAE2A] text-on_teritary hover:bg-[#FFAE2A]/90"
-              >
-                B2B | B2G встречи
-              </Button>
-            </Link> */}
           </div>
         </Container>
       </div>
