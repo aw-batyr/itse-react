@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence } from "motion/react";
 import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,8 +10,7 @@ import {
 } from "@/lib/get-b2b-form-details";
 import { Form } from "../ui/form";
 import { Stage1, Stage2, Stage3 } from "../shared/b2b";
-import { Button } from "../ui/button";
-import { Link } from "react-router-dom";
+import { FormSuccesStatus } from "../shared";
 
 interface Props {
   stage: number;
@@ -26,8 +25,6 @@ export const B2bForm: FC<Props> = ({ stage, setStage }) => {
     defaultValues: defaultValuesOfB2b,
     mode: "onChange",
   });
-
-  // const { handleNext } = useB2bForm(form);
 
   const getFieldsForStage = (currentStage: number): (keyof FormType)[] => {
     switch (currentStage) {
@@ -107,7 +104,7 @@ export const B2bForm: FC<Props> = ({ stage, setStage }) => {
         setSuccess(true);
       }
     } catch (error) {
-      console.error("Ошибка при отправке формы:", error);
+      console.error("Ошибка при отправке B2B формы:", error);
     }
   };
 
@@ -125,20 +122,7 @@ export const B2bForm: FC<Props> = ({ stage, setStage }) => {
             {stage === 3 && success === false && <Stage3 />}
           </AnimatePresence>
 
-          {success && (
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="flex flex-col gap-8 mt-20"
-            >
-              <h3 className="text-3xl text-center ">
-                Форма успешно отправлена!
-              </h3>
-              <Link className="w-fit mx-auto" to="/">
-                <Button variant={"outline"}>Вернуться на главную</Button>
-              </Link>
-            </motion.div>
-          )}
+          {success && <FormSuccesStatus />}
         </div>
       </form>
     </Form>
