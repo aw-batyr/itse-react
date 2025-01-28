@@ -6,9 +6,9 @@ export const HomeOffers: FC = () => {
   const [emblaRef] = useEmblaCarousel({ align: "start" });
 
   return (
-    <section className="bg-surface_high py-10 relative">
+    <section className="bg-surface_high py-10 relative overflow-hidden">
       <Container>
-        <div ref={emblaRef} className="embla">
+        <div ref={emblaRef} className="embla ">
           <div className="mb-2 flex gap-6 embla__container">
             <OfferCard
               img="/offer-1.png"
