@@ -3,6 +3,7 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "../";
 import { Button } from "@/components/ui/button";
+import { useMediaQuery } from "usehooks-ts";
 
 export const btns = [
   {
@@ -14,8 +15,8 @@ export const btns = [
     link: "/stand-form",
   },
   {
-    title: "Программа",
-    link: "",
+    title: "B2B | B2G встречи",
+    link: "/B2B-B2G",
   },
   {
     title: "Стать спонсором",
@@ -26,15 +27,24 @@ export const btns = [
 export const HomeHero: FC = () => {
   const [embalRef] = useEmblaCarousel();
 
+  const lg = useMediaQuery("(min-width: 1024px)");
+  const md = useMediaQuery("(min-width: 768px)");
+
+  function getBanner() {
+    if (lg) return "/banners/ru/l.jpg";
+    else if (md) return "/banners/ru/m.jpg";
+    else return "/banners/ru/s.jpg";
+  }
+
   return (
     <section className="flex flex-col gap-5">
       <div ref={embalRef} className="embla">
         <div className="embla__container">
           <div className="embla__slide">
             <img
-              src="/banner.png"
+              src={getBanner()}
               alt=""
-              className=" max-h-[600px] min-h-[420px] object-cover"
+              className=" max-h-[600px] object-cover"
             />
           </div>
         </div>
