@@ -3,7 +3,6 @@ import { z } from "zod";
 export const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2 МБ
 
 export const formSchema = z.object({
-  // stage 1
   type: z.string(),
   company_name: z
     .string()
@@ -26,15 +25,13 @@ export const formSchema = z.object({
     .min(8, { message: "Номер телефона должен быть не менее 8 символов" }),
   website: z.string().optional(),
 
-  // stage 2
-  meeting_objective: z.string().optional(),
+  meeting_objective: z.string().min(3, { message: "Укажите цель встречи" }),
   proposal_description: z.string().optional(),
   government_agency: z.string().optional(),
   sector_industry: z.string().optional(),
   key_services: z.string().optional(),
   government_experience: z.string().optional(),
 
-  // stage 3
   preferred_meeting_datetime: z.string().optional(),
   meeting_mode: z.string().optional(),
   language_preference: z.string().optional(),
