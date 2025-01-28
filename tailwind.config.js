@@ -15,6 +15,7 @@ export default {
         on_primary: "#ffffff",
         primary_container: "#BBCDED",
         on_primary_container: "#112343",
+        primary_outline_reverse: "#789BDB",
 
         secondary: "#495F89",
         on_secondary: "#ffffff",
