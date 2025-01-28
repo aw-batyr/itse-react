@@ -24,7 +24,6 @@ const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
           className={cn(
             "h-9 absolute top-0 left-0 !cursor-pointer opacity-0 z-20 size-full"
           )}
-          onChange={props.onChange}
           {...props}
         />
         <div className="absolute rounded-[2px] cursor-pointer size-full flex items-center gap-4 px-3 py-2.5 top-0 left-0 bg-secondary_container">
