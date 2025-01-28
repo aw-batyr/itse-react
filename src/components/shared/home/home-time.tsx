@@ -48,20 +48,20 @@ export const HomeTime: FC<Props> = ({ className }) => {
         <h2 className="h2 mb-10">Время мероприятий</h2>
 
         <div className="flex flex-col gap-6">
-          <div className="flex items-center gap-6">
+          <div className="flex flex-col md:flex-row items-center gap-6">
             {times.map((item) => (
               <TimeCard {...item} key={item.name} className="w-full" />
             ))}
           </div>
 
-          <div className="p-10 flex items-center gap-6">
+          <div className="md:p-10 pt-16 flex flex-col md:flex-row items-center gap-6">
             {contacts.map((item) => (
               <ContactCard {...item} key={item.title} className="w-full" />
             ))}
           </div>
 
-          <Link to="/stand-form" className="w-fit mx-auto">
-            <Button>Забронируйте стенд в качестве экспонента</Button>
+          <Link to="/stend-form" className="md:w-fit w-full  mx-auto">
+            <Button className="w-full">Забронируйте стенд </Button>
           </Link>
         </div>
       </Container>
