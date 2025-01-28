@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { About, B2b, Home, StandForm } from "./pages";
+import { About, B2b, Contacts, Home, StandForm } from "./pages";
 
 const router = createBrowserRouter([
   {
@@ -20,11 +20,15 @@ const router = createBrowserRouter([
       },
       {
         element: <StandForm />,
-        path: "/stand-form",
+        path: "/stend-form",
       },
       {
         element: <About />,
         path: "/about",
+      },
+      {
+        element: <Contacts />,
+        path: "/contacts",
       },
     ],
   },
