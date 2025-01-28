@@ -1,4 +1,5 @@
 export { Home } from "./home";
 export { B2b } from "./b2b";
-export { StandForm } from "./stand-form";
+export { StandForm } from "./stend-form";
 export { About } from "./about";
+export { Contacts } from "./contacts";
