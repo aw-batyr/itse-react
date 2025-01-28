@@ -75,11 +75,11 @@ export const Field = ({
                   )}
                 />
               )}
-              {!textArea && type !== "file" ? (
+              {!textArea && type !== "!file" ? (
                 <Input
+                  {...field}
                   type={type}
                   placeholder={placeholder}
-                  {...field}
                   disabled={disabled}
                   className={cn(
                     error && "border-[#BA1A1A]",
@@ -89,7 +89,7 @@ export const Field = ({
                 />
               ) : (
                 !textArea &&
-                type !== "file" && (
+                type === "file" && (
                   <div className="relative">
                     <Input
                       ref={ref}
@@ -102,7 +102,6 @@ export const Field = ({
                         if (handleChange) handleChange(e); // Дополнительный обработчик
                       }}
                       disabled={disabled}
-                      className={error?.message && "border-[#BA1A1A]"}
                     />
                     {field.value && (
                       <div className="text-sm mt-2 text-gray-500 absolute top-8">
