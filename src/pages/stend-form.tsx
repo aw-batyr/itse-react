@@ -1,4 +1,4 @@
-import { Field, FormSuccesStatus } from "@/components/shared";
+import { Cover, Field, FormSuccesStatus } from "@/components/shared";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -48,13 +48,7 @@ export const StandForm: FC<Props> = ({ className }) => {
 
   return (
     <div className={className}>
-      <div className="relative flex items-center h-[216px] w-full justify-center">
-        <img
-          src="/b2b-cover.png"
-          className="-z-10 absolute size-full object-cover top-0 left-0"
-        />
-        <h1 className="text-on_primary text-5xl">Забронировать стенд</h1>
-      </div>
+      <Cover title="Забронировать стенд" />
 
       <AnimatePresence>
         {!success && (
@@ -63,7 +57,7 @@ export const StandForm: FC<Props> = ({ className }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="w-[808px] mx-auto mt-20 mb-[120px] flex flex-col gap-8"
+              className="max-w-[828px] px-5 mx-auto mt-20 mb-[120px] flex flex-col gap-8"
               onSubmit={form.handleSubmit(onSubmit)}
             >
               <FormField
