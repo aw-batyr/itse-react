@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Form } from "../ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,22 +10,33 @@ import {
 import { cn } from "@/lib/utils";
 import { Field } from "../shared";
 import { Button } from "../ui/button";
+import { postContact } from "@/services/service";
 
 interface Props {
   className?: string;
 }
 
 export const ContactsForm: FC<Props> = ({ className }) => {
+  const [status, setStatus] = useState(false);
+
   const form = useForm({
     resolver: zodResolver(contactsSchema),
     defaultValues: defaultValuesContacts,
   });
 
-  function onSubmit(data: ContactsFormType) {
-    console.log(data);
+  async function onSubmit(data: ContactsFormType) {
+    try {
+      const status = await postContact(data);
+
+      setStatus(status);
+    } catch (error) {
+      console.error("POST contact", error);
+    }
   }
 
   const { errors } = form.formState;
+
+  console.log(status);
 
   return (
     <div className={cn("bg-primary rounded-[8px] py-8 px-6 ", className)}>
