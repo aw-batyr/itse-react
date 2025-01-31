@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 import { Field } from "../shared";
 import { Button } from "../ui/button";
 import { postContact } from "@/services/service";
+import { Loader } from "lucide-react";
 
 interface Props {
   className?: string;
@@ -36,12 +37,15 @@ export const ContactsForm: FC<Props> = ({ className }) => {
 
   const { errors } = form.formState;
 
-  console.log(status);
-
   return (
     <div className={cn("bg-primary rounded-[8px] py-8 px-6 ", className)}>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className={cn(
+            status && "opacity-50 pointer-events-none transition-all"
+          )}
+        >
           <h2 className="h2 !text-on_primary lg:mb-8 mb-6">Связаться с нами</h2>
 
           <div className="flex flex-col gap-8">
@@ -72,21 +76,31 @@ export const ContactsForm: FC<Props> = ({ className }) => {
 
             <Field
               onPrimary
-              name="company_name"
+              name="company"
               control={form.control}
               label="Название компании"
-              error={errors.name}
+              error={errors.company}
             />
             <Field
               onPrimary
               textArea
-              name="message"
+              name="msg"
               label="Сообщение"
               control={form.control}
-              error={errors.message}
+              error={errors.msg}
             />
-            <Button className="w-full" variant="secondary">
-              Отправить
+            <Button
+              className="w-full"
+              variant="secondary"
+              disabled={form.formState.isSubmitting || status}
+            >
+              {form.formState.isSubmitting ? (
+                <Loader className="animate-spin" />
+              ) : status ? (
+                "Форма отправлена"
+              ) : (
+                "Отправить"
+              )}
             </Button>
           </div>
         </form>
