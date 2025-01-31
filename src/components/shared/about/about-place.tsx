@@ -8,15 +8,10 @@ interface Props {
 
 export const AboutPlace: FC<Props> = ({ className }) => {
   return (
-    <section
-      className={cn(
-        "flex items-center gap-6 relative md:py-20 py-10 overflow-hidden",
-        className
-      )}
-    >
-      <Container>
-        <h3 className="h2 w-[312px] mb-6">Место проведения</h3>
-        <p className="text-lg max-w-[490px] text-on_surface_v normal">
+    <section className={cn(" gap-6 relative overflow-hidden", className)}>
+      <Container className="md:py-20 py-10 ">
+        <h3 className="h2 mb-6 xl:max-w-[496px]">Место проведения</h3>
+        <p className="text-lg text-on_surface_v normal xl:max-w-[496px] mb-10">
           Торгово-промышленная палата Туркменистана создана в целях содействия
           развитию экономики Туркменистана, ее интегрированию в мировую
           хозяйственную систему, формированию современной промышленной,
@@ -26,12 +21,14 @@ export const AboutPlace: FC<Props> = ({ className }) => {
           зарубежными партнерами.
         </p>
 
-        {/* <img
-          src="/map.png"
-          alt="map"
-          className="absolute top-0 right-0 w-[900px] h-full object-cover"
-        /> */}
+        <div className="size-full xl:hidden">
+          <img src="/map.png" alt="map" className="size-full object-cover" />
+        </div>
       </Container>
+
+      <div className="h-full 2xl:w-[850px] xl:w-[650px] xl:block hidden absolute top-0 right-0">
+        <img src="/map.png" alt="" className="size-full object-cover" />
+      </div>
     </section>
   );
 };
