@@ -14,7 +14,7 @@ export const OfferCard: FC<Props> = ({ className, title, text, img }) => {
   return (
     <article
       className={cn(
-        "md:px-8 md:py-6 p-4 relative overflow-hidden h-[296px] md:w-full w-[300px] text-on_primary",
+        "sm:px-8 sm:py-6 p-4 relative overflow-hidden h-[296px] sm:w-full w-[300px] text-on_primary",
         className
       )}
     >
@@ -25,10 +25,10 @@ export const OfferCard: FC<Props> = ({ className, title, text, img }) => {
       />
 
       <div className="relative z-20">
-        <h4 className="md:text-2xl text-lg mb-4 max-w-[444px] z-20 h-16">
+        <h4 className="sm:text-2xl text-lg mb-4 max-w-[444px] z-20 h-16">
           {title}
         </h4>
-        <p className="md:text-base text-sm normal max-w-[360px] z-20">{text}</p>
+        <p className="sm:text-base text-sm normal max-w-[360px] z-20">{text}</p>
 
         <Button className="text-sm px-0 mt-4 py-1.5 z-20" variant={"link"}>
           Скачать PDF <ArrowUpRight />
