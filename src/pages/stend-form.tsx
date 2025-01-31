@@ -24,7 +24,7 @@ interface Props {
   className?: string;
 }
 
-export const StandForm: FC<Props> = ({ className }) => {
+export const StendForm: FC<Props> = ({ className }) => {
   const [success, setSuccess] = useState(false);
   const form = useForm<StandFormType>({
     resolver: zodResolver(standFormSchema),

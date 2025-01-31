@@ -3,11 +3,11 @@ import { z } from "zod";
 export type ContactsFormType = z.infer<typeof contactsSchema>;
 
 export const contactsSchema = z.object({
-  name: z.string().min(2, "error"),
-  email: z.string().email(),
-  phone: z.string().min(8, "error"),
-  company_name: z.string().min(2, "error"),
-  message: z.string().min(5, "error"),
+  name: z.string().min(2, "Имя необходимо"),
+  email: z.string().email("Email необходим"),
+  phone: z.string().min(8, "Номер телефона необходим"),
+  company_name: z.string().min(2, "Название компании необходимо"),
+  message: z.string().min(5, "Сообщение необходимо"),
 });
 
 export const defaultValuesContacts = {
