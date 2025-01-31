@@ -1,3 +1,4 @@
+import { ContactsFormType } from "@/lib/get-contacts-details";
 import { SponsorFormType } from "@/lib/get-sponsor-form-details";
 import { StandFormType } from "@/lib/get-stend-form-details";
 import axios from "axios";
@@ -18,6 +19,12 @@ export const postB2b = async (data: FormData): Promise<boolean> => {
 
 export const postSponsor = async (data: SponsorFormType): Promise<boolean> => {
   const res = axios.post(`${URL}/become_sponsor`, data);
+
+  return (await res).status === 201;
+};
+
+export const postContact = async (data: ContactsFormType): Promise<boolean> => {
+  const res = axios.post(`${URL}/contact_form`, data);
 
   return (await res).status === 201;
 };
