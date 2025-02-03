@@ -8,7 +8,7 @@ import { useMediaQuery } from "usehooks-ts";
 export const btns = [
   {
     title: "План выставки",
-    link: "",
+    link: "https://itse.turkmenexpo.com/app/storage/app/media/Floor%20plan/Floor%20plan.pdf",
   },
   {
     title: "Забронировать стенд",
