@@ -4,34 +4,13 @@ import { ArrowUpRight, MapPin, Smartphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 import { Burger } from "./burger";
-
-export const navData = [
-  {
-    title: "Медиа",
-    link: "",
-  },
-  {
-    title: "Контакты",
-    link: "/contacts",
-  },
-];
-
-export const navData2 = [
-  {
-    title: "О выставке",
-    link: "/about",
-  },
-  {
-    title: "Посетителям",
-    link: "",
-  },
-  {
-    title: "Экспонентам",
-    link: "",
-  },
-];
+import { navData, navData2 } from "@/data/header.data";
+import { useLangStore } from "@/store/lang";
+import { useTranslate } from "@/hooks/use-translate";
 
 export const Header: FC = () => {
+  const lang = useLangStore((state) => state.lang);
+
   return (
     <header>
       <div className="h-12 hidden lg:flex bg-primary text-on_primary items-center overflow-hidden">
@@ -39,13 +18,17 @@ export const Header: FC = () => {
           <div className="gap-8 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <MapPin />
-              <h4 className="text-sm">Ашхабад, Туркменистан</h4>
+              <h4 className="text-sm">
+                {lang === "ru"
+                  ? "Ашхабад, Туркменистан"
+                  : "Ashgabat, Turkmenistan"}
+              </h4>
             </div>
 
             <nav className="flex items-center gap-6">
-              {navData.map(({ title, link }) => (
-                <Link className="py-2" key={title} to={link}>
-                  {title}
+              {navData[useTranslate(lang)].data.map((item) => (
+                <Link className="py-2" key={item.title} to={item.link}>
+                  {item.title}
                 </Link>
               ))}
             </nav>
@@ -70,7 +53,7 @@ export const Header: FC = () => {
             </Link>
 
             <nav className="lg:flex hidden items-center gap-6">
-              {navData2.map(({ title, link }) => (
+              {navData2[useTranslate(lang)].data.map(({ title, link }) => (
                 <Link key={title} to={link} className="flex items-center gap-2">
                   {title} <img src="/chevron.svg" />
                 </Link>
@@ -96,7 +79,7 @@ export const Header: FC = () => {
               size={"sm"}
               className="bg-[#FFAE2A] text-on_teritary hover:bg-[#FFAE2A]/90"
             >
-              Официальная поддержка
+              {lang === "ru" ? "Официальная поддержка" : "Official Support"}
             </Button>
           </div>
         </Container>

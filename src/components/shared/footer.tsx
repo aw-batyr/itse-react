@@ -1,7 +1,10 @@
 import { FC } from "react";
 import { Container, Logo } from "./";
+import { Language, useLangStore } from "@/store/lang";
 
 export const Footer: FC = () => {
+  const lang = useLangStore((state) => state.lang);
+
   return (
     <footer className="py-5 bg-bg_surface_container">
       <Container className="flex flex-col gap-6">
@@ -18,7 +21,9 @@ export const Footer: FC = () => {
         <hr className="border-outline_v" />
 
         <h5 className="text-base text-center normal  text-on_surface_v">
-          ©2025 Все права защищены
+          {lang === Language.RU
+            ? "©2025 Все права защищены"
+            : "All rights reserved"}
         </h5>
       </Container>
     </footer>

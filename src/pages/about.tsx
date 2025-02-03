@@ -8,6 +8,7 @@ import {
 } from "@/components/shared";
 import { useScrollTop } from "@/hooks/use-scroll-top";
 import { cn } from "@/lib/utils";
+import { Language, useLangStore } from "@/store/lang";
 import { FC } from "react";
 
 interface Props {
@@ -16,10 +17,11 @@ interface Props {
 
 export const About: FC<Props> = ({ className }) => {
   useScrollTop();
+  const lang = useLangStore((state) => state.lang);
 
   return (
     <div className={cn("", className)}>
-      <Cover title="О выставке" />
+      <Cover title={lang === Language.RU ? "О выставке" : "About exhibition"} />
 
       <Container className="flex flex-col md:my-20 my-10 gap-16">
         <div className="flex flex-col gap-6">

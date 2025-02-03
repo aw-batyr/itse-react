@@ -8,8 +8,10 @@ import {
 } from "../ui/sheet";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
-import { navData2 } from "./header";
 import { ArrowUpRight } from "lucide-react";
+import { useTranslate } from "@/hooks/use-translate";
+import { useLangStore } from "@/store/lang";
+import { navData2 } from "@/data/header.data";
 
 interface Props {
   className?: string;
@@ -17,6 +19,8 @@ interface Props {
 
 export const Burger: FC<Props> = () => {
   const [open, setOpen] = useState(false);
+
+  const lang = useLangStore((state) => state.lang);
 
   return (
     <Sheet onOpenChange={() => setOpen(!open)} open={open}>
@@ -62,7 +66,7 @@ export const Burger: FC<Props> = () => {
         <hr className="border-slate-500/20 my-8" />
 
         <div className="flex flex-col gap-6">
-          {navData2.map((item) => (
+          {navData2[useTranslate(lang)].data.map((item) => (
             <Link
               onClick={() => setOpen(false)}
               className="h-10 text-on_surface "
