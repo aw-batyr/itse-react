@@ -32,9 +32,9 @@ export const HomeHero: FC = () => {
   const md = useMediaQuery("(min-width: 768px)");
 
   function getBanner() {
-    if (lg) return "/banners/ru/l.jpg";
-    else if (md) return "/banners/ru/m.jpg";
-    else return "/banners/ru/s.jpg";
+    if (lg) return "/banners/ru/lg.jpg";
+    else if (md) return "/banners/ru/md.jpg";
+    else return "/banners/ru/sm.jpg";
   }
 
   return (
