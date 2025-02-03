@@ -34,14 +34,18 @@ export const OfferCard: FC<Props> = ({
         className="absolute size-full top-0 right-0 object-cover"
       />
 
-      <div className="relative z-20">
-        <h4 className="sm:text-2xl text-lg mb-4 max-w-[444px] z-20 h-16">
-          {title}
-        </h4>
-        <p className="sm:text-base text-sm normal max-w-[360px] z-20">{text}</p>
+      <div className="relative z-20 h-full">
+        <div className="">
+          <h4 className="sm:text-2xl text-lg mb-4 max-w-[444px] z-20 h-16">
+            {title}
+          </h4>
+          <p className="sm:text-base text-sm normal max-w-[360px] z-20">
+            {text}
+          </p>
+        </div>
 
-        <Link target="_blank" to={link}>
-          <Button className="text-sm px-0 mt-4 py-1.5 z-20" variant={"link"}>
+        <Link className="absolute bottom-0 left-0" target="_blank" to={link}>
+          <Button className="text-sm px-0 h-fit py-0 z-20" variant={"link"}>
             {btnText} <ArrowUpRight />
           </Button>
         </Link>
