@@ -9,6 +9,7 @@ export const btns = [
   {
     title: "План выставки",
     link: "https://itse.turkmenexpo.com/app/storage/app/media/Floor%20plan/Floor%20plan.pdf",
+    blank: true,
   },
   {
     title: "Забронировать стенд",
@@ -51,8 +52,13 @@ export const HomeHero: FC = () => {
       </div>
 
       <Container className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-center gap-6 text-2xl">
-        {btns.map(({ title, link }) => (
-          <Link key={title} to={link} className="w-full">
+        {btns.map(({ title, link, blank }) => (
+          <Link
+            target={blank ? "_blank" : ""}
+            key={title}
+            to={link}
+            className="w-full"
+          >
             <Button
               size={"lg"}
               variant={"secondary"}
