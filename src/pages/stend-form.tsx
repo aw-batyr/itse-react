@@ -7,7 +7,6 @@ import {
   FormItem,
   FormLabel,
 } from "@/components/ui/form";
-import axios from "axios";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { AnimatePresence, motion } from "motion/react";
 import {
@@ -16,7 +15,7 @@ import {
   StandFormType,
 } from "@/lib/get-stend-form-details";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Loader } from "lucide-react";
 import { postStend } from "@/services/service";
