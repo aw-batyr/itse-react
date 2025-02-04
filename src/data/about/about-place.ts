@@ -8,12 +8,11 @@ export const aboutPlace = [
     ],
   },
   {
-    title: "The Chamber of Commerce and Industry of Turkmenistan",
+    title: "Venue",
 
     data: [
       `The Exhibition Centre of the Chamber of Commerce and Industry of Turkmenistan is a modern venue designed for international exhibitions, conferences, forums, and business meetings.`,
-      `The Exhibition Centre of the Chamber of Commerce and Industry of Turkmenistan is a modern venue designed for international exhibitions, conferences, forums, and business meetings.`,
-      //   `Thanks to its high-tech infrastructure and convenient location, the Exhibition Centre of the Turkmenistan Chamber of Commerce and Industry serves as an ideal platform for establishing business connections and promoting innovative projects.`,
+      `The centre is equipped with cutting-edge technical solutions, including multimedia equipment, sound and lighting systems, conference rooms with simultaneous translation, and comfortable areas for negotiations. Spacious exhibition pavilions provide ideal conditions for showcasing products and services.`,
     ],
   },
 ];
