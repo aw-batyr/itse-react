@@ -1,19 +1,34 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { cn } from "@/lib/utils";
+import { Language, useLangStore } from "@/store/lang";
 
 interface Props {
   className?: string;
 }
 
+export const langs = [
+  {
+    lang: Language.RU,
+  },
+  {
+    lang: Language.EN,
+  },
+];
+
 export const LangMenu: FC<Props> = ({ className }) => {
+  const lang = useLangStore((state) => state.lang);
+  const setLang = useLangStore((state) => state.setLang);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  console.log(langs.filter((item) => item.lang === lang));
+
   return (
-    <Popover>
-      <PopoverTrigger
-        className={cn("flex items-center gap-2 pointer-events-none", className)}
-      >
-        <img src="/ru.svg" alt="" />
-        Ру
+    <Popover open={isOpen} onOpenChange={() => setIsOpen(!isOpen)}>
+      <PopoverTrigger className={cn("flex items-center gap-2", className)}>
+        <img src={lang === Language.RU ? "/ru.svg" : "/en.svg"} alt="" />
+        {lang === Language.RU ? "Ру" : "En"}
         <svg
           width="20"
           height="20"
@@ -30,7 +45,26 @@ export const LangMenu: FC<Props> = ({ className }) => {
         </svg>
       </PopoverTrigger>
 
-      <PopoverContent></PopoverContent>
+      <PopoverContent className="flex flex-col gap-6">
+        {langs
+          .filter((item) => item.lang !== lang)
+          .map((item, i) => (
+            <div
+              onClick={() => {
+                setLang(item.lang);
+                setIsOpen(false);
+              }}
+              key={i}
+              className="flex gap-3 py-1 items-center cursor-pointer"
+            >
+              <img
+                src={item.lang === Language.RU ? "/ru.svg" : "/en.svg"}
+                alt="flag"
+              />
+              <h5>{item.lang === Language.RU ? "Русский" : "English"}</h5>
+            </div>
+          ))}
+      </PopoverContent>
     </Popover>
   );
 };
