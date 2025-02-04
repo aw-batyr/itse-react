@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import useEmblaCarousel from "embla-carousel-react";
 import { useLangStore } from "@/store/lang";
-import { homeAbout } from "@/data/home-about.data";
+import { homeAbout } from "@/data/home/home-about.data";
 import { useTranslate } from "@/hooks/use-translate";
 
 export const HomeAbout: FC = () => {

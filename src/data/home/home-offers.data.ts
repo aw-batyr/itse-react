@@ -21,7 +21,7 @@ export const offersData = [
   {
     data: [
       {
-        img: "/offer-2.png",
+        img: "/offer-1.png",
         title: "Hotels, transfers, visa",
         btnText: "Download the Travel guide",
         text: `Regarding hotel accommodation, visa support, 

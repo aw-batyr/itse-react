@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useTranslate } from "@/hooks/use-translate";
 import { Language, useLangStore } from "@/store/lang";
-import { times } from "@/data/home-time.data";
+import { times } from "@/data/home/home-time.data";
 import { contacts } from "@/data/contacts.data";
 
 interface Props {

@@ -5,7 +5,7 @@ import { Container } from "../";
 import { Button } from "@/components/ui/button";
 import { useMediaQuery } from "usehooks-ts";
 import { Language, useLangStore } from "@/store/lang";
-import { btns } from "@/data/home-hero.data";
+import { btns } from "@/data/home/home-hero.data";
 import { useTranslate } from "@/hooks/use-translate";
 
 export const HomeHero: FC = () => {

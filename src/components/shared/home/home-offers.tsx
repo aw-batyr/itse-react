@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Container, OfferCard } from "../";
 import useEmblaCarousel from "embla-carousel-react";
 import { useLangStore } from "@/store/lang";
-import { offersData } from "@/data/home-offers.data";
+import { offersData } from "@/data/home/home-offers.data";
 import { useTranslate } from "@/hooks/use-translate";
 
 export const HomeOffers: FC = () => {

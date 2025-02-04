@@ -3,7 +3,7 @@ import { FC } from "react";
 import { Container } from "../container";
 
 import { TimeCard } from "../time-card";
-import { times } from "@/data/home-time.data";
+import { times } from "@/data/home/home-time.data";
 import { useLangStore } from "@/store/lang";
 import { useTranslate } from "@/hooks/use-translate";
 

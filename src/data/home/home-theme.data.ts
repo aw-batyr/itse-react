@@ -1,6 +1,6 @@
 export const homeTheme = [
   {
-    h1: "Тематические направления выставки",
+    h2: "Тематические направления выставки",
 
     data: [
       {
@@ -39,15 +39,15 @@ export const homeTheme = [
   },
 
   {
-    title: "Thematic areas of the exhibition",
+    h2: "Thematic areas of the exhibition",
 
     data: [
       {
-        title: "Пищевая продукция и сельское хозяйство",
+        title: "Food and agriculture",
         img: "/theme/1.svg",
       },
       {
-        title: "Товары и услуги",
+        title: "Goods and services",
         img: "/theme/2.svg",
       },
       {
@@ -55,23 +55,23 @@ export const homeTheme = [
         img: "/theme/3.svg",
       },
       {
-        title: "Волокна, текстиль и одежда",
+        title: "Fibers, textiles and clothing",
         img: "/theme/4.svg",
       },
       {
-        title: "Продукция промышленного производства",
+        title: "Manufactured goods",
         img: "/theme/5.svg",
       },
       {
-        title: "Профессиональные услуги",
+        title: "Professional services",
         img: "/theme/6.svg",
       },
       {
-        title: "Ремесленные производства",
+        title: "Crafts",
         img: "/theme/7.svg",
       },
       {
-        title: "Креативные индустрии",
+        title: "Creative industries",
         img: "/theme/8.svg",
       },
     ],
