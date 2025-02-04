@@ -127,32 +127,33 @@ export const StendForm: FC<Props> = ({ className }) => {
                 error={errors.job_title}
               />
               <Field
-                label={stendData[useTranslate(lang)].label_4}
+                label={stendData[useTranslate(lang)].number_of_participants}
                 type="number"
                 name="participants_number"
                 control={form.control}
                 error={errors.participants_number}
               />
               <Field
-                label={stendData[useTranslate(lang)].label_5}
+                label={stendData[useTranslate(lang)].label_4}
                 name="country"
                 control={form.control}
                 error={errors.country}
               />
               <Field
-                label={stendData[useTranslate(lang)].label_6}
+                label={stendData[useTranslate(lang)].label_5}
                 name="email"
                 control={form.control}
                 error={errors.email}
               />
               <Field
-                label={stendData[useTranslate(lang)].label_7}
+                label={stendData[useTranslate(lang)].label_6}
                 name="phone"
                 control={form.control}
                 error={errors.phone}
               />
+
               <Field
-                label={stendData[useTranslate(lang)].label_8}
+                label={stendData[useTranslate(lang)].label_7}
                 name="website"
                 control={form.control}
               />

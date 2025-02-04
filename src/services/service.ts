@@ -6,7 +6,7 @@ import axios from "axios";
 const URL = "https://itse.turkmenexpo.com/app/api/v1";
 
 export const postStend = async (data: StandFormType): Promise<boolean> => {
-  const res = axios.post(`${URL}/become_delegate`, data);
+  const res = axios.post(`${URL}/book_stand_form`, data);
 
   return (await res).status === 201;
 };
@@ -18,7 +18,7 @@ export const postB2b = async (data: FormData): Promise<boolean> => {
 };
 
 export const postSponsor = async (data: SponsorFormType): Promise<boolean> => {
-  const res = axios.post(`${URL}/become_sponsor`, data);
+  const res = axios.post(`${URL}/become_sponsor_form`, data);
 
   return (await res).status === 201;
 };

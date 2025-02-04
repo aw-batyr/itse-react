@@ -22,7 +22,7 @@ export const Stage3: FC<Props> = () => {
       animate={{ opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.3 } }}
       transition={{ duration: 1 }}
     >
-      <h3 className="h2 mb-8">{b2bStage3[useTranslate(lang)].h2}</h3>
+      <h2 className="h2 mb-8">{b2bStage3[useTranslate(lang)].h2}</h2>
 
       <div className="flex flex-col gap-6">
         <Field
@@ -58,10 +58,7 @@ export const Stage3: FC<Props> = () => {
 
       <div className="flex flex-col gap-8">
         <div className="">
-          <h3 className="h2 mt-10">
-            {" "}
-            {b2bStage3[useTranslate(lang)].secondH2}
-          </h3>
+          <h3 className="h2 mt-10">{b2bStage3[useTranslate(lang)].secondH2}</h3>
           <h5 className="text-on_surface_v">
             {b2bStage3[useTranslate(lang)].subtitle}
           </h5>

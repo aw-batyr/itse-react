@@ -22,7 +22,7 @@ export const Stage2: FC<Props> = ({ handleNext }) => {
       animate={{ opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.3 } }}
       exit={{ opacity: 0, y: 100 }}
     >
-      <h3 className="h2 mb-8">{b2bStage2[useTranslate(lang)].h2}</h3>
+      <h2 className="h2 mb-8">{b2bStage2[useTranslate(lang)].h2}</h2>
 
       <div className="flex flex-col gap-8">
         <Field
@@ -47,7 +47,7 @@ export const Stage2: FC<Props> = ({ handleNext }) => {
           label={b2bStage2[useTranslate(lang)].data[2].label}
         />
 
-        <h3 className="h2 mt-4">{b2bStage2[useTranslate(lang)].secondH2}</h3>
+        <h2 className="h2 mt-4">{b2bStage2[useTranslate(lang)].secondH2}</h2>
 
         <Field
           control={control}
