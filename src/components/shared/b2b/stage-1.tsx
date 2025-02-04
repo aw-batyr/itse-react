@@ -11,6 +11,9 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
+import { Language, useLangStore } from "@/store/lang";
+import { b2bStage1 } from "@/data/b2b.data";
+import { useTranslate } from "@/hooks/use-translate";
 
 interface Props {
   className?: string;
@@ -19,6 +22,7 @@ interface Props {
 
 export const Stage1: FC<Props> = ({ handleNext }) => {
   const { control, formState } = useFormContext();
+  const lang = useLangStore((state) => state.lang);
 
   return (
     <motion.div
@@ -27,7 +31,7 @@ export const Stage1: FC<Props> = ({ handleNext }) => {
       exit={{ opacity: 0, y: "100%", transition: { duration: 0.2 } }}
       className="w-full"
     >
-      <h3 className="h2 mb-8">Информация об экспоненте:</h3>
+      <h2 className="h2 mb-8">{b2bStage1[useTranslate(lang)].h2}</h2>
 
       <div className="flex flex-col gap-8">
         <FormField
@@ -36,7 +40,9 @@ export const Stage1: FC<Props> = ({ handleNext }) => {
           name="type"
           render={({ field }) => (
             <FormItem className="space-y-3">
-              <FormLabel className="text-xl">Тип:</FormLabel>
+              <FormLabel className="text-xl">
+                {lang === Language.RU ? "Тип:" : "Type:"}
+              </FormLabel>
 
               <FormControl>
                 <RadioGroup
@@ -74,55 +80,55 @@ export const Stage1: FC<Props> = ({ handleNext }) => {
           name={"company_name"}
           error={formState.errors.company_name as FieldError}
           placeholder=""
-          label="Название компании/организации"
+          label={b2bStage1[useTranslate(lang)].data[0].label}
         />
         <Field
           control={control}
           name={"representative_name"}
           error={formState.errors.representative_name as FieldError}
           placeholder=""
-          label="Имя представителя"
+          label={b2bStage1[useTranslate(lang)].data[1].label}
         />
         <Field
           control={control}
           name={"job_title"}
           error={formState.errors.job_title as FieldError}
           placeholder=""
-          label="Название должности/позиция"
+          label={b2bStage1[useTranslate(lang)].data[2].label}
         />
         <Field
           control={control}
           name={"participants_number"}
           error={formState.errors.participants_number as FieldError}
           placeholder=""
-          label="Количество участников"
+          label={b2bStage1[useTranslate(lang)].data[3].label}
         />
         <Field
           control={control}
           name={"country"}
           error={formState.errors.country as FieldError}
           placeholder=""
-          label="Страна"
+          label={b2bStage1[useTranslate(lang)].data[4].label}
         />
         <Field
           control={control}
           name={"email_address"}
           error={formState.errors.email_address as FieldError}
           placeholder=""
-          label="E-mail адрес"
+          label={b2bStage1[useTranslate(lang)].data[5].label}
         />
         <Field
           control={control}
           name={"phone_number"}
           error={formState.errors.phone_number as FieldError}
           placeholder=""
-          label="Номер телефона"
+          label={b2bStage1[useTranslate(lang)].data[6].label}
         />
         <Field
           control={control}
           name={"website"}
           placeholder=""
-          label="Вебсайт"
+          label={b2bStage1[useTranslate(lang)].data[7].label}
         />
       </div>
 
@@ -132,7 +138,7 @@ export const Stage1: FC<Props> = ({ handleNext }) => {
         onClick={handleNext}
         className="w-full mt-10"
       >
-        Далее
+        {lang === Language.RU ? "Далее" : "Next"}
       </Button>
     </motion.div>
   );

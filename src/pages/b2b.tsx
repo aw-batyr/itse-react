@@ -1,5 +1,6 @@
 import { B2bForm, B2bFormProgress, Cover } from "@/components/shared";
 import { useScrollTop } from "@/hooks/use-scroll-top";
+import { Language, useLangStore } from "@/store/lang";
 import { FC, useState } from "react";
 
 interface Props {
@@ -8,12 +9,17 @@ interface Props {
 
 export const B2b: FC<Props> = () => {
   useScrollTop();
+  const lang = useLangStore((state) => state.lang);
 
-  const [stage, setStage] = useState(1);
+  const [stage, setStage] = useState(2);
 
   return (
     <div className={"pb-[120px]"}>
-      <Cover title="B2B | B2G встречи" />
+      <Cover
+        title={
+          lang === Language.RU ? "B2B | B2G встречи" : "B2B | B2G meetings"
+        }
+      />
 
       {stage !== 0 && <B2bFormProgress stage={stage} />}
 
