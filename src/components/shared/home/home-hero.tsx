@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Container } from "../";
 import { Button } from "@/components/ui/button";
 import { useMediaQuery } from "usehooks-ts";
-import { useLangStore } from "@/store/lang";
+import { Language, useLangStore } from "@/store/lang";
 import { btns } from "@/data/home-hero.data";
 import { useTranslate } from "@/hooks/use-translate";
 
@@ -12,13 +12,15 @@ export const HomeHero: FC = () => {
   const [embalRef] = useEmblaCarousel();
   const lang = useLangStore((state) => state.lang);
 
+  const folder = lang === Language.RU ? Language.RU : Language.EN;
+
   const lg = useMediaQuery("(min-width: 1024px)");
   const md = useMediaQuery("(min-width: 768px)");
 
   function getBanner() {
-    if (lg) return "/banners/ru/lg.jpg";
-    else if (md) return "/banners/ru/md.jpg";
-    else return "/banners/ru/sm.jpg";
+    if (lg) return `/banners/${folder}/lg.jpg`;
+    else if (md) return `/banners/${folder}/md.jpg`;
+    else return `/banners/${folder}/sm.jpg`;
   }
 
   return (
