@@ -1,5 +1,6 @@
 // store/langStore.ts
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 export enum Language {
   EN = "en",
@@ -7,11 +8,16 @@ export enum Language {
 }
 
 export interface LangState {
-  lang: Language;
+  lang: "ru" | "en";
   setLang: (lang: Language) => void;
 }
 
-export const useLangStore = create<LangState>()((set) => ({
-  lang: Language.RU,
-  setLang: (lang) => set({ lang }),
-}));
+export const useLangStore = create<LangState>()(
+  persist(
+    (set) => ({
+      lang: Language.RU,
+      setLang: (lang) => set({ lang }),
+    }),
+    { name: "lang-storage" }
+  )
+);
