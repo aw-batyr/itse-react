@@ -11,7 +11,7 @@ export const B2b: FC<Props> = () => {
   useScrollTop();
   const lang = useLangStore((state) => state.lang);
 
-  const [stage, setStage] = useState(2);
+  const [stage, setStage] = useState(1);
 
   return (
     <div className={"pb-[120px]"}>
