@@ -43,7 +43,7 @@ export const aboutInfo = [
     ul2: [
       "Specialized exhibition zones",
       "Product quality forums",
-      "Product quality forums",
+      "Workshops and business missions",
     ],
 
     bottomText:

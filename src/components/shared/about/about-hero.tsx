@@ -32,14 +32,14 @@ export const AboutHero: FC<Props> = ({ className }) => {
         </div>
 
         <div className="flex flex-col gap-6">
-          <h3 className="h2">{aboutInfo[useTranslate(lang)].title2}</h3>
+          <h3 className="h2">{aboutInfo[useTranslate(lang)].title3}</h3>
           <ul className="list-disc pl-8 flex flex-col gap-3 text-lg text-on_surface_v normal">
             {aboutInfo[useTranslate(lang)].ul2.map((text) => (
               <li key={text}>{text}</li>
             ))}
           </ul>
 
-          <p className="text-18">{aboutInfo[useTranslate(lang)].bottomText} </p>
+          <p className="text-18">{aboutInfo[useTranslate(lang)].bottomText}</p>
         </div>
       </Container>
     </div>
