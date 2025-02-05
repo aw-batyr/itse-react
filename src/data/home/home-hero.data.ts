@@ -1,8 +1,5 @@
-import { Language } from "@/store/lang";
-
 export const btns = [
   {
-    lang: Language.RU,
     data: [
       {
         title: "План выставки",
@@ -25,7 +22,6 @@ export const btns = [
   },
 
   {
-    lang: Language.EN,
     data: [
       {
         title: "Floor Plan",

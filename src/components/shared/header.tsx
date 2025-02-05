@@ -74,13 +74,22 @@ export const Header: FC = () => {
               </Button>
             </Link>
 
-            <Button
-              variant={"secondary"}
-              size={"sm"}
-              className="bg-[#FFAE2A] text-on_teritary hover:bg-[#FFAE2A]/90"
+            <Link
+              target="_blank"
+              to={
+                lang === "ru"
+                  ? "https://itse.turkmenexpo.com/app/storage/app/media/official_support/ru.jpg"
+                  : "https://itse.turkmenexpo.com/app/storage/app/media/official_support/en.jpg"
+              }
             >
-              {lang === "ru" ? "Официальная поддержка" : "Official Support"}
-            </Button>
+              <Button
+                variant={"secondary"}
+                size={"sm"}
+                className="bg-[#FFAE2A] text-on_teritary hover:bg-[#FFAE2A]/90"
+              >
+                {lang === "ru" ? "Официальная поддержка" : "Official Support"}
+              </Button>
+            </Link>
           </div>
         </Container>
       </div>

@@ -15,7 +15,7 @@ export const AboutPlace: FC<Props> = ({ className }) => {
   return (
     <section className={cn("gap-6 relative overflow-hidden", className)}>
       <Container className="md:py-20 py-10 grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-0 grid">
-        <div className="flex-[0_0_50%]">
+        <div className="">
           <h3 className="h2 mb-6">{aboutPlace[useTranslate(lang)].title}</h3>
           <div className="text-lg flex flex-col gap-6 text-on_surface_v normal  mb-10">
             {aboutPlace[useTranslate(lang)].data.map((item) => (
@@ -24,7 +24,7 @@ export const AboutPlace: FC<Props> = ({ className }) => {
           </div>
         </div>
 
-        <div className="h-full max-size-[600px] flex-[0_0_50%]">
+        <div className="h-full max-size-[600px]">
           <img
             src="/about-place.jpg"
             alt=""
