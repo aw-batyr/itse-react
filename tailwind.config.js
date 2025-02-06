@@ -32,6 +32,8 @@ export default {
         teritary_11: "#553400",
         teritary_surface_container: "#FFF3E0",
 
+        error: "#BA1A1A",
+
         surface_high: "#E8E7EF",
         on_surface: "#26292E",
         on_surface_v: "#5F6674",
