@@ -28,3 +28,9 @@ export const postContact = async (data: ContactsFormType): Promise<boolean> => {
 
   return (await res).status === 201;
 };
+
+export const getExhibitionTime = async () => {
+  const data = axios.get<any>(`${URL}/exhibition_time`);
+
+  return data as any;
+};
