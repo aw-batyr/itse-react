@@ -1,8 +1,5 @@
-import { Language } from "@/store/lang";
-
 export const navData = [
   {
-    lang: Language.RU,
     data: [
       {
         title: "Медиа",
@@ -16,7 +13,6 @@ export const navData = [
   },
 
   {
-    lang: Language.EN,
     data: [
       {
         title: "Media",
@@ -32,7 +28,6 @@ export const navData = [
 
 export const navData2 = [
   {
-    lang: Language.RU,
     data: [
       {
         title: "О выставке",
@@ -50,7 +45,6 @@ export const navData2 = [
   },
 
   {
-    lang: Language.EN,
     data: [
       {
         title: "About exhibition",
