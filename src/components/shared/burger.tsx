@@ -11,7 +11,8 @@ import { Button } from "../ui/button";
 import { ArrowUpRight } from "lucide-react";
 import { useTranslate } from "@/hooks/use-translate";
 import { useLangStore } from "@/store/lang";
-import { navData2 } from "@/data/header.data";
+import { navData, navData2 } from "@/data/header.data";
+import { burgerData } from "@/data/burger.data";
 
 interface Props {
   className?: string;
@@ -21,6 +22,10 @@ export const Burger: FC<Props> = () => {
   const [open, setOpen] = useState(false);
 
   const lang = useLangStore((state) => state.lang);
+
+  const navigation = navData.concat(navData2);
+
+  console.log(navigation);
 
   return (
     <Sheet onOpenChange={() => setOpen(!open)} open={open}>
@@ -43,13 +48,19 @@ export const Burger: FC<Props> = () => {
             </Button>
           </Link>
 
-          <Link to="">
+          <Link
+            to={
+              lang === "ru"
+                ? "https://itse.turkmenexpo.com/app/storage/app/media/official_support/ru.jpg"
+                : "https://itse.turkmenexpo.com/app/storage/app/media/official_support/en.jpg"
+            }
+          >
             <Button
               variant={"secondary"}
               size={"sm"}
               className="bg-[#FFAE2A] w-full text-on_teritary hover:bg-[#FFAE2A]/90"
             >
-              Официальная поддержка
+              {lang === "ru" ? "Официальная поддержка" : "Official Support"}
             </Button>
           </Link>
 
@@ -59,14 +70,14 @@ export const Burger: FC<Props> = () => {
               variant={"teritary"}
               size={"sm"}
             >
-              B2B | B2G встречи
+              {lang === "ru" ? "B2B | B2G встречи" : "B2B | B2G meetings"}
             </Button>
           </Link>
         </SheetHeader>
         <hr className="border-slate-500/20 my-8" />
 
         <div className="flex flex-col gap-6">
-          {navData2[useTranslate(lang)].data.map((item) => (
+          {burgerData[useTranslate(lang)].data.map((item) => (
             <Link
               onClick={() => setOpen(false)}
               className="h-10 text-on_surface "
