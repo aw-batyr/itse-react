@@ -22,18 +22,16 @@ export const offersData = [
     data: [
       {
         img: "/offer-1.png",
-        title: "Hotels, transfers, visa",
+        title: "Hotels; Transfers; Visas ",
         btnText: "Download the Travel guide",
-        text: `Regarding hotel accommodation, visa support, 
-        transportation and excursion services you can check out the Travel guide`,
+        text: `For inquiries regarding hotel accommodation, visa support, transportation, and tour services, please refer to the travel guide.`,
         link: "https://itse.turkmenexpo.com/app/storage/app/media/travel_guide/Travel_guide_ru.pdf",
       },
       {
         img: "/offer-2.png",
-        title: "Check out the ITSE 2025 Exhibition plan ",
-        btnText: "Download the Floor plan",
-        text: `How to choose the best place in the exhibition? 
-        You should always remember that the good location of the exhibition increases your chance to attract the attention of your potential customers…`,
+        title: "Explore the ITSE 2025 Exhibition Plan",
+        btnText: "Download Exhibition plan",
+        text: `How to choose the best location at the exhibition? A Prime spot increases your chances of attracting potential clients.`,
         link: "https://itse.turkmenexpo.com/app/storage/app/media/travel_guide/Travel_guide_ru.pdf",
       },
     ],
