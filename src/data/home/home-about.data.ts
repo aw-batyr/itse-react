@@ -11,7 +11,7 @@ export const homeAbout = [
     ],
     data: [
       {
-        nums: "8,400 m²",
+        nums: "10,000 m²",
         text: "выставочной площади",
       },
       {
@@ -41,7 +41,7 @@ export const homeAbout = [
     ],
     data: [
       {
-        nums: "8,400 m²",
+        nums: "10,000 m²",
         text: "Of the exhibition area",
       },
       {
