@@ -7,6 +7,7 @@ import { useTranslate } from "@/hooks/use-translate";
 import { Language, useLangStore } from "@/store/lang";
 import { times } from "@/data/home/home-time.data";
 import { contacts } from "@/data/contacts.data";
+import { useExhibitionTime } from "@/hooks/tanstack/use-exhibition-time";
 
 interface Props {
   className?: string;
@@ -14,6 +15,10 @@ interface Props {
 
 export const HomeTime: FC<Props> = ({ className }) => {
   const lang = useLangStore((state) => state.lang);
+
+  const { data } = useExhibitionTime();
+
+  console.log(data);
 
   return (
     <section className={cn("bg-surface_high pt-10 pb-20", className)}>

@@ -16,7 +16,7 @@ export const homeTheme = [
         img: "/theme/3.svg",
       },
       {
-        title: "Волокна, текстиль и одежда",
+        title: "Потребительские товары ",
         img: "/theme/4.svg",
       },
       {
@@ -55,11 +55,11 @@ export const homeTheme = [
         img: "/theme/3.svg",
       },
       {
-        title: "Fibers, textiles and clothing",
+        title: "Consumer goods",
         img: "/theme/4.svg",
       },
       {
-        title: "Manufactured goods",
+        title: "Industrial production",
         img: "/theme/5.svg",
       },
       {

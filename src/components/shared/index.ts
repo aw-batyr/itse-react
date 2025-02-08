@@ -13,6 +13,8 @@ export { Field } from "./field";
 export { B2bFormProgress } from "./b2b-form-progress";
 export { FormSuccesStatus } from "./form-succes-status";
 export { Cover } from "./cover";
+export { Menu } from "./menu";
+export { Chevron } from "./chevron";
 
 export * from "./home";
 export * from "./b2b";

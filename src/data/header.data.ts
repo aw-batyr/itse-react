@@ -2,12 +2,80 @@ export const navData = [
   {
     data: [
       {
-        title: "Медиа",
+        title: "Путеводитель",
         link: "",
+      },
+      {
+        title: "Новости",
+        dropDown: true,
+
+        dropDownContent: [
+          {
+            text: "Новости",
+            link: "",
+          },
+          { text: "Подписаться на новости" },
+        ],
       },
       {
         title: "Контакты",
         link: "/contacts",
+      },
+      {
+        title: "О выставке",
+        dropDown: true,
+
+        dropDownContent: [
+          {
+            text: "О выставке",
+            link: "/about",
+          },
+          {
+            text: "Медиа",
+            link: "",
+          },
+        ],
+      },
+      {
+        title: "Посетителям",
+
+        dropDown: true,
+        dropDownContent: [
+          {
+            text: "Почему стоит посетить?",
+            link: "",
+            blank: true,
+          },
+          {
+            text: "Список участников",
+            link: "",
+            blank: true,
+          },
+          {
+            text: "Путеводитель",
+            link: "https://itse.turkmenexpo.com/app/storage/app/media/travel_guide/Travel_guide_ru.pdf",
+            blank: true,
+          },
+        ],
+      },
+      {
+        title: "Участникам",
+        dropDown: true,
+
+        dropDownContent: [
+          {
+            text: "Забронировать стенд",
+            link: "/stend-form",
+          },
+          {
+            text: "Почему стоить участвовать?",
+            link: "",
+          },
+          {
+            text: "Тематические разделы ",
+            link: "",
+          },
+        ],
       },
     ],
   },
@@ -15,48 +83,81 @@ export const navData = [
   {
     data: [
       {
-        title: "Media",
+        title: "Travel Guide",
         link: "",
       },
       {
         title: "Contacts",
         link: "/contacts",
       },
-    ],
-  },
-];
+      {
+        title: "News",
+        dropDown: true,
 
-export const navData2 = [
-  {
-    data: [
-      {
-        title: "О выставке",
-        link: "/about",
+        dropDownContent: [
+          { text: "News", link: "" },
+          { text: "Subscribe to the news" },
+        ],
       },
-      {
-        title: "Посетителям",
-        link: "",
-      },
-      {
-        title: "Экспонентам",
-        link: "",
-      },
-    ],
-  },
 
-  {
-    data: [
       {
         title: "About exhibition",
-        link: "/about",
+        dropDown: true,
+
+        dropDownContent: [
+          {
+            text: "About exhibition",
+            link: "/about",
+          },
+          {
+            text: "Media",
+            link: "",
+          },
+        ],
       },
       {
-        title: "To the Visitors",
-        link: "",
+        title: "Visitors",
+        dropDown: true,
+        dropDownContent: [
+          {
+            text: "Why visit?",
+            link: "",
+          },
+          {
+            text: "List of Participants",
+            link: "",
+            blank: true,
+          },
+          {
+            text: "Programme",
+            link: "",
+            blank: true,
+          },
+          {
+            text: "Travel Guide",
+            link: "https://itse.turkmenexpo.com/app/storage/app/media/travel_guide/Travel_guide_ru.pdf",
+            blank: true,
+          },
+        ],
       },
       {
-        title: "To the Exhibitors",
-        link: "",
+        title: "Exhibitors",
+
+        dropDown: true,
+        dropDownContent: [
+          {
+            text: "Book a stand",
+            link: "/stend-form",
+          },
+          {
+            text: "Why exhibit?",
+            link: "",
+          },
+          {
+            text: "Thematic areas of the exhibition",
+            link: "",
+          },
+        ],
       },
     ],
   },

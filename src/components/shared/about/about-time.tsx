@@ -15,7 +15,7 @@ export const AboutTime: FC<Props> = ({ className }) => {
   const lang = useLangStore((state) => state.lang);
   return (
     <section
-      className={cn("bg-bg_surface_container py-10 md:py-[160px]", className)}
+      className={cn("bg-bg_surface_container py-10 md:py-[80px]", className)}
     >
       <Container>
         <h2 className="h2 mb-6">{times[useTranslate(lang)].title}</h2>

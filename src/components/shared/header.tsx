@@ -1,10 +1,10 @@
 import { FC } from "react";
-import { Container, LangMenu, Logo } from "./";
+import { Container, LangMenu, Logo, Menu } from "./";
 import { ArrowUpRight, MapPin, Smartphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 import { Burger } from "./burger";
-import { navData, navData2 } from "@/data/header.data";
+import { navData } from "@/data/header.data";
 import { useLangStore } from "@/store/lang";
 import { useTranslate } from "@/hooks/use-translate";
 
@@ -26,11 +26,20 @@ export const Header: FC = () => {
             </div>
 
             <nav className="flex items-center gap-6">
-              {navData[useTranslate(lang)].data.map((item) => (
-                <Link className="py-2" key={item.title} to={item.link}>
-                  {item.title}
-                </Link>
-              ))}
+              {navData[useTranslate(lang)].data.slice(0, 3).map((item) =>
+                !item.dropDown ? (
+                  <Link className="py-2" key={item.title} to={item.link || ""}>
+                    {item.title}
+                  </Link>
+                ) : (
+                  <Menu
+                    key={item.title}
+                    color={"white"}
+                    dropDownContent={item.dropDownContent}
+                    title={item.title}
+                  />
+                )
+              )}
             </nav>
           </div>
 
@@ -53,11 +62,20 @@ export const Header: FC = () => {
             </Link>
 
             <nav className="lg:flex hidden items-center gap-6">
-              {navData2[useTranslate(lang)].data.map(({ title, link }) => (
-                <Link key={title} to={link} className="flex items-center gap-2">
-                  {title} <img src="/chevron.svg" />
-                </Link>
-              ))}
+              {navData[useTranslate(lang)].data.slice(3, 6).map((item) =>
+                !item.dropDown ? (
+                  <Link className="py-2" key={item.title} to={item.link || ""}>
+                    {item.title}
+                  </Link>
+                ) : (
+                  <Menu
+                    key={item.title}
+                    dropDownContent={item.dropDownContent}
+                    title={item.title}
+                    color="black"
+                  />
+                )
+              )}
             </nav>
           </div>
 

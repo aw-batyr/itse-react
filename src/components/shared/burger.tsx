@@ -11,7 +11,6 @@ import { Button } from "../ui/button";
 import { ArrowUpRight } from "lucide-react";
 import { useTranslate } from "@/hooks/use-translate";
 import { useLangStore } from "@/store/lang";
-import { navData, navData2 } from "@/data/header.data";
 import { burgerData } from "@/data/burger.data";
 
 interface Props {
@@ -22,10 +21,6 @@ export const Burger: FC<Props> = () => {
   const [open, setOpen] = useState(false);
 
   const lang = useLangStore((state) => state.lang);
-
-  const navigation = navData.concat(navData2);
-
-  console.log(navigation);
 
   return (
     <Sheet onOpenChange={() => setOpen(!open)} open={open}>
