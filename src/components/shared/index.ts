@@ -15,6 +15,7 @@ export { FormSuccesStatus } from "./form-succes-status";
 export { Cover } from "./cover";
 export { Menu } from "./menu";
 export { Chevron } from "./chevron";
+export { Loader } from "./loader";
 
 export * from "./home";
 export * from "./b2b";
