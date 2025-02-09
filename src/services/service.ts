@@ -2,7 +2,7 @@ import { TimeType } from "@/hooks/tanstack/use-exhibition-time";
 import { ContactsFormType } from "@/lib/get-contacts-details";
 import { SponsorFormType } from "@/lib/get-sponsor-form-details";
 import { StandFormType } from "@/lib/get-stend-form-details";
-import { LangState, Language, useLangStore } from "@/store/lang";
+import { LangState } from "@/store/lang";
 import axios from "axios";
 
 const URL = "https://itse.turkmenexpo.com/app/api/v1";
@@ -15,8 +15,6 @@ const URL = "https://itse.turkmenexpo.com/app/api/v1";
 // const apiClient = axios.create({
 //   baseURL: API_CONFIG.BASE_URL,
 // });
-
-const lang = useLangStore.getState().lang;
 
 export const postStend = async (data: StandFormType): Promise<boolean> => {
   const res = axios.post(`${URL}/book_stand_form`, data);
