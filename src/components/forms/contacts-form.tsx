@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 import { Field } from "../shared";
 import { Button } from "../ui/button";
 import { postContact } from "@/services/service";
-import { Loader, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 interface Props {
