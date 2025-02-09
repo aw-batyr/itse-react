@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { FC } from "react";
-import { ContactCard, Container, TimeCard } from "../";
+import { ContactCard, Container, Loader, TimeCard } from "../";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useTranslate } from "@/hooks/use-translate";
@@ -16,9 +16,9 @@ interface Props {
 export const HomeTime: FC<Props> = ({ className }) => {
   const lang = useLangStore((state) => state.lang);
 
-  const { data } = useExhibitionTime();
+  const { data, isPending } = useExhibitionTime();
 
-  console.log(data);
+  if (isPending) return <Loader />;
 
   return (
     <section className={cn("bg-surface_high pt-10 pb-20", className)}>
@@ -27,8 +27,8 @@ export const HomeTime: FC<Props> = ({ className }) => {
 
         <div className="flex flex-col gap-6">
           <div className="flex flex-col md:flex-row items-center gap-6">
-            {times[useTranslate(lang)].data.map((item) => (
-              <TimeCard {...item} key={item.name} className="w-full" />
+            {data?.map((item, i) => (
+              <TimeCard {...item} key={i} className="w-full" />
             ))}
           </div>
 
