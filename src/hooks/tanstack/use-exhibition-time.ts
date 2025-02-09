@@ -19,7 +19,7 @@ export const useExhibitionTime = () => {
   const lang = useLangStore((state) => state.lang);
 
   const { data, isPending } = useQuery({
-    queryKey: ["exhibiton-time"],
+    queryKey: ["exhibiton-time", lang],
     queryFn: () => getExhibitionTime(lang),
     select: ({ data }) => data.data,
   });
