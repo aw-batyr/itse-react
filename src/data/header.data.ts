@@ -3,7 +3,8 @@ export const navData = [
     data: [
       {
         title: "Путеводитель",
-        link: "",
+        link: "https://itse.turkmenexpo.com/app/storage/app/media/travel_guide/Travel_guide_ru.pdf",
+        blank: true,
       },
       {
         title: "Новости",
@@ -84,7 +85,8 @@ export const navData = [
     data: [
       {
         title: "Travel Guide",
-        link: "",
+        link: "https://itse.turkmenexpo.com/app/storage/app/media/travel_guide/Travel_guide_ru.pdf",
+        blank: true,
       },
       {
         title: "Contacts",

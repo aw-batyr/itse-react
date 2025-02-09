@@ -28,7 +28,12 @@ export const Header: FC = () => {
             <nav className="flex items-center gap-6">
               {navData[useTranslate(lang)].data.slice(0, 3).map((item) =>
                 !item.dropDown ? (
-                  <Link className="py-2" key={item.title} to={item.link || ""}>
+                  <Link
+                    target={item.blank ? "_blank" : ""}
+                    className="py-2"
+                    key={item.title}
+                    to={item.link || ""}
+                  >
                     {item.title}
                   </Link>
                 ) : (

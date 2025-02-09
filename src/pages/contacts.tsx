@@ -2,6 +2,7 @@ import { ContactsForm } from "@/components/forms/contacts-form";
 import { Container } from "@/components/shared";
 import { useScrollTop } from "@/hooks/use-scroll-top";
 import { FC } from "react";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   className?: string;
@@ -10,6 +11,8 @@ interface Props {
 export const Contacts: FC<Props> = () => {
   useScrollTop();
 
+  const { t } = useTranslation("contacts");
+
   return (
     <div className={"flex flex-col gap-20 pt-10 md:pt-20"}>
       <Container>
@@ -17,16 +20,16 @@ export const Contacts: FC<Props> = () => {
           <ContactsForm />
 
           <div className="p-6 bg-bg_surface_container rounded-[8px]">
-            <h2 className="h2 mb-10 xl:mb-8">Контакты</h2>
+            <h2 className="h2 mb-10 xl:mb-8">{t("title_2")}</h2>
 
             <div className="flex flex-col gap-20">
               <div className="flex items-center gap-6">
                 <img src="/contacts/address.svg" alt="address" />
 
                 <div>
-                  <h3 className="text-xl mb-2">Адрес офиса:</h3>
+                  <h3 className="text-xl mb-2">{t("address")}</h3>
                   <address className="text-base normal not-italic">
-                    744000, г. Ашхабад, просп. Битарап Туркменистан, 183
+                    {t("venue")}
                   </address>
                 </div>
               </div>
@@ -34,19 +37,10 @@ export const Contacts: FC<Props> = () => {
                 <img src="/contacts/phone.svg" alt="phone" />
 
                 <div>
-                  <h3 className="text-xl mb-2">Телефон:</h3>
+                  <h3 className="text-xl mb-2">{t("phone")}</h3>
                   <h4 className="text-base normal">
                     +99371871814; 99363719588
                   </h4>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-6">
-                <img src="/contacts/fax.svg" alt="fax" />
-
-                <div>
-                  <h3 className="text-xl mb-2">Факс:</h3>
-                  <h4 className="text-base normal">+99312454111</h4>
                 </div>
               </div>
 

@@ -3,8 +3,8 @@ export const stendData = [
     cover: "Забронировать стенд",
     h2: "Выберите один из вариантов:",
 
-    radio: "Только стенд",
-    radio_2: "Комплексное предложение",
+    radio: "Необорудованная площадь",
+    radio_2: "Оборудованная площадь",
 
     label_1: "Название компании/организации",
     label_2: "Имя представителя",
@@ -26,8 +26,8 @@ export const stendData = [
     cover: "Book your stand",
     h2: "Select one of the options:",
 
-    radio: "Space Only",
-    radio_2: "Stand Package",
+    radio: "Stand space only",
+    radio_2: "Prefabricated stand",
 
     label_1: "Company/Organization Name",
     label_2: "Name of Representative",

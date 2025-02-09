@@ -11,11 +11,11 @@ export const Loader: FC<Props> = ({ className }) => {
   return (
     <Container
       className={cn(
-        "w-full h-full flex items-center justify-between",
+        "w-full py-20 h-full flex items-center justify-between",
         className
       )}
     >
-      <Loader2 className="animate-spin mx-auto text-primary size-12" />
+      <Loader2 className="animate-spin mx-auto text-primary size-16" />
     </Container>
   );
 };

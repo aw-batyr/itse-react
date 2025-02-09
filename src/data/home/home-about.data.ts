@@ -12,19 +12,19 @@ export const homeAbout = [
     data: [
       {
         nums: "10,000 m²",
-        text: "выставочной площади",
+        text: "Выставочной площади",
       },
       {
         nums: "10000+",
-        text: "Посетители посетят выставку",
+        text: "Ожидаемых посетителей",
       },
       {
         nums: "100+",
-        text: "Экспоненты из более чем 30 стран",
+        text: "Экспонентов из более чем 30 стран",
       },
       {
         nums: "80%",
-        text: "Участники принимают участие в принятии решений о закупках",
+        text: "Участников топ-менеджмента",
       },
     ],
   },
@@ -42,19 +42,19 @@ export const homeAbout = [
     data: [
       {
         nums: "10,000 m²",
-        text: "Of the exhibition area",
+        text: "Exhibition area",
       },
       {
         nums: "10000+",
-        text: "Visitors and specialists attend the exhibition",
+        text: "Expected visitors",
       },
       {
         nums: "100+",
-        text: "More than 100 exhibitors from 30 countries ",
+        text: "Exhibitors from over 30 countries",
       },
       {
         nums: "80%",
-        text: "Visitors are involved in procurement decisions",
+        text: "Participants are top-management",
       },
     ],
   },
