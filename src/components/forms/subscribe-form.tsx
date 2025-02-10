@@ -33,7 +33,7 @@ export const SubscribeForm: FC<Props> = () => {
       onSubmit={form.handleSubmit(onSubmit)}
       className="py-8 bg-bg_surface_container"
     >
-      <Container className="flex items-center justify-between">
+      <Container className="flex lg:flex-row flex-col gap-6 lg:items-center justify-between">
         <h2 className="h2">
           {useLang("Подпишитесь на новости:", "Subscribe to the news:")}
         </h2>
@@ -42,14 +42,14 @@ export const SubscribeForm: FC<Props> = () => {
           <input
             {...form.register("email")}
             placeholder="E-mail"
-            className="input xl:w-[392px] w-[320px]"
+            className="input xl:w-[392px] lg:w-[320px] w-full"
           />
           <span className="text-error absolute -bottom-6 text-sm left-0">
             {form.formState.errors?.email?.message}
           </span>
         </div>
 
-        <Button className="xl:w-[288px] w-[220px]">
+        <Button className="xl:w-[288px] lg:w-[220px] w-full">
           {useLang("Подписаться", "Subscribe")}
         </Button>
       </Container>

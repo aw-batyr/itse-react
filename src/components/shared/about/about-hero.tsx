@@ -1,8 +1,9 @@
 import { FC } from "react";
-import { Container, Cover } from "../";
+import { Container, Cover, Loader } from "../";
 import { useTranslate } from "@/hooks/use-translate";
 import { useLangStore } from "@/store/lang";
 import { aboutInfo } from "@/data/about/about-info";
+import { useStaticWords } from "@/hooks/tanstack/use-static-words";
 
 interface Props {
   className?: string;
@@ -11,37 +12,50 @@ interface Props {
 export const AboutHero: FC<Props> = ({ className }) => {
   const lang = useLangStore((state) => state.lang);
 
+  const { data, isPending } = useStaticWords(String(2));
+
+  const block_2 = data?.find((item) => item.key === "about_2");
+  const block_3 = data?.find((item) => item.key === "about_3");
+  const block_4 = data?.find((item) => item.key === "about_4");
+
+  const title_1 = data?.find((item) => item.key === "about_1_title")?.text;
+  const text_1 = data?.find((item) => item.key === "about_1_description")?.text;
+
   return (
     <div className={className}>
       <Cover title={aboutInfo[useTranslate(lang)].cover} />
 
-      <Container className="flex flex-col md:my-20 my-10 gap-16">
-        <div className="flex flex-col gap-6">
-          <h3 className="h2">{aboutInfo[useTranslate(lang)].title1} </h3>
-          <p className="text-18">{aboutInfo[useTranslate(lang)].p1} </p>
-        </div>
+      {isPending ? (
+        <Loader className="my-40" />
+      ) : (
+        <Container className="flex flex-col md:my-20 my-10 gap-16">
+          <div className="flex flex-col gap-6">
+            <h3 className="h2">{title_1}</h3>
+            <p className="text-18">{text_1}</p>
+          </div>
 
-        <div className="flex flex-col gap-6">
-          <h3 className="h2">{aboutInfo[useTranslate(lang)].title2}</h3>
+          <div className="flex flex-col gap-6">
+            <h3 className="h2">{block_2?.text}</h3>
 
-          <ul className="list-disc pl-8 flex flex-col gap-3 text-lg text-on_surface_v normal">
-            {aboutInfo[useTranslate(lang)].ul.map((text) => (
-              <li key={text}>{text}</li>
-            ))}
-          </ul>
-        </div>
+            <ul className="list-disc pl-8 flex flex-col gap-3 text-lg text-on_surface_v normal">
+              {block_2?.list?.map((item) => (
+                <li key={item.text}>{item.text}</li>
+              ))}
+            </ul>
+          </div>
 
-        <div className="flex flex-col gap-6">
-          <h3 className="h2">{aboutInfo[useTranslate(lang)].title3}</h3>
-          <ul className="list-disc pl-8 flex flex-col gap-3 text-lg text-on_surface_v normal">
-            {aboutInfo[useTranslate(lang)].ul2.map((text) => (
-              <li key={text}>{text}</li>
-            ))}
-          </ul>
+          <div className="flex flex-col gap-6">
+            <h3 className="h2">{block_3?.text}</h3>
+            <ul className="list-disc pl-8 flex flex-col gap-3 text-lg text-on_surface_v normal">
+              {block_3?.list?.map((item) => (
+                <li key={item.text}>{item.text}</li>
+              ))}
+            </ul>
 
-          <p className="text-18">{aboutInfo[useTranslate(lang)].bottomText}</p>
-        </div>
-      </Container>
+            <p className="text-18">{block_4?.text}</p>
+          </div>
+        </Container>
+      )}
     </div>
   );
 };
