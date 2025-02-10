@@ -1,6 +1,6 @@
 export const b2bStage1 = [
   {
-    h2: "Информация об экспоненте:",
+    h2: "Информация об участнике:",
     data: [
       {
         label: "Название компании/организации",
@@ -18,13 +18,13 @@ export const b2bStage1 = [
         label: "Страна",
       },
       {
-        label: "E-mail адрес",
+        label: "Email",
       },
       {
         label: "Номер телефона",
       },
       {
-        label: "Вебсайт",
+        label: "Веб-сайт",
       },
     ],
   },
@@ -48,7 +48,7 @@ export const b2bStage1 = [
         label: "Country",
       },
       {
-        label: "E-mail address",
+        label: "Email",
       },
       {
         label: "Phone number",

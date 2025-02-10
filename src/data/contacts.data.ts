@@ -23,7 +23,7 @@ export const contacts = [
     data: [
       {
         title: "contact@turkmenexpo.com",
-        subtitle: "E-mail Address",
+        subtitle: "Email",
         img: "/contacts/mail.svg",
       },
       {

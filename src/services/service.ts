@@ -1,4 +1,5 @@
 import { TimeType } from "@/hooks/tanstack/use-exhibition-time";
+import { IndustriesType } from "@/hooks/tanstack/use-industries";
 import { StaticType } from "@/hooks/tanstack/use-static-words";
 import { ContactsFormType } from "@/lib/get-contacts-details";
 import { SponsorFormType } from "@/lib/get-sponsor-form-details";
@@ -61,8 +62,8 @@ export const getStaticWords = async (lang: LangState["lang"], id: string) => {
   return data;
 };
 
-export const getIndustries = async (lang: LangState["lang"], id: string) => {
-  const data = axios.get<StaticType>(`${URL}/pages/${id}`, {
+export const getIndustries = async (lang: LangState["lang"]) => {
+  const data = axios.get<IndustriesType>(`${URL}/industries`, {
     headers: {
       "Accept-Language": lang,
     },

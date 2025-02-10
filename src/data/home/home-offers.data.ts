@@ -32,7 +32,7 @@ export const offersData = [
         title: "Explore the ITSE 2025 Exhibition Plan",
         btnText: "Download Exhibition plan",
         text: `How to choose the best location at the exhibition? A Prime spot increases your chances of attracting potential clients.`,
-        link: "https://itse.turkmenexpo.com/app/storage/app/media/travel_guide/Travel_guide_ru.pdf",
+        link: "https://itse.turkmenexpo.com/app/storage/app/media/Floor%20plan/Floor%20plan.pdf",
       },
     ],
   },

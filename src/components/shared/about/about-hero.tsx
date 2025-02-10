@@ -17,6 +17,7 @@ export const AboutHero: FC<Props> = ({ className }) => {
   const block_2 = data?.find((item) => item.key === "about_2");
   const block_3 = data?.find((item) => item.key === "about_3");
   const block_4 = data?.find((item) => item.key === "about_4");
+  const block_6 = data?.find((item) => item.key === "about_6");
 
   const title_1 = data?.find((item) => item.key === "about_1_title")?.text;
   const text_1 = data?.find((item) => item.key === "about_1_description")?.text;
@@ -30,12 +31,12 @@ export const AboutHero: FC<Props> = ({ className }) => {
       ) : (
         <Container className="flex flex-col md:my-20 my-10 gap-16">
           <div className="flex flex-col gap-6">
-            <h3 className="h2">{title_1}</h3>
+            <h2 className="h2">{title_1}</h2>
             <p className="text-18">{text_1}</p>
           </div>
 
           <div className="flex flex-col gap-6">
-            <h3 className="h2">{block_2?.text}</h3>
+            <h2 className="h2">{block_2?.text}</h2>
 
             <ul className="list-disc pl-8 flex flex-col gap-3 text-lg text-on_surface_v normal">
               {block_2?.list?.map((item) => (
@@ -45,7 +46,7 @@ export const AboutHero: FC<Props> = ({ className }) => {
           </div>
 
           <div className="flex flex-col gap-6">
-            <h3 className="h2">{block_3?.text}</h3>
+            <h2 className="h2">{block_3?.text}</h2>
             <ul className="list-disc pl-8 flex flex-col gap-3 text-lg text-on_surface_v normal">
               {block_3?.list?.map((item) => (
                 <li key={item.text}>{item.text}</li>
@@ -53,6 +54,15 @@ export const AboutHero: FC<Props> = ({ className }) => {
             </ul>
 
             <p className="text-18">{block_4?.text}</p>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <h2 className="h2">{block_6?.text}</h2>
+            <ul className="list-disc pl-8 flex flex-col gap-3 text-lg text-on_surface_v normal">
+              {block_6?.list?.map((item) => (
+                <li key={item.text}>{item.text}</li>
+              ))}
+            </ul>
           </div>
         </Container>
       )}

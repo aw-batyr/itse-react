@@ -41,7 +41,7 @@ export const SubscribeForm: FC<Props> = () => {
         <div className="relative">
           <input
             {...form.register("email")}
-            placeholder="E-mail"
+            placeholder="Email"
             className="input xl:w-[392px] lg:w-[320px] w-full"
           />
           <span className="text-error absolute -bottom-6 text-sm left-0">

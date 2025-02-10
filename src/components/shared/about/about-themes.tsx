@@ -2,10 +2,11 @@ import { cn } from "@/lib/utils";
 import { FC } from "react";
 import { Container } from "../container";
 import { ThemeCard } from "../theme-card";
-import { homeTheme } from "@/data/home/home-theme.data";
 import { useLangStore } from "@/store/lang";
 import { useTranslate } from "@/hooks/use-translate";
 import { aboutTheme } from "@/data/about/about-theme.data";
+import { useIndustries } from "@/hooks/tanstack/use-industries";
+import { Loader } from "../loader";
 
 interface Props {
   className?: string;
@@ -13,6 +14,8 @@ interface Props {
 
 export const AboutThemes: FC<Props> = ({ className }) => {
   const lang = useLangStore((state) => state.lang);
+
+  const { data, isPending } = useIndustries();
 
   return (
     <section
@@ -25,25 +28,29 @@ export const AboutThemes: FC<Props> = ({ className }) => {
       />
 
       <Container>
-        <h3 className="h2 mb-4"> {aboutTheme[useTranslate(lang)].title}</h3>
-        <p className="text-lg text-on_surface_v mb-6">
-          {aboutTheme[useTranslate(lang)].subtitle}
-        </p>
+        {isPending ? (
+          <Loader />
+        ) : (
+          <>
+            <h3 className="h2 mb-4"> {aboutTheme[useTranslate(lang)].title}</h3>
+            <p className="text-lg text-on_surface_v mb-6">
+              {aboutTheme[useTranslate(lang)].subtitle}
+            </p>
 
-        <div className="grid md:grid-cols-4 grid-cols-2 gap-6">
-          {homeTheme[useTranslate(lang)].data.map((item) => (
-            <ThemeCard
-              className="!bg-teritary_surface_container"
-              key={item.title}
-              {...item}
-            />
-          ))}
-        </div>
+            <div className="grid md:grid-cols-4 grid-cols-2 gap-6">
+              {data?.map((item, i) => (
+                <ThemeCard key={i} {...item} />
+              ))}
+            </div>
 
-        <div className="flex items-center gap-3 mt-8 text-on_surface_v text-lg">
-          <div className="md:w-1 w-4 md:h-[38px] h-40 bg-teritary_08" />
-          <p className="text-18">{aboutTheme[useTranslate(lang)].bottomText}</p>
-        </div>
+            <div className="flex items-center gap-3 mt-8 text-on_surface_v text-lg">
+              <div className="md:w-1 w-4 md:h-[38px] h-40 bg-teritary_08" />
+              <p className="text-18">
+                {aboutTheme[useTranslate(lang)].bottomText}
+              </p>
+            </div>
+          </>
+        )}
       </Container>
     </section>
   );

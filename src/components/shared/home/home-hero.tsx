@@ -30,7 +30,7 @@ export const HomeHero: FC = () => {
           <div className="embla__slide">
             <img
               src={getBanner()}
-              alt=""
+              alt="main image"
               className="size-full object-cover lg:max-h-[600px] lg:min-h-[320px]"
             />
           </div>

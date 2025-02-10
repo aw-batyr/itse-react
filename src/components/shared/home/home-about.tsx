@@ -1,25 +1,33 @@
 import { FC } from "react";
-import { AboutCard, Container } from "../";
+import { AboutCard, Container, Loader } from "../";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import useEmblaCarousel from "embla-carousel-react";
 import { useLangStore } from "@/store/lang";
 import { homeAbout } from "@/data/home/home-about.data";
 import { useTranslate } from "@/hooks/use-translate";
+import { useStaticWords } from "@/hooks/tanstack/use-static-words";
 
 export const HomeAbout: FC = () => {
   const [ebmblaRef] = useEmblaCarousel();
   const lang = useLangStore((state) => state.lang);
 
+  const { data, isPending } = useStaticWords("1");
+
+  console.log(data);
+
+  const title = data?.find((item) => item.key === "index_1_title")?.text;
+  const text = data?.find((item) => item.key === "index_1_description")?.text;
+
+  if (isPending) return <Loader />;
+
   return (
     <section>
       <Container className="flex flex-col gap-6">
         <div className="text-center">
-          <h2 className="h2 md:mb-3 mb-6 text-left sm:text-center">
-            {homeAbout[useTranslate(lang)].mainData[0].h2}
-          </h2>
+          <h2 className="h2 md:mb-3 mb-6 text-left sm:text-center">{title}</h2>
           <p className="md:text-base text-sm normal text-left sm:text-center text-[#454545]">
-            {homeAbout[useTranslate(lang)].mainData[0].p}
+            {text}
           </p>
         </div>
 

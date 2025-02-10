@@ -7,7 +7,7 @@ export const aboutTheme = [
   },
 
   {
-    title: "The event will bring together key players from industries such as:",
+    title: "Industries",
     subtitle:
       "The event will bring together key players from industries such as:",
     bottomText: `Participants will be able to showcase innovative solutions, establish mutually beneficial partnerships, and enter new markets.`,

@@ -64,7 +64,7 @@ export const ContactsForm: FC<Props> = ({ className }) => {
                 onPrimary
                 name="email"
                 control={form.control}
-                label="E-mail"
+                label="Email"
                 error={errors.email}
               />
               <Field

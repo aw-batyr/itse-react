@@ -11,9 +11,9 @@ export const stendData = [
     label_3: "Название должности/позиция",
     number_of_participants: "Количество участников",
     label_4: "Страна",
-    label_5: "E-mail адрес",
+    label_5: "Email",
     label_6: "Номер телефона",
-    label_7: "Вебсайт",
+    label_7: "Веб-сайт",
 
     visa: "Визовая поддержка:",
     visa_radio: "Да",
@@ -34,7 +34,7 @@ export const stendData = [
     label_3: "Job title/Position",
     number_of_participants: "Number of the participants",
     label_4: "Country",
-    label_5: "E-mail address",
+    label_5: "Email",
     label_6: "Phone number",
     label_7: "Website",
 

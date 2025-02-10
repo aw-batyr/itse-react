@@ -48,7 +48,7 @@ export const Contacts: FC<Props> = () => {
                 <img src="/contacts/email.svg" alt="email" />
 
                 <div>
-                  <h3 className="text-xl mb-2">E-mail:</h3>
+                  <h3 className="text-xl mb-2">Email:</h3>
                   <h4 className="text-base normal">contact@turkmenexpo.com</h4>
                 </div>
               </div>
