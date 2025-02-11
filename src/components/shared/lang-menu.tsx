@@ -5,6 +5,7 @@ import { Language, useLangStore } from "@/store/lang";
 
 interface Props {
   className?: string;
+  chevronColor?: string;
 }
 
 export const langs = [
@@ -16,7 +17,7 @@ export const langs = [
   },
 ];
 
-export const LangMenu: FC<Props> = ({ className }) => {
+export const LangMenu: FC<Props> = ({ className, chevronColor = "white" }) => {
   const lang = useLangStore((state) => state.lang);
   const setLang = useLangStore((state) => state.setLang);
 
@@ -38,7 +39,7 @@ export const LangMenu: FC<Props> = ({ className }) => {
             fillRule="evenodd"
             clipRule="evenodd"
             d="M4.23008 8.01443C4.35907 7.70304 4.66293 7.5 4.99998 7.5H15C15.337 7.5 15.6409 7.70304 15.7699 8.01443C15.8989 8.32583 15.8276 8.68426 15.5892 8.92259L10.5892 13.9226C10.2638 14.248 9.73617 14.248 9.41073 13.9226L4.41073 8.92259C4.1724 8.68426 4.1011 8.32583 4.23008 8.01443ZM7.01183 9.16667L9.99998 12.1548L12.9881 9.16667H7.01183Z"
-            fill="#fff"
+            fill={chevronColor}
           />
         </svg>
       </PopoverTrigger>
