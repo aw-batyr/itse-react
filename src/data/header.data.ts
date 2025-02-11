@@ -89,7 +89,7 @@ export const navData = [
         blank: true,
       },
       {
-        title: "Contacts us",
+        title: "Contact us",
         link: "/contacts",
       },
       {
