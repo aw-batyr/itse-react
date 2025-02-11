@@ -18,7 +18,8 @@ export interface Datum {
 }
 
 export interface List {
-  text: string;
+  text_ru: string;
+  text_en: string;
 }
 
 export interface Pivot {
