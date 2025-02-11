@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Container, Cover, Loader } from "../";
 import { useTranslate } from "@/hooks/use-translate";
-import { useLangStore } from "@/store/lang";
+import { Language, useLangStore } from "@/store/lang";
 import { aboutInfo } from "@/data/about/about-info";
 import { useStaticWords } from "@/hooks/tanstack/use-static-words";
 
@@ -40,7 +40,9 @@ export const AboutHero: FC<Props> = ({ className }) => {
 
             <ul className="list-disc pl-8 flex flex-col gap-3 text-lg text-on_surface_v normal">
               {block_2?.list?.map((item) => (
-                <li key={item.text}>{item.text}</li>
+                <li key={item.text_ru}>
+                  {lang === Language.RU ? item.text_ru : item.text_en}
+                </li>
               ))}
             </ul>
           </div>
@@ -49,7 +51,9 @@ export const AboutHero: FC<Props> = ({ className }) => {
             <h2 className="h2">{block_3?.text}</h2>
             <ul className="list-disc pl-8 flex flex-col gap-3 text-lg text-on_surface_v normal">
               {block_3?.list?.map((item) => (
-                <li key={item.text}>{item.text}</li>
+                <li key={item.text_ru}>
+                  {lang === Language.RU ? item.text_ru : item.text_en}
+                </li>
               ))}
             </ul>
 
@@ -60,7 +64,9 @@ export const AboutHero: FC<Props> = ({ className }) => {
             <h2 className="h2">{block_6?.text}</h2>
             <ul className="list-disc pl-8 flex flex-col gap-3 text-lg text-on_surface_v normal">
               {block_6?.list?.map((item) => (
-                <li key={item.text}>{item.text}</li>
+                <li key={item.text_ru}>
+                  {lang === Language.RU ? item.text_ru : item.text_en}
+                </li>
               ))}
             </ul>
           </div>
