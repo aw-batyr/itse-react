@@ -63,7 +63,7 @@ export const Header: FC = () => {
         <Container className="flex items-center justify-between ">
           <div className="flex items-center gap-8">
             <Link to="/">
-              <Logo />
+              <Logo className="size-36" />
             </Link>
 
             <nav className="lg:flex hidden items-center gap-6">
@@ -84,8 +84,8 @@ export const Header: FC = () => {
             </nav>
           </div>
 
-          <div className="flex items-center">
-            <LangMenu className="lg:hidden" />
+          <div className="flex items-center gap-4">
+            <LangMenu chevronColor="black" className="lg:hidden" />
             <Burger />
           </div>
 
