@@ -1,5 +1,5 @@
 import { ContactsForm } from "@/components/forms/contacts-form";
-import { Container } from "@/components/shared";
+import { Container, Loader } from "@/components/shared";
 import { useContacts } from "@/hooks/tanstack/use-contacts";
 import { useScrollTop } from "@/hooks/use-scroll-top";
 import { HOSTING } from "@/services/hosting";
@@ -14,7 +14,7 @@ export const Contacts: FC<Props> = () => {
   useScrollTop();
   const lang = useLangStore((state) => state.lang);
 
-  const { data } = useContacts();
+  const { data, isPending } = useContacts();
 
   const info = data?.info[0];
 
@@ -28,46 +28,50 @@ export const Contacts: FC<Props> = () => {
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-6">
           <ContactsForm />
 
-          <div className="p-6 bg-bg_surface_container rounded-[8px]">
-            <h2 className="h2 mb-10 xl:mb-8">{data?.header}</h2>
+          {isPending ? (
+            <Loader />
+          ) : (
+            <div className="p-6 bg-bg_surface_container rounded-[8px]">
+              <h2 className="h2 mb-10 xl:mb-8">{data?.header}</h2>
 
-            <div className="flex flex-col gap-20">
-              <div className="flex items-center gap-6">
-                <img src={HOSTING + info?.address_image} alt="address" />
+              <div className="flex flex-col gap-20">
+                <div className="flex items-center gap-6">
+                  <img src={HOSTING + info?.address_image} alt="address" />
 
-                <div>
-                  <h3 className="text-xl mb-2">
-                    {getLang(info?.title_address_ru, info?.title_address_en)}
-                  </h3>
-                  <address className="text-base normal not-italic">
-                    {getLang(info?.address_ru, info?.address_en)}
-                  </address>
+                  <div>
+                    <h3 className="text-xl mb-2">
+                      {getLang(info?.title_address_ru, info?.title_address_en)}
+                    </h3>
+                    <address className="text-base normal not-italic">
+                      {getLang(info?.address_ru, info?.address_en)}
+                    </address>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center gap-6">
-                <img src={HOSTING + info?.phone_image} alt="phone" />
+                <div className="flex items-center gap-6">
+                  <img src={HOSTING + info?.phone_image} alt="phone" />
 
-                <div>
-                  <h3 className="text-xl mb-2">
-                    {getLang(info?.title_phone_ru, info?.title_phone_en)}
-                  </h3>
-                  <h4 className="text-base normal">{info?.phone_numbers} </h4>
+                  <div>
+                    <h3 className="text-xl mb-2">
+                      {getLang(info?.title_phone_ru, info?.title_phone_en)}
+                    </h3>
+                    <h4 className="text-base normal">{info?.phone_numbers} </h4>
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex items-center gap-6">
-                <img src={HOSTING + info?.email_image} alt="email" />
+                <div className="flex items-center gap-6">
+                  <img src={HOSTING + info?.email_image} alt="email" />
 
-                <div>
-                  <h3 className="text-xl mb-2">
-                    {" "}
-                    {getLang(info?.title_email_ru, info?.title_email_en)}
-                  </h3>
-                  <h4 className="text-base normal">{info?.email}</h4>
+                  <div>
+                    <h3 className="text-xl mb-2">
+                      {" "}
+                      {getLang(info?.title_email_ru, info?.title_email_en)}
+                    </h3>
+                    <h4 className="text-base normal">{info?.email}</h4>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </section>
       </Container>
 
