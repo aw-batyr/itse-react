@@ -5,7 +5,6 @@ import { useScrollTop } from "@/hooks/use-scroll-top";
 import { HOSTING } from "@/services/hosting";
 import { useLangStore } from "@/store/lang";
 import { FC } from "react";
-import { useTranslation } from "react-i18next";
 
 interface Props {
   className?: string;
