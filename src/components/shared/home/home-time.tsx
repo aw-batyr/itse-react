@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import { useTranslate } from "@/hooks/use-translate";
 import { Language, useLangStore } from "@/store/lang";
 import { times } from "@/data/home/home-time.data";
-import { contacts } from "@/data/contacts.data";
 import { useExhibitionTime } from "@/hooks/tanstack/use-exhibition-time";
+import { useHomeContacts } from "@/hooks/tanstack/use-home-contacts";
 
 interface Props {
   className?: string;
@@ -17,6 +17,7 @@ export const HomeTime: FC<Props> = ({ className }) => {
   const lang = useLangStore((state) => state.lang);
 
   const { data, isPending } = useExhibitionTime();
+  const { data: contacts } = useHomeContacts();
 
   if (isPending) return <Loader />;
 
@@ -33,8 +34,8 @@ export const HomeTime: FC<Props> = ({ className }) => {
           </div>
 
           <div className="md:p-10 pt-16 flex flex-col md:flex-row items-center gap-6">
-            {contacts[useTranslate(lang)].data.map((item) => (
-              <ContactCard {...item} key={item.title} className="w-full" />
+            {contacts?.map((item, i) => (
+              <ContactCard {...item} key={i} className="w-full" />
             ))}
           </div>
 
