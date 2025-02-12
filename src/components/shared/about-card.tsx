@@ -2,12 +2,12 @@ import { cn } from "@/lib/utils";
 import { FC } from "react";
 
 interface Props {
-  nums: string;
+  title: string;
   text: string;
   className?: string;
 }
 
-export const AboutCard: FC<Props> = ({ className, nums, text }) => {
+export const AboutCard: FC<Props> = ({ className, title, text }) => {
   return (
     <article
       className={cn(
@@ -17,7 +17,7 @@ export const AboutCard: FC<Props> = ({ className, nums, text }) => {
     >
       <img src="/bg-logo.svg" className="absolute top-2 right-0" />
       <h2 className="text-primary text-[32px] semibold leading-[130%] mb-4">
-        {nums}
+        {title}
       </h2>
 
       <h4 className="text-on_surface normal text-base">{text}</h4>

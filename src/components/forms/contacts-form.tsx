@@ -95,6 +95,7 @@ export const ContactsForm: FC<Props> = ({ className }) => {
               className="w-full"
               variant="secondary"
               disabled={form.formState.isSubmitting || status}
+              loading={form.formState.isSubmitting}
             >
               {status ? (
                 t("submitted")

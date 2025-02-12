@@ -1,6 +1,9 @@
 import { ContactsForm } from "@/components/forms/contacts-form";
 import { Container } from "@/components/shared";
+import { useContacts } from "@/hooks/tanstack/use-contacts";
 import { useScrollTop } from "@/hooks/use-scroll-top";
+import { HOSTING } from "@/services/hosting";
+import { useLangStore } from "@/store/lang";
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -10,8 +13,15 @@ interface Props {
 
 export const Contacts: FC<Props> = () => {
   useScrollTop();
+  const lang = useLangStore((state) => state.lang);
 
-  const { t } = useTranslation("contacts");
+  const { data } = useContacts();
+
+  const info = data?.info[0];
+
+  function getLang(arg?: string, arg2?: string) {
+    return lang === "ru" ? arg : arg2;
+  }
 
   return (
     <div className={"flex flex-col gap-20 pt-10 md:pt-20"}>
@@ -20,36 +30,41 @@ export const Contacts: FC<Props> = () => {
           <ContactsForm />
 
           <div className="p-6 bg-bg_surface_container rounded-[8px]">
-            <h2 className="h2 mb-10 xl:mb-8">{t("title_2")}</h2>
+            <h2 className="h2 mb-10 xl:mb-8">{data?.header}</h2>
 
             <div className="flex flex-col gap-20">
               <div className="flex items-center gap-6">
-                <img src="/contacts/address.svg" alt="address" />
+                <img src={HOSTING + info?.address_image} alt="address" />
 
                 <div>
-                  <h3 className="text-xl mb-2">{t("address")}</h3>
+                  <h3 className="text-xl mb-2">
+                    {getLang(info?.title_address_ru, info?.title_address_en)}
+                  </h3>
                   <address className="text-base normal not-italic">
-                    {t("venue")}
+                    {getLang(info?.address_ru, info?.address_en)}
                   </address>
                 </div>
               </div>
               <div className="flex items-center gap-6">
-                <img src="/contacts/phone.svg" alt="phone" />
+                <img src={HOSTING + info?.phone_image} alt="phone" />
 
                 <div>
-                  <h3 className="text-xl mb-2">{t("phone")}</h3>
-                  <h4 className="text-base normal">
-                    +99371871814; 99363719588
-                  </h4>
+                  <h3 className="text-xl mb-2">
+                    {getLang(info?.title_phone_ru, info?.title_phone_en)}
+                  </h3>
+                  <h4 className="text-base normal">{info?.phone_numbers} </h4>
                 </div>
               </div>
 
               <div className="flex items-center gap-6">
-                <img src="/contacts/email.svg" alt="email" />
+                <img src={HOSTING + info?.email_image} alt="email" />
 
                 <div>
-                  <h3 className="text-xl mb-2">Email:</h3>
-                  <h4 className="text-base normal">contact@turkmenexpo.com</h4>
+                  <h3 className="text-xl mb-2">
+                    {" "}
+                    {getLang(info?.title_email_ru, info?.title_email_en)}
+                  </h3>
+                  <h4 className="text-base normal">{info?.email}</h4>
                 </div>
               </div>
             </div>

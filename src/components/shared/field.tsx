@@ -71,7 +71,7 @@ export const Field = ({
                   className={cn(
                     error && "border-[#BA1A1A]",
                     onPrimary &&
-                      "border-primary_outline_reverse focus:border-white hover:border-white focus:border-1 text-on_primary"
+                      "ring-primary_outline_reverse focus:ring-white hover:ring-white focus:ring-[3px] text-on_primary"
                   )}
                 />
               ) : type !== "file" ? (
@@ -81,9 +81,9 @@ export const Field = ({
                   placeholder={placeholder}
                   disabled={disabled}
                   className={cn(
-                    error && "border-[#BA1A1A]",
+                    error && "ring-[#BA1A1A]",
                     onPrimary &&
-                      "border-primary_outline_reverse focus:border-white hover:border-white focus:border-1 text-on_primary"
+                      "ring-primary_outline_reverse focus:ring-white hover:ring-white focus:ring-[3px] text-on_primary"
                   )}
                 />
               ) : (
