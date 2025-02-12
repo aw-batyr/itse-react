@@ -3,19 +3,19 @@ import { FC } from "react";
 
 interface Props {
   className?: string;
-  subtitle: string;
+  info: string;
   title: string;
-  img: string;
+  image: { path: string };
 }
 
-export const ContactCard: FC<Props> = ({ className, subtitle, title, img }) => {
+export const ContactCard: FC<Props> = ({ className, info, title, image }) => {
   return (
     <div className={cn("flex items-center gap-4", className)}>
-      <img src={img} alt="contact icon" />
+      <img src={image?.path} alt="contact icon" />
 
       <div className="flex flex-col gap-2">
-        <h5 className="text-sm text-[#454545]">{subtitle}</h5>
-        <h4 className="text-[#171717] semibold">{title}</h4>
+        <h5 className="text-sm text-[#454545]">{title}</h5>
+        <h4 className="text-[#171717] semibold">{info}</h4>
       </div>
     </div>
   );

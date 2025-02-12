@@ -13,7 +13,7 @@ import { HomeContactsType } from "./types/home-contacts.type";
 const URL = "https://itse.turkmenexpo.com/app/api/v1";
 
 const axios_url = axios.create({
-  baseURL: "https://itse.turkmenexpo.com/app/api/v1",
+  baseURL: "https://itse.turkmenexpo.com/app/api/v1/",
 });
 
 export const postStend = async (data: StandFormType): Promise<boolean> => {
