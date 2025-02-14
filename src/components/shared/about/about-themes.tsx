@@ -33,10 +33,6 @@ export const AboutThemes: FC<Props> = ({ className }) => {
         ) : (
           <>
             <h3 className="h2 mb-4"> {aboutTheme[useTranslate(lang)].title}</h3>
-            <p className="text-lg text-on_surface_v mb-6">
-              {aboutTheme[useTranslate(lang)].subtitle}
-            </p>
-
             <div className="grid md:grid-cols-4 grid-cols-2 gap-6">
               {data?.map((item, i) => (
                 <ThemeCard key={i} {...item} />
