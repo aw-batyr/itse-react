@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Container, LangMenu, Logo, Menu, Modal } from "./";
+import { Container, LangMenu, Logo, Menu } from "./";
 import { ArrowUpRight, MapPin, Smartphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
