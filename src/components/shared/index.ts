@@ -16,6 +16,7 @@ export { Cover } from "./cover";
 export { Menu } from "./menu";
 export { Chevron } from "./chevron";
 export { Loader } from "./loader";
+export { Modal } from "./modal";
 
 export * from "./home";
 export * from "./b2b";

@@ -15,7 +15,7 @@ export const navData = [
             text: "Новости",
             link: "",
           },
-          { text: "Подписаться на новости" },
+          { text: "Подписаться на новости", modal: true },
         ],
       },
       {
@@ -98,7 +98,7 @@ export const navData = [
 
         dropDownContent: [
           { text: "News", link: "" },
-          { text: "Subscribe to the news" },
+          { text: "Subscribe to the news", modal: true },
         ],
       },
 
