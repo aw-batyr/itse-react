@@ -93,7 +93,6 @@ export const Field = ({
                     placeholder={placeholder}
                     onChange={(e) => {
                       const file = e.target.files?.[0] || null;
-                      console.log("Выбранный файл:", file); // Проверим, выбран ли файл
                       field.onChange(file); // Передаем файл в react-hook-form
                       if (handleChange) handleChange(e); // Дополнительный обработчик
                     }}
