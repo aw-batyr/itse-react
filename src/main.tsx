@@ -18,23 +18,23 @@ const router = createBrowserRouter([
       },
       {
         element: <B2b />,
-        path: "/B2B-B2G",
+        path: "B2B-B2G",
       },
       {
         element: <StendForm />,
-        path: "/stend-form",
+        path: "stend-form",
       },
       {
         element: <About />,
-        path: "/about",
+        path: "about",
       },
       {
         element: <Contacts />,
-        path: "/contacts",
+        path: "contacts",
       },
       {
         element: <BecomeSponsor />,
-        path: "/become-sponsor",
+        path: "become-sponsor",
       },
     ],
   },
