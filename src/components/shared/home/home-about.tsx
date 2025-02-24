@@ -15,8 +15,6 @@ export const HomeAbout: FC = () => {
 
   const { data, isPending } = useStaticWords("1");
 
-  console.log(data);
-
   const title = data?.find((item) => item.key === "index_1_title")?.text;
   const text = data?.find((item) => item.key === "index_1_description")?.text;
 
