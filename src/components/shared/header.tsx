@@ -4,12 +4,18 @@ import { ArrowUpRight, MapPin, Smartphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 import { Burger } from "./burger";
-import { navData } from "@/data/header.data";
 import { useLangStore } from "@/store/lang";
-import { useTranslate } from "@/hooks/use-translate";
+import { useTranslation } from "react-i18next";
+import { Navigation } from "@/locales/types/nav.type";
 
 export const Header: FC = () => {
   const lang = useLangStore((state) => state.lang);
+
+  const { t } = useTranslation("nav");
+
+  const nav = t("navigation", { returnObjects: true }) as Navigation[];
+
+  console.log(nav);
 
   return (
     <header>
@@ -26,10 +32,10 @@ export const Header: FC = () => {
             </div>
 
             <nav className="flex items-center gap-6">
-              {navData[useTranslate(lang)].data.slice(0, 3).map((item) =>
-                !item.dropDown ? (
+              {nav.slice(0, 3).map((item) =>
+                !item.drop ? (
                   <Link
-                    target={item.blank ? "_blank" : ""}
+                    target={item.blank ?? ""}
                     className="py-2"
                     key={item.title}
                     to={item.link || ""}
@@ -67,8 +73,8 @@ export const Header: FC = () => {
             </Link>
 
             <nav className="lg:flex hidden items-center gap-6">
-              {navData[useTranslate(lang)].data.slice(3, 6).map((item) =>
-                !item.dropDown ? (
+              {nav.slice(3, 6).map((item) =>
+                !item.drop ? (
                   <Link className="py-2" key={item.title} to={item.link || ""}>
                     {item.title}
                   </Link>
