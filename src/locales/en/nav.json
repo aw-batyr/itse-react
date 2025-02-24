@@ -1,0 +1,71 @@
+{
+  "navigation": [
+    {
+      "title": "Travel Guide",
+      "link": "https://itse.turkmenexpo.com/app/storage/app/media/travel_guide/Travel_guide_eng.pdf",
+      "blank": "blank"
+    },
+    {
+      "title": "News",
+      "drop": true,
+      "dropDownContent": [
+        { "text": "News", "link": "" },
+        {
+          "text": "Subscribe to the news",
+          "modal": true
+        }
+      ]
+    },
+    { "title": "Contact us", "link": "/contacts" },
+
+    {
+      "title": "About exhibition",
+      "drop": true,
+      "dropDownContent": [
+        { "text": "About exhibition", "link": "/about" },
+        {
+          "text": "Media",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "title": "Visitors",
+      "drop": true,
+      "dropDownContent": [
+        { "text": "Why visit?", "link": "" },
+        {
+          "text": "List of Participants",
+          "link": ""
+        },
+        {
+          "text": "Programme",
+          "link": ""
+        },
+        {
+          "text": "Travel guide",
+          "link": "https://itse.turkmenexpo.com/app/storage/app/media/travel_guide/Travel_guide_eng.pdf",
+          "blank": "blank"
+        }
+      ]
+    },
+    {
+      "title": "Exhibitors",
+      "drop": true,
+      "dropDownContent": [
+        {
+          "text": "Book a stand",
+          "link": "/stend"
+        },
+        {
+          "text": "Why exhibit",
+          "link": ""
+        },
+        {
+          "text": "Themtic areas of the exhibition",
+          "link": ""
+        }
+      ]
+    }
+  ]
+}
