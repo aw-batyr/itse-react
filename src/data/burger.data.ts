@@ -3,17 +3,58 @@ export const burgerData = [
     data: [
       {
         title: "О выставке",
-        link: "/about",
+        dropDown: true,
+
+        dropDownContent: [
+          {
+            text: "О выставке",
+            link: "/about",
+          },
+          {
+            text: "Медиа",
+            link: "",
+          },
+        ],
       },
       {
         title: "Посетителям",
-        link: "",
+
+        dropDown: true,
+        dropDownContent: [
+          {
+            text: "Почему стоит посетить?",
+            link: "",
+          },
+          {
+            text: "Список участников",
+            link: "",
+          },
+          {
+            text: "Путеводитель",
+            link: "https://itse.turkmenexpo.com/app/storage/app/media/travel_guide/Travel_guide_ru.pdf",
+            blank: true,
+          },
+        ],
       },
       {
-        title: "Экспонентам",
-        link: "",
-      },
+        title: "Участникам",
+        dropDown: true,
 
+        dropDownContent: [
+          {
+            text: "Забронировать стенд",
+            link: "/stend-form",
+          },
+          {
+            text: "Почему стоить участвовать?",
+            link: "",
+          },
+          {
+            text: "Тематические разделы ",
+            link: "",
+          },
+        ],
+      },
       {
         title: "Медиа",
         link: "",
@@ -29,24 +70,60 @@ export const burgerData = [
     data: [
       {
         title: "About exhibition",
-        link: "/about",
-      },
-      {
-        title: "To the Visitors",
-        link: "",
-      },
-      {
-        title: "To the Exhibitors",
-        link: "",
-      },
+        dropDown: true,
 
-      {
-        title: "Media",
-        link: "",
+        dropDownContent: [
+          {
+            text: "About exhibition",
+            link: "/about",
+          },
+          {
+            text: "Media",
+            link: "",
+          },
+        ],
       },
       {
-        title: "Contacts",
-        link: "/contacts",
+        title: "Visitors",
+        dropDown: true,
+        dropDownContent: [
+          {
+            text: "Why visit?",
+            link: "",
+          },
+          {
+            text: "List of Participants",
+            link: "",
+          },
+          {
+            text: "Programme",
+            link: "",
+          },
+          {
+            text: "Travel Guide",
+            link: "https://itse.turkmenexpo.com/app/storage/app/media/travel_guide/Travel_guide_eng.pdf",
+            blank: true,
+          },
+        ],
+      },
+      {
+        title: "Exhibitors",
+
+        dropDown: true,
+        dropDownContent: [
+          {
+            text: "Book a stand",
+            link: "/stend-form",
+          },
+          {
+            text: "Why exhibit?",
+            link: "",
+          },
+          {
+            text: "Thematic areas of the exhibition",
+            link: "",
+          },
+        ],
       },
     ],
   },
