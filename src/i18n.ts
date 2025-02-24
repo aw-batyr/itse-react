@@ -7,6 +7,9 @@ import { initReactI18next } from "react-i18next";
 import homeEn from "./locales/en/home.json";
 import homeRu from "./locales/ru/home.json";
 
+import navEn from "./locales/en/nav.json";
+import navRu from "./locales/ru/nav.json";
+
 // import aboutEn from "./locales/en/about.json";
 // import aboutRu from "./locales/ru/about.json";
 
@@ -22,12 +25,14 @@ i18n.use(initReactI18next).init({
     en: {
       // header: headerEn,
       home: homeEn,
+      nav: navEn,
       // about: aboutEn,
       contacts: contactsEn,
     },
     ru: {
       // header: headerRu,
       home: homeRu,
+      nav: navRu,
       // about: aboutRu,
       contacts: contactsRu,
     },
