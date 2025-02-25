@@ -78,6 +78,7 @@ export const Header: FC = () => {
                   </Link>
                 ) : (
                   <Menu
+                    triggerClassName="justify-between"
                     key={item.title}
                     dropDownContent={item.dropDownContent}
                     title={item.title}
