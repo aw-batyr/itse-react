@@ -13,7 +13,7 @@ export const Modal: FC<Props> = ({ className, title }) => {
     <Dialog>
       <DialogTrigger
         className={cn(
-          "h-14 px-3 flex gap-3 items-center hover:bg-slate-300/50 transition-all",
+          "h-14 px-3 flex gap-3 items-center text-on_surface hover:bg-slate-300/50 transition-all",
           className
         )}
       >
@@ -21,7 +21,7 @@ export const Modal: FC<Props> = ({ className, title }) => {
       </DialogTrigger>
 
       <DialogContent>
-        <SubscribeForm className="" modal />
+        <SubscribeForm modal />
       </DialogContent>
     </Dialog>
   );

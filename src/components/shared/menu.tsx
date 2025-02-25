@@ -4,6 +4,7 @@ import { Chevron, Modal } from "./";
 import { Link } from "react-router-dom";
 import { DropDownContent } from "@/locales/types/nav.type";
 import { cn } from "@/lib/utils";
+import { useUiStore } from "@/store/ui";
 
 interface Props {
   triggerClassName?: string;
@@ -11,19 +12,18 @@ interface Props {
   title: string;
   color?: string;
 
-  onMenu?: VoidFunction;
-
   dropDownContent?: DropDownContent[];
 }
 
 export const Menu: FC<Props> = ({
   title,
   dropDownContent,
+  className,
   color,
-  onMenu,
   triggerClassName,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const setSheet = useUiStore((state) => state.setSheet);
 
   return (
     <Popover open={isOpen} onOpenChange={() => setIsOpen(!isOpen)}>
@@ -37,13 +37,18 @@ export const Menu: FC<Props> = ({
         />
       </PopoverTrigger>
 
-      <PopoverContent className="w-fit px-0 py-2 cursor-pointer bg-slate-100">
+      <PopoverContent
+        className={cn("w-fit px-0 py-2 cursor-pointer bg-slate-100", className)}
+      >
         {dropDownContent &&
           dropDownContent.map((item) =>
             item.link ? (
               <Link
-                onClick={() => setIsOpen(false)}
-                className="h-14 px-3 flex gap-3 items-center hover:bg-slate-300/50 transition-all"
+                onClick={() => {
+                  setIsOpen(false);
+                  setSheet(false);
+                }}
+                className="h-14 px-3 text-on_surface flex gap-3 items-center hover:bg-slate-300/50 transition-all"
                 key={item.text}
                 target={item.blank ? "_blank" : ""}
                 to={item.link}
@@ -56,10 +61,9 @@ export const Menu: FC<Props> = ({
             ) : (
               <div
                 key={item.text}
-                className="h-14 px-3 flex items-center hover:bg-slate-300/50 transition-all"
+                className="h-14 px-3 text-on_surface flex items-center hover:bg-slate-300/50 transition-all"
                 onClick={() => {
                   setIsOpen(false);
-                  onMenu?.();
                 }}
               >
                 {item.text}

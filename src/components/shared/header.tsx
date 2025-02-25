@@ -15,8 +15,6 @@ export const Header: FC = () => {
 
   const nav = t("navigation", { returnObjects: true }) as Navigation[];
 
-  console.log(nav);
-
   return (
     <header>
       <div className="h-12 hidden lg:flex bg-primary text-on_primary items-center overflow-hidden">

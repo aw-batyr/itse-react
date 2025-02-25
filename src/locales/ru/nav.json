@@ -52,7 +52,7 @@
       "title": "Участникам",
       "drop": true,
       "dropDownContent": [
-        { "text": "Забронировать стенд", "link": "/stend" },
+        { "text": "Забронировать стенд", "link": "/stend-form" },
         {
           "text": "Почему стоит учатсвовать",
           "link": ""

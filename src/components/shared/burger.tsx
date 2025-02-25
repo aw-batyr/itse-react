@@ -13,6 +13,7 @@ import { useLangStore } from "@/store/lang";
 import { Menu } from "./menu";
 import { useTranslation } from "react-i18next";
 import { Navigation } from "@/locales/types/nav.type";
+import { useUiStore } from "@/store/ui";
 
 interface Props {
   className?: string;
@@ -20,16 +21,15 @@ interface Props {
 
 export const Burger: FC<Props> = () => {
   const { t } = useTranslation("nav");
-  const [open, setOpen] = useState(false);
-
   const lang = useLangStore((state) => state.lang);
 
   const nav = t("navigation", { returnObjects: true }) as Navigation[];
 
-  console.log(nav);
+  const sheet = useUiStore((state) => state.sheet);
+  const setSheet = useUiStore((state) => state.setSheet);
 
   return (
-    <Sheet onOpenChange={() => setOpen(!open)} open={open}>
+    <Sheet onOpenChange={() => setSheet(!sheet)} open={sheet}>
       <SheetTrigger>
         <div className="flex flex-col gap-1 lg:hidden items-center justify-center size-10">
           <div className="w-[18px] h-0.5 bg-on_secondary_container rounded-[2px]" />
@@ -38,7 +38,7 @@ export const Burger: FC<Props> = () => {
         </div>
       </SheetTrigger>
 
-      <SheetContent className="overflow-y-auto">
+      <SheetContent className="overflow-y-auto ">
         <SheetClose />
 
         <SheetHeader className="mt-16 flex flex-col gap-2">
@@ -65,7 +65,7 @@ export const Burger: FC<Props> = () => {
             </Button>
           </Link>
 
-          <Link to="/B2B-B2G" onClick={() => setOpen(false)}>
+          <Link to="/B2B-B2G" onClick={() => setSheet(false)}>
             <Button
               className="text-base w-full"
               variant={"teritary"}
@@ -77,7 +77,7 @@ export const Burger: FC<Props> = () => {
         </SheetHeader>
         <hr className="border-slate-500/20 my-8" />
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 relative">
           {nav.map((item) =>
             !item.drop ? (
               <Link
@@ -85,12 +85,13 @@ export const Burger: FC<Props> = () => {
                 className="py-2"
                 key={item.title}
                 to={item.link || ""}
-                onClick={() => setOpen(false)}
+                onClick={() => setSheet(false)}
               >
                 {item.title}
               </Link>
             ) : (
               <Menu
+                className="w-full"
                 triggerClassName="justify-between"
                 key={item.title}
                 color={"black"}
