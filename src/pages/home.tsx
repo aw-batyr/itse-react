@@ -4,6 +4,7 @@ import {
   HomeAbout,
   HomeHero,
   HomeOffers,
+  HomePartners,
   HomeTheme,
   HomeTime,
 } from "@/components/shared";
@@ -18,6 +19,7 @@ export const Home: FC = () => {
       <HomeAbout />
       <HomeOffers />
       <HomeTheme />
+      <HomePartners />
       <HomeTime />
     </div>
   );

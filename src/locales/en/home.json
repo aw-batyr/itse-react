@@ -3,5 +3,10 @@
     "lg": "https://itse.turkmenexpo.com/app/storage/app/media/banners/en/l.jpg",
     "md": "https://itse.turkmenexpo.com/app/storage/app/media/banners/en/m.jpg",
     "sm": "https://itse.turkmenexpo.com/app/storage/app/media/banners/en/s.jpg"
+  },
+
+  "partners": {
+    "title": "Partners",
+    "button": ""
   }
 }
