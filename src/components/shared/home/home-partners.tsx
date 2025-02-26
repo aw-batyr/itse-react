@@ -1,8 +1,7 @@
 import { cn } from "@/lib/utils";
-import { FC, useCallback } from "react";
+import { FC } from "react";
 import { Container, Loader } from "../";
 import useEmblaCarousel from "embla-carousel-react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import { usePartners } from "@/hooks/tanstack/use-partners";
 import Autoplay from "embla-carousel-autoplay";
 import { Link } from "react-router-dom";
@@ -13,7 +12,7 @@ interface Props {
 }
 
 export const HomePartners: FC<Props> = ({ className }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
+  const [emblaRef] = useEmblaCarousel(
     {
       loop: true,
       align: "center",
@@ -44,13 +43,13 @@ export const HomePartners: FC<Props> = ({ className }) => {
   //   [emblaApi]
   // );
 
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
+  // const scrollPrev = useCallback(() => {
+  //   if (emblaApi) emblaApi.scrollPrev();
+  // }, [emblaApi]);
 
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
+  // const scrollNext = useCallback(() => {
+  //   if (emblaApi) emblaApi.scrollNext();
+  // }, [emblaApi]);
 
   const { data, isPending } = usePartners();
 
