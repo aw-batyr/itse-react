@@ -10,6 +10,7 @@ import axios from "axios";
 import { ContactsPageType } from "./types/contacts.type";
 import { HomeContactsType } from "./types/home-contacts.type";
 import { PartnersType } from "@/hooks/tanstack/use-partners";
+import { NewsInnerType, NewsType } from "./types/news.type";
 
 const axios_url = axios.create({
   baseURL: "https://itse.turkmenexpo.com/app/api/v1/",
@@ -103,6 +104,26 @@ export const getContacts = async (lang: LangState["lang"]) => {
 
 export const getHomeContacts = async (lang: LangState["lang"]) => {
   const data = axios_url<HomeContactsType>("contact_data", {
+    headers: {
+      "Accept-Language": lang,
+    },
+  });
+
+  return data;
+};
+
+export const getNews = async (lang: LangState["lang"]) => {
+  const data = axios_url<NewsType>("news", {
+    headers: {
+      "Accept-Language": lang,
+    },
+  });
+
+  return data;
+};
+
+export const getNewsInner = async (lang: LangState["lang"], id = 1) => {
+  const data = axios_url<NewsInnerType>(`news/${id}`, {
     headers: {
       "Accept-Language": lang,
     },
