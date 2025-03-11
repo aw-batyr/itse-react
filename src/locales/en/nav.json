@@ -9,7 +9,7 @@
       "title": "News",
       "drop": true,
       "dropDownContent": [
-        { "text": "News", "link": "" },
+        { "text": "News", "link": "/news" },
         {
           "text": "Subscribe to the news",
           "modal": true
