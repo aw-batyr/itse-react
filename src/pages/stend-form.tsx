@@ -82,7 +82,7 @@ export const StendForm: FC<Props> = ({ className }) => {
                 control={form.control}
                 name="space_package"
                 render={({ field }) => (
-                  <FormItem className="space-y-5">
+                  <FormItem className="space-y-5 relative">
                     <FormLabel className="text-xl">
                       {stendData[useTranslate(lang)].h2}
                     </FormLabel>
@@ -122,6 +122,9 @@ export const StendForm: FC<Props> = ({ className }) => {
                         </FormItem>
                       </RadioGroup>
                     </FormControl>
+                    <FormMessage className="absolute -bottom-[130px] text-red-600 text-sm !opacity-100">
+                      {errors.space_package?.message}
+                    </FormMessage>
                   </FormItem>
                 )}
               />
@@ -132,7 +135,7 @@ export const StendForm: FC<Props> = ({ className }) => {
                 render={({ field }) => (
                   <FormItem
                     className={cn(
-                      "space-y-5 ml-14",
+                      "space-y-5 ml-14 transition-all relative",
                       field.value !== "package" &&
                         field.value !== "2" &&
                         field.value !== "3" &&
@@ -170,8 +173,6 @@ export const StendForm: FC<Props> = ({ className }) => {
                         </FormItem>
                       </RadioGroup>
                     </FormControl>
-
-                    <FormMessage>{errors?.space_package?.message}</FormMessage>
                   </FormItem>
                 )}
               />
