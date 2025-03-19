@@ -32,8 +32,6 @@ interface Props {
 export const StendForm: FC<Props> = ({ className }) => {
   useScrollTop();
 
-  const [activeId, setActiveId] = useState("0");
-
   const lang = useLangStore((state) => state.lang);
   const [success, setSuccess] = useState(false);
   const form = useForm<StandFormType>({
