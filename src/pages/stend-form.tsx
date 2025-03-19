@@ -23,6 +23,7 @@ import { useScrollTop } from "@/hooks/use-scroll-top";
 import { useLangStore } from "@/store/lang";
 import { stendData } from "@/data/stend.data";
 import { useTranslate } from "@/hooks/use-translate";
+import { cn } from "@/lib/utils";
 
 interface Props {
   className?: string;
@@ -30,6 +31,8 @@ interface Props {
 
 export const StendForm: FC<Props> = ({ className }) => {
   useScrollTop();
+
+  const [activeId, setActiveId] = useState("0");
 
   const lang = useLangStore((state) => state.lang);
   const [success, setSuccess] = useState(false);
@@ -40,7 +43,17 @@ export const StendForm: FC<Props> = ({ className }) => {
 
   const onSubmit = async (data: StandFormType) => {
     try {
-      const status = await postStend(data);
+      const transformedData = {
+        ...data,
+        space_package:
+          data.space_package === "1"
+            ? "Participate as a visitor ( free of charge)"
+            : data.space_package === "2"
+            ? "Participate as an exhibitor - Stand Space only"
+            : "Participate as an exhibitor - Prefabricated stand",
+      };
+
+      const status = await postStend(transformedData);
 
       setSuccess(status);
     } catch (error) {
@@ -82,8 +95,8 @@ export const StendForm: FC<Props> = ({ className }) => {
                         <FormItem className="flex items-center space-x-5 space-y-0">
                           <FormControl>
                             <RadioGroupItem
-                              value={"space"}
-                              checked={field.value === "space"}
+                              value={"1"}
+                              checked={field.value === "1"}
                             />
                           </FormControl>
                           <FormLabel className="text-base">
@@ -95,11 +108,63 @@ export const StendForm: FC<Props> = ({ className }) => {
                           <FormControl>
                             <RadioGroupItem
                               value={"package"}
-                              checked={field.value === "package"}
+                              checked={
+                                field.value === "package" ||
+                                field.value === "2" ||
+                                field.value === "3"
+                              }
                             />
                           </FormControl>
                           <FormLabel className="text-base">
                             {stendData[useTranslate(lang)].radio_2}
+                          </FormLabel>
+                        </FormItem>
+                      </RadioGroup>
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="space_package"
+                render={({ field }) => (
+                  <FormItem
+                    className={cn(
+                      "space-y-5 ml-14",
+                      field.value !== "package" &&
+                        field.value !== "2" &&
+                        field.value !== "3" &&
+                        "opacity-50 pointer-events-none"
+                    )}
+                  >
+                    <FormControl>
+                      <RadioGroup
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                        className="flex flex-col space-y-4 ml-3"
+                      >
+                        <FormItem className="flex items-center space-x-5 space-y-0">
+                          <FormControl>
+                            <RadioGroupItem
+                              value={"2"}
+                              checked={field.value === "2"}
+                            />
+                          </FormControl>
+                          <FormLabel className="text-base">
+                            {stendData[useTranslate(lang)].radio_group?.radio}
+                          </FormLabel>
+                        </FormItem>
+
+                        <FormItem className="flex items-center space-x-5 space-y-0">
+                          <FormControl>
+                            <RadioGroupItem
+                              value={"3"}
+                              checked={field.value === "3"}
+                            />
+                          </FormControl>
+                          <FormLabel className="text-base">
+                            {stendData[useTranslate(lang)].radio_group?.radio_2}
                           </FormLabel>
                         </FormItem>
                       </RadioGroup>

@@ -86,6 +86,10 @@
   }
 
   .input {
-    @apply flex h-14 rounded-[2px]  p-4 focus:ring-[3px] focus:outline-none focus:ring-primary transition-all hover:ring-on_surface ring-outline ring-1 bg-transparent text-base normal file:border-0 file:bg-secondary_container file:outline-none file:text-sm file:w-fit file:text-on_secondary_container file:font-medium  focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50;
+    @apply flex h-14 rounded-[2px] p-4 focus:ring-[3px] focus:outline-none focus:ring-primary transition-all hover:ring-on_surface ring-outline ring-1 bg-transparent text-base normal file:border-0 file:bg-secondary_container file:outline-none file:text-sm file:w-fit file:text-on_secondary_container file:font-medium  focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .radio {
+    @apply size-5 !p-4 rounded-full border !border-on_surface !mt-0;
   }
 }

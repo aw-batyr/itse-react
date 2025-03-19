@@ -38,7 +38,7 @@ export const standFormSchema = z.object({
 });
 
 export const standDefaultValues = {
-  space_package: "space",
+  space_package: "",
   company_name: "",
   rep_name: "",
   job_title: "",

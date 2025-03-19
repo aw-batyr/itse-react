@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 import { LegacyRef } from "react";
 import { Textarea } from "../ui/textarea";
 
-type Props = {
+export type FieldProps = {
   control: any;
   name: string;
   label?: string;
@@ -44,7 +44,7 @@ export const Field = ({
   handleChange,
 
   onPrimary = false,
-}: Props) => {
+}: FieldProps) => {
   return (
     <FormField
       control={control}

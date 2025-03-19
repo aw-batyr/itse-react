@@ -7,7 +7,7 @@ export const btns = [
         blank: true,
       },
       {
-        title: "Забронировать стенд",
+        title: "Зарегистрироваться",
         link: "/stend-form",
       },
       {
@@ -29,7 +29,7 @@ export const btns = [
         blank: true,
       },
       {
-        title: "Book a stand",
+        title: "Registration",
         link: "/stend-form",
       },
       {
