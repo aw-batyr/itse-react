@@ -6,6 +6,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
 } from "@/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { AnimatePresence, motion } from "motion/react";
@@ -45,10 +46,12 @@ export const StendForm: FC<Props> = ({ className }) => {
         ...data,
         space_package:
           data.space_package === "1"
-            ? "Participate as a visitor ( free of charge)"
+            ? "Participate as a visitor (free of charge)"
             : data.space_package === "2"
             ? "Participate as an exhibitor - Stand Space only"
-            : "Participate as an exhibitor - Prefabricated stand",
+            : data.space_package === "3"
+            ? "Participate as an exhibitor - Prefabricated stand"
+            : "",
       };
 
       const status = await postStend(transformedData);
@@ -167,6 +170,8 @@ export const StendForm: FC<Props> = ({ className }) => {
                         </FormItem>
                       </RadioGroup>
                     </FormControl>
+
+                    <FormMessage>{errors?.space_package?.message}</FormMessage>
                   </FormItem>
                 )}
               />
