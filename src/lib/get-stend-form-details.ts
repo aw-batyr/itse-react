@@ -3,7 +3,10 @@ import { z } from "zod";
 export type StandFormType = z.infer<typeof standFormSchema>;
 
 export const standFormSchema = z.object({
-  space_package: z.string().min(1, { message: "Выберите опцию" }),
+  space_package: z
+    .string()
+    .min(1, { message: "Выберите опцию" })
+    .refine((value) => value !== "package", "Выберите опцию"),
 
   company_name: z
     .string()
@@ -39,13 +42,13 @@ export const standFormSchema = z.object({
 
 export const standDefaultValues = {
   space_package: "",
-  company_name: "",
-  rep_name: "",
-  job_title: "",
+  company_name: "fdsadfsdf",
+  rep_name: "afdadsf",
+  job_title: "afsd",
   participants_number: 1,
-  country: "",
-  email: "",
-  phone: "",
+  country: "afdasdf",
+  email: "test@gmail.com",
+  phone: "324324234234342",
   website: "",
   visa_support: "",
 };
