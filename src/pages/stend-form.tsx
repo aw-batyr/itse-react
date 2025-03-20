@@ -42,10 +42,14 @@ export const StendForm: FC<Props> = ({ className }) => {
 
   const onSubmit = async (data: StandFormType) => {
     try {
+      if (data.space_package === "package") return;
+
       const transformedData = {
         ...data,
         space_package:
-          data.space_package === "1"
+          data.space_package === "package"
+            ? ""
+            : data.space_package === "1"
             ? "Participate as a visitor (free of charge)"
             : data.space_package === "2"
             ? "Participate as an exhibitor - Stand Space only"
@@ -100,7 +104,7 @@ export const StendForm: FC<Props> = ({ className }) => {
                               checked={field.value === "1"}
                             />
                           </FormControl>
-                          <FormLabel className="text-base">
+                          <FormLabel className="text-base cursor-pointer">
                             {stendData[useTranslate(lang)].radio}
                           </FormLabel>
                         </FormItem>
@@ -116,15 +120,16 @@ export const StendForm: FC<Props> = ({ className }) => {
                               }
                             />
                           </FormControl>
-                          <FormLabel className="text-base">
+                          <FormLabel className="text-base cursor-pointer">
                             {stendData[useTranslate(lang)].radio_2}
                           </FormLabel>
                         </FormItem>
                       </RadioGroup>
                     </FormControl>
-                    <FormMessage className="absolute -bottom-[130px] text-red-600 text-sm !opacity-100">
+
+                    <h4 className="text-error absolute -bottom-[140px]">
                       {errors.space_package?.message}
-                    </FormMessage>
+                    </h4>
                   </FormItem>
                 )}
               />
@@ -135,18 +140,18 @@ export const StendForm: FC<Props> = ({ className }) => {
                 render={({ field }) => (
                   <FormItem
                     className={cn(
-                      "space-y-5 ml-14 transition-all relative",
+                      "space-y-5 ml-14",
                       field.value !== "package" &&
                         field.value !== "2" &&
                         field.value !== "3" &&
-                        "opacity-50 pointer-events-none"
+                        "opacity-50 pointer-events-none relative"
                     )}
                   >
                     <FormControl>
                       <RadioGroup
                         onValueChange={field.onChange}
                         defaultValue={field.value}
-                        className="flex flex-col space-y-4 ml-3"
+                        className="flex flex-col space-y-4 ml-3 "
                       >
                         <FormItem className="flex items-center space-x-5 space-y-0">
                           <FormControl>
@@ -155,7 +160,7 @@ export const StendForm: FC<Props> = ({ className }) => {
                               checked={field.value === "2"}
                             />
                           </FormControl>
-                          <FormLabel className="text-base">
+                          <FormLabel className="text-base cursor-pointer">
                             {stendData[useTranslate(lang)].radio_group?.radio}
                           </FormLabel>
                         </FormItem>
@@ -167,7 +172,7 @@ export const StendForm: FC<Props> = ({ className }) => {
                               checked={field.value === "3"}
                             />
                           </FormControl>
-                          <FormLabel className="text-base">
+                          <FormLabel className="text-base cursor-pointer">
                             {stendData[useTranslate(lang)].radio_group?.radio_2}
                           </FormLabel>
                         </FormItem>
@@ -178,6 +183,7 @@ export const StendForm: FC<Props> = ({ className }) => {
               />
 
               <Field
+                className="mt-6"
                 label={stendData[useTranslate(lang)].label_1}
                 name="company_name"
                 control={form.control}
