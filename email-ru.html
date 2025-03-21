@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      @font-face {
+        font-family: "Gilroy-Regular";
+        src: local("Gilroy-Regular"),
+          url(public/fonts/Gilroy-Regular.woff2) format("woff2");
+        font-weight: 400;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        padding: 16px;
+        display: flex;
+        justify-content: center;
+        font-family: "Gilroy-Regular";
+        color: #26292e;
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      .text-start {
+        text-align: start;
+      }
+
+      .text-end {
+        text-align: end;
+      }
+
+      table {
+        border-collapse: collapse;
+        max-width: 600px;
+        width: 100%;
+      }
+
+      th {
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 400;
+      }
+
+      tfoot {
+        border-top: 1px solid rgba(0, 0, 0, 0.5);
+      }
+
+      @media (max-width: 600px) {
+        tr {
+          display: block !important;
+        }
+        th.text-start,
+        th.text-end {
+          display: block !important;
+          width: 100% !important;
+          text-align: left !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <table cellpadding="0" cellspacing="0">
+      <thead class="thead">
+        <tr>
+          <th style="text-align: start">
+            <img src="public/logo.svg" alt="logo" class="logo" />
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <th style="text-align: start; padding-top: 40px" colspan="2">
+            Уважаемый участник,
+          </th>
+        </tr>
+
+        <tr>
+          <th colspan="2" class="text-start" style="padding-top: 16px">
+            Благодарим Вас за предоставление всей необходимой информации. Наша
+            команда рассмотрит информацию, и мы свяжемся с вами в ближайшее
+            время, чтобы обсудить дальнейшие шаги.
+          </th>
+        </tr>
+
+        <tr>
+          <th colspan="2" class="text-start" style="padding-top: 16px">
+            Мы ценим вашу оперативность и с нетерпением ждем сотрудничества с
+            вами на предстоящем мероприятии.
+          </th>
+        </tr>
+
+        <tr>
+          <th class="text-start" style="padding: 16px 0 24px">
+            С уважением,
+            <br />
+            TurkmenExpo
+          </th>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <th colspan="2" class="text-start" style="padding: 24px 0">
+            Если у вас возникнут вопросы, пожалуйста, не стесняйтесь связаться с
+            нами:
+          </th>
+        </tr>
+
+        <tr>
+          <th
+            class="text-start"
+            style="
+              display: table-cell;
+              vertical-align: middle;
+              width: 50%;
+              padding: 12px 0;
+            "
+          >
+            <div style="display: inline-block; vertical-align: middle">
+              <img
+                src="public/contacts/email-phone.svg"
+                alt="phone"
+                style="vertical-align: middle; margin-right: 8px"
+              />
+              +99371871814 / +99363719588
+            </div>
+          </th>
+
+          <th
+            class="text-end"
+            style="
+              display: table-cell;
+              vertical-align: middle;
+              width: 50%;
+              padding: 12px 0;
+            "
+          >
+            <div
+              style="
+                display: inline-block;
+                vertical-align: middle;
+                text-align: right;
+              "
+            >
+              <img
+                src="public/contacts/email-mail.svg"
+                alt="contact"
+                style="vertical-align: middle; margin-right: 8px"
+              />
+              contact@turkmenexpo.com
+            </div>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+
+    <script></script>
+  </body>
+</html>

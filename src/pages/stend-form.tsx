@@ -57,7 +57,7 @@ export const StendForm: FC<Props> = ({ className }) => {
             : "",
       };
 
-      const status = await postStend(transformedData);
+      const status = await postStend(transformedData, lang);
 
       setSuccess(status);
     } catch (error) {

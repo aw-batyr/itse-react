@@ -11,6 +11,7 @@ import {
 import { Form } from "../ui/form";
 import { Stage1, Stage2, Stage3 } from "../shared/b2b";
 import { FormSuccesStatus } from "../shared";
+import { useLangStore } from "@/store/lang";
 
 interface Props {
   stage: number;
@@ -73,6 +74,8 @@ export const B2bForm: FC<Props> = ({ stage, setStage }) => {
     }
   };
 
+  const lang = useLangStore((state) => state.lang);
+
   const onSubmit = async (values: FormType) => {
     try {
       const formData = new FormData();
@@ -95,6 +98,7 @@ export const B2bForm: FC<Props> = ({ stage, setStage }) => {
         {
           headers: {
             "Content-Type": "multipart/form-data",
+            "Accept-Language": lang,
           },
         }
       );

@@ -16,20 +16,41 @@ const axios_url = axios.create({
   baseURL: "https://itse.turkmenexpo.com/app/api/v1/",
 });
 
-export const postStend = async (data: StandFormType): Promise<boolean> => {
-  const res = axios_url.post(`book_stand_form`, data);
+export const postStend = async (
+  data: StandFormType,
+  lang: LangState["lang"]
+): Promise<boolean> => {
+  const res = axios_url.post(`book_stand_form`, data, {
+    headers: {
+      "Accept-Language": lang,
+    },
+  });
 
   return (await res).status === 201;
 };
 
-export const postB2b = async (data: FormData): Promise<boolean> => {
-  const res = axios_url.post(`form`, data);
+export const postB2b = async (
+  data: FormData,
+  lang: LangState["lang"]
+): Promise<boolean> => {
+  const res = axios_url.post(`form`, data, {
+    headers: {
+      "Accept-Language": lang,
+    },
+  });
 
   return (await res).status === 201;
 };
 
-export const postSponsor = async (data: SponsorFormType): Promise<boolean> => {
-  const res = axios_url.post(`become_sponsor_form`, data);
+export const postSponsor = async (
+  data: SponsorFormType,
+  lang: LangState["lang"]
+): Promise<boolean> => {
+  const res = axios_url.post(`become_sponsor_form`, data, {
+    headers: {
+      "Accept-Language": lang,
+    },
+  });
 
   return (await res).status === 201;
 };
