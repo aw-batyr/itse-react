@@ -4,3 +4,4 @@ export { HomeAbout } from "./home-about";
 export { HomeTheme } from "./home-theme";
 export { HomePartners } from "./home-partners";
 export { HomeOffers } from "./home-offers";
+export { MediaPartners } from "./media-partners";

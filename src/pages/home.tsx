@@ -18,8 +18,8 @@ export const Home: FC = () => {
       <HomeHero />
       <HomeAbout />
       <HomeOffers />
-      <HomeTheme />
       <HomePartners />
+      <HomeTheme />
       <HomeTime />
     </div>
   );

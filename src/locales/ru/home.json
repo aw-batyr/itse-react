@@ -8,5 +8,9 @@
   "partners": {
     "title": "Партнёры",
     "button": ""
+  },
+  "mediaPartners": {
+    "title": "Медиа-партнёры",
+    "button": ""
   }
 }

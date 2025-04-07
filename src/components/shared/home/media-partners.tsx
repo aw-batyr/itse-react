@@ -2,16 +2,16 @@ import { cn } from "@/lib/utils";
 import { FC } from "react";
 import { Container, Loader } from "../";
 import useEmblaCarousel from "embla-carousel-react";
-import { usePartners } from "@/hooks/tanstack/use-partners";
 import Autoplay from "embla-carousel-autoplay";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useMediaPartners } from "@/hooks/tanstack/use-media-partners";
 
 interface Props {
   className?: string;
 }
 
-export const HomePartners: FC<Props> = ({ className }) => {
+export const MediaPartners: FC<Props> = ({ className }) => {
   const [emblaRef] = useEmblaCarousel(
     {
       loop: true,
@@ -24,9 +24,11 @@ export const HomePartners: FC<Props> = ({ className }) => {
 
   const { t } = useTranslation("home");
 
-  const { data, isPending } = usePartners();
+  const { data, isPending } = useMediaPartners();
 
-  const { title } = t("partners", { returnObjects: true }) as { title: string };
+  const { title } = t("mediaPartners", { returnObjects: true }) as {
+    title: string;
+  };
 
   if (isPending) return <Loader />;
 
@@ -35,25 +37,7 @@ export const HomePartners: FC<Props> = ({ className }) => {
       <Container className="flex flex-col gap-10 relative w-full">
         <div className="flex item-center justify-between">
           <h2 className="h2">{title}</h2>
-
-          {/* <Button variant="outline" size={"sm"}>
-            Все экспоненты
-          </Button> */}
         </div>
-
-        {/* <button
-          onClick={scrollPrev}
-          className="nav-btn absolute top-[65%] -translate-y-1/2 -left-12"
-        >
-          <ArrowLeft />
-        </button>
-
-        <button
-          onClick={scrollNext}
-          className="nav-btn absolute top-[55%] -translate-y-1/2 -right-12"
-        >
-          <ArrowRight />
-        </button> */}
 
         <div ref={emblaRef} className="embla overflow-hidden">
           <div className="embla__container flex">
@@ -85,8 +69,6 @@ export const HomePartners: FC<Props> = ({ className }) => {
             )}
           </div>
         </div>
-
-        {/* <EmblaDots scrollTo={scrollTo} slides={3} active={selectedIndex} /> */}
       </Container>
     </section>
   );
