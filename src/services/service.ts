@@ -78,13 +78,13 @@ export const getExhibitionTime = async (lang: LangState["lang"]) => {
 };
 
 export const getPartners = async () => {
-  const data = axios_url.get<PartnersType>("media_partner");
+  const data = axios_url.get<PartnersType>("partners");
 
   return data;
 };
 
 export const getMediaPartners = async () => {
-  const data = axios_url.get<PartnersType>("partners");
+  const data = axios_url.get<PartnersType>("media_partner");
 
   return data;
 };
