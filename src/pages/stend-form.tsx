@@ -65,11 +65,13 @@ export const StendForm: FC<Props> = ({ className }) => {
     }
   };
 
+  const translate = useTranslate(lang);
+
   const { errors } = form.formState;
 
   return (
     <div className={className}>
-      <Cover title={stendData[useTranslate(lang)].cover} />
+      <Cover title={stendData[translate].cover} />
 
       <AnimatePresence>
         {!success && (
@@ -87,7 +89,7 @@ export const StendForm: FC<Props> = ({ className }) => {
                 render={({ field }) => (
                   <FormItem className="space-y-5 relative">
                     <FormLabel className="text-xl">
-                      {stendData[useTranslate(lang)].h2}
+                      {stendData[translate].h2}
                     </FormLabel>
 
                     <FormControl>
@@ -104,7 +106,7 @@ export const StendForm: FC<Props> = ({ className }) => {
                             />
                           </FormControl>
                           <FormLabel className="text-base cursor-pointer">
-                            {stendData[useTranslate(lang)].radio}
+                            {stendData[translate].radio}
                           </FormLabel>
                         </FormItem>
 
@@ -120,7 +122,7 @@ export const StendForm: FC<Props> = ({ className }) => {
                             />
                           </FormControl>
                           <FormLabel className="text-base cursor-pointer">
-                            {stendData[useTranslate(lang)].radio_2}
+                            {stendData[translate].radio_2}
                           </FormLabel>
                         </FormItem>
                       </RadioGroup>
@@ -160,7 +162,7 @@ export const StendForm: FC<Props> = ({ className }) => {
                             />
                           </FormControl>
                           <FormLabel className="text-base cursor-pointer">
-                            {stendData[useTranslate(lang)].radio_group?.radio}
+                            {stendData[translate].radio_group?.radio}
                           </FormLabel>
                         </FormItem>
 
@@ -172,7 +174,7 @@ export const StendForm: FC<Props> = ({ className }) => {
                             />
                           </FormControl>
                           <FormLabel className="text-base cursor-pointer">
-                            {stendData[useTranslate(lang)].radio_group?.radio_2}
+                            {stendData[translate].radio_group?.radio_2}
                           </FormLabel>
                         </FormItem>
                       </RadioGroup>
@@ -183,51 +185,51 @@ export const StendForm: FC<Props> = ({ className }) => {
 
               <Field
                 className="mt-6"
-                label={stendData[useTranslate(lang)].label_1}
+                label={stendData[translate].label_1}
                 name="company_name"
                 control={form.control}
                 error={errors.company_name}
               />
               <Field
-                label={stendData[useTranslate(lang)].label_2}
+                label={stendData[translate].label_2}
                 name="rep_name"
                 control={form.control}
                 error={errors.rep_name}
               />
               <Field
-                label={stendData[useTranslate(lang)].label_3}
+                label={stendData[translate].label_3}
                 name="job_title"
                 control={form.control}
                 error={errors.job_title}
               />
               <Field
-                label={stendData[useTranslate(lang)].number_of_participants}
+                label={stendData[translate].number_of_participants}
                 type="number"
                 name="participants_number"
                 control={form.control}
                 error={errors.participants_number}
               />
               <Field
-                label={stendData[useTranslate(lang)].label_4}
+                label={stendData[translate].label_4}
                 name="country"
                 control={form.control}
                 error={errors.country}
               />
               <Field
-                label={stendData[useTranslate(lang)].label_5}
+                label={stendData[translate].label_5}
                 name="email"
                 control={form.control}
                 error={errors.email}
               />
               <Field
-                label={stendData[useTranslate(lang)].label_6}
+                label={stendData[translate].label_6}
                 name="phone"
                 control={form.control}
                 error={errors.phone}
               />
 
               <Field
-                label={stendData[useTranslate(lang)].label_7}
+                label={stendData[translate].label_7}
                 name="website"
                 control={form.control}
               />
@@ -238,7 +240,7 @@ export const StendForm: FC<Props> = ({ className }) => {
                 render={({ field }) => (
                   <FormItem className="space-y-5">
                     <FormLabel className="text-xl">
-                      {stendData[useTranslate(lang)].visa}
+                      {stendData[translate].visa}
                     </FormLabel>
 
                     <FormControl>
@@ -255,7 +257,7 @@ export const StendForm: FC<Props> = ({ className }) => {
                             />
                           </FormControl>
                           <FormLabel className="text-base">
-                            {stendData[useTranslate(lang)].visa_radio}
+                            {stendData[translate].visa_radio}
                           </FormLabel>
                         </FormItem>
 
@@ -267,7 +269,7 @@ export const StendForm: FC<Props> = ({ className }) => {
                             />
                           </FormControl>
                           <FormLabel className="text-base">
-                            {stendData[useTranslate(lang)].visa_radio_2}
+                            {stendData[translate].visa_radio_2}
                           </FormLabel>
                         </FormItem>
                       </RadioGroup>
@@ -280,7 +282,7 @@ export const StendForm: FC<Props> = ({ className }) => {
                 {form.formState.isSubmitting ? (
                   <Loader className="animate-spin" />
                 ) : (
-                  stendData[useTranslate(lang)].button
+                  stendData[translate].button
                 )}
               </Button>
             </motion.form>

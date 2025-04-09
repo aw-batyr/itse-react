@@ -45,7 +45,6 @@ export const standDefaultValues = {
   company_name: "",
   rep_name: "",
   job_title: "",
-  participants_number: 1,
   country: "",
   email: "",
   phone: "",

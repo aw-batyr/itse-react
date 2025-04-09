@@ -3,12 +3,12 @@ export const stendData = [
     cover: "Зарегистрироваться",
     h2: "Выберите нужную опцию:",
 
-    radio: "Participate as a visitor (free of charge)",
-    radio_2: "Participate as an exhibitor:",
+    radio: "Принять участие как посетитель (бесплатно для местных компаний)",
+    radio_2: "Принять участие как участник",
 
     radio_group: {
-      radio: "Stand Space only",
-      radio_2: "Prefabricated stand",
+      radio: "Необорудованный стенд",
+      radio_2: "Оборудванный стенд",
     },
 
     label_1: "Название компании/организации",
@@ -31,7 +31,7 @@ export const stendData = [
     cover: "Registration",
     h2: "What is your preference:",
 
-    radio: "Participate as a visitor (free of charge)",
+    radio: "Participate as a visitor (free of charge for local companies)",
     radio_2: "Participate as an exhibitor:",
 
     radio_group: {
