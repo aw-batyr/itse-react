@@ -36,6 +36,7 @@ export const btns = [
       {
         title: "B2B | B2G meetings",
         link: "https://docs.google.com/forms/d/e/1FAIpQLSd3Fi6liioA_SXCJxxDv0-2DW3SRKuCUmHkkAwK075n0qAExw/viewform",
+        blank: true,
       },
       {
         title: "Become a sponsor",
