@@ -35,7 +35,7 @@ export const Participants: FC<Props> = ({ className }) => {
 
         <Tabs className="mb-6 md:w-fit" />
 
-        <div className="p-2 sm:p-0 bg-surface_container overflow-hidden">
+        <div className="p-2 sm:p-0 bg-bg_surface_container overflow-hidden">
           <div className="sm:flex items-center hidden h-[52px]  border-b border-outline_v">
             <h3 className="flex-[0_0_45.54%] pl-4">{dataHeader.company}</h3>
             <h3 className="flex-[0_0_19.80%]">{dataHeader.country}</h3>
