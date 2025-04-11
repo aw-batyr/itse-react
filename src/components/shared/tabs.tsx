@@ -75,7 +75,7 @@ export const Tabs: FC<Props> = ({ className }) => {
             key={tab.id}
             role="tab"
             className={cn(
-              "embla__slide text-center h-12  mx-4 py-2 md:text-xs text-sm w-fit transition-all",
+              "embla__slide text-center h-12 mx-4 py-2 text-xs md:text-base w-fit transition-all",
               activeTab === tab.id ? "text-primary" : "text-on_surface_v"
             )}
             onClick={() => (!tab ? handleTabClick(index) : setActiveTab(index))}
