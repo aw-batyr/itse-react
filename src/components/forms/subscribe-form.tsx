@@ -40,12 +40,15 @@ export const SubscribeForm: FC<Props> = ({ modal = false }) => {
     }
   }
 
+  const submittedText = useLang("Отправлено", "Submitted");
+  const submitText = useLang("Подписаться", "Subscribe");
+
   return (
     <form
       onSubmit={form.handleSubmit(onSubmit)}
       className={cn(
         "py-8",
-        modal ? "max-w-[392px] mx-auto" : "bg-surface_container"
+        modal ? "max-w-[392px] mx-auto" : "bg-bg_surface_container"
       )}
     >
       <Container
@@ -80,9 +83,7 @@ export const SubscribeForm: FC<Props> = ({ modal = false }) => {
             "w-full": modal,
           })}
         >
-          {success
-            ? useLang("Отправлено", "Submitted")
-            : useLang("Подписаться", "Subscribe")}
+          {success ? submittedText : submitText}
         </Button>
       </Container>
     </form>

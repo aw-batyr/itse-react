@@ -18,6 +18,7 @@ export { Chevron } from "./chevron";
 export { Loader } from "./loader";
 export { Modal } from "./modal";
 export { Radio } from "./radio";
+export { Tabs } from "./tabs";
 
 export * from "./home";
 export * from "./b2b";

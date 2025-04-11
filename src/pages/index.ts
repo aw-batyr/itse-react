@@ -5,3 +5,4 @@ export { StendForm } from "./stend-form";
 export { About } from "./about";
 export { Contacts } from "./contacts";
 export { NewsInner } from "./news-inner";
+export { Participants } from "./participants";
