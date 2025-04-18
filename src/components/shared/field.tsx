@@ -12,6 +12,7 @@ import { LegacyRef } from "react";
 import { Textarea } from "../ui/textarea";
 
 export type FieldProps = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: any;
   name: string;
   label?: string;
@@ -109,7 +110,7 @@ export const Field = ({
           </FormControl>
           <FormMessage
             className={cn(
-              "absolute -bottom-5 left-0 text-sm font-medium leading-[130%]",
+              "absolute -bottom-5 left-0 text-xs font-medium leading-[130%]",
               Boolean(error) && onPrimary
                 ? "text-teritary_04"
                 : "text-[#BA1A1A]"

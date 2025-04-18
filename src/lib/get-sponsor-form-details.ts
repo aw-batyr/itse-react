@@ -27,7 +27,7 @@ export const sponsorFormSchema = z.object({
 
   website: z.string().optional(),
 
-  visa_support: z.string().optional(),
+  // visa_support: z.string().optional(),
 });
 
 export const sponsorDefaultValues = {
@@ -38,5 +38,5 @@ export const sponsorDefaultValues = {
   email: "",
   phone: "",
   website: "",
-  visa_support: "",
+  // visa_support: "",
 };

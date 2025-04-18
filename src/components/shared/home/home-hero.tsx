@@ -24,6 +24,8 @@ export const HomeHero: FC = () => {
     else return t("banners.sm");
   }
 
+  const translate = useTranslate(lang);
+
   return (
     <section className="flex flex-col gap-5">
       <div ref={embalRef} className="embla">
@@ -39,7 +41,7 @@ export const HomeHero: FC = () => {
       </div>
 
       <Container className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-center gap-6 text-2xl">
-        {btns[useTranslate(lang)].data.map(({ title, link, blank }) => (
+        {btns[translate].data.map(({ title, link, blank }) => (
           <Link
             target={blank ? "_blank" : ""}
             key={title}
@@ -49,10 +51,9 @@ export const HomeHero: FC = () => {
             <Button
               size={"lg"}
               variant={"secondary"}
-              className="w-full drop-shadow-sm shadow-md bg-[#FFAE2A] text-on_teritary hover:bg-[#FFAE2A]/90"
-            >
-              {title}
-            </Button>
+              className="w-full overflow-hidden flex drop-shadow-sm shadow-md  bg-[#FFAE2A] text-on_teritary hover:bg-[#FFAE2A]/90"
+              dangerouslySetInnerHTML={{ __html: title ?? "" }}
+            ></Button>
           </Link>
         ))}
       </Container>

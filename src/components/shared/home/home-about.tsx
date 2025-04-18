@@ -20,6 +20,8 @@ export const HomeAbout: FC = () => {
 
   const { data: stats, isPending: statsLoading } = useStats();
 
+  const translate = useTranslate(lang);
+
   if (isPending) return <Loader />;
 
   return (
@@ -35,7 +37,7 @@ export const HomeAbout: FC = () => {
 
             <Link to="/about" className="w-fit">
               <Button variant={"outline"}>
-                {homeAbout[useTranslate(lang)].mainData[0].button}
+                {homeAbout[translate].mainData[0].button}
               </Button>
             </Link>
           </div>

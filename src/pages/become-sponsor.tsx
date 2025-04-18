@@ -1,14 +1,7 @@
 import { Cover, Field, FormSuccesStatus } from "@/components/shared";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-} from "@/components/ui/form";
+import { Form } from "@/components/ui/form";
 
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { AnimatePresence, motion } from "motion/react";
 import {
   sponsorDefaultValues,
@@ -39,6 +32,8 @@ export const BecomeSponsor: FC<Props> = ({ className }) => {
     defaultValues: sponsorDefaultValues,
   });
 
+  const translate = useTranslate(lang);
+
   const onSubmit = async (data: SponsorFormType) => {
     try {
       const status = await postSponsor(data, lang);
@@ -54,7 +49,11 @@ export const BecomeSponsor: FC<Props> = ({ className }) => {
   return (
     <div className={className}>
       <Cover
-        title={lang === Language.RU ? "Стать спонсором" : "Become a sponsor"}
+        title={
+          lang === Language.RU
+            ? "Мастер-классы / Cеминары"
+            : "Masterclasses / Seminars"
+        }
       />
 
       <AnimatePresence>
@@ -68,54 +67,54 @@ export const BecomeSponsor: FC<Props> = ({ className }) => {
               onSubmit={form.handleSubmit(onSubmit)}
             >
               <Field
-                label={stendData[useTranslate(lang)].label_1}
+                label={stendData[translate].label_1}
                 name="company_name"
                 control={form.control}
                 error={errors.company_name}
               />
               <Field
-                label={stendData[useTranslate(lang)].label_2}
+                label={stendData[translate].label_2}
                 name="rep_name"
                 control={form.control}
                 error={errors.rep_name}
               />
               <Field
-                label={stendData[useTranslate(lang)].label_3}
+                label={stendData[translate].label_3}
                 name="job_title"
                 control={form.control}
                 error={errors.job_title}
               />
               <Field
-                label={stendData[useTranslate(lang)].label_4}
+                label={stendData[translate].label_4}
                 name="country"
                 control={form.control}
                 error={errors.country}
               />
               <Field
-                label={stendData[useTranslate(lang)].label_5}
+                label={stendData[translate].label_5}
                 name="email"
                 control={form.control}
                 error={errors.email}
               />
               <Field
-                label={stendData[useTranslate(lang)].label_6}
+                label={stendData[translate].label_6}
                 name="phone"
                 control={form.control}
                 error={errors.phone}
               />
               <Field
-                label={stendData[useTranslate(lang)].label_7}
+                label={stendData[translate].label_7}
                 name="website"
                 control={form.control}
               />
 
-              <FormField
+              {/* <FormField
                 control={form.control}
                 name="visa_support"
                 render={({ field }) => (
                   <FormItem className="space-y-5">
                     <FormLabel className="text-xl">
-                      {stendData[useTranslate(lang)].visa}
+                      {stendData[translate].visa}
                     </FormLabel>
 
                     <FormControl>
@@ -132,7 +131,7 @@ export const BecomeSponsor: FC<Props> = ({ className }) => {
                             />
                           </FormControl>
                           <FormLabel className="text-base">
-                            {stendData[useTranslate(lang)].visa_radio}
+                            {stendData[translate].visa_radio}
                           </FormLabel>
                         </FormItem>
 
@@ -144,20 +143,20 @@ export const BecomeSponsor: FC<Props> = ({ className }) => {
                             />
                           </FormControl>
                           <FormLabel className="text-base">
-                            {stendData[useTranslate(lang)].visa_radio_2}
+                            {stendData[translate].visa_radio_2}
                           </FormLabel>
                         </FormItem>
                       </RadioGroup>
                     </FormControl>
                   </FormItem>
                 )}
-              />
+              /> */}
 
               <Button disabled={form.formState.isSubmitting} className="mt-5">
                 {form.formState.isSubmitting ? (
                   <Loader className="animate-spin" />
                 ) : (
-                  stendData[useTranslate(lang)].button
+                  stendData[translate].button
                 )}
               </Button>
             </motion.form>
