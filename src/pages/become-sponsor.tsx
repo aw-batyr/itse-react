@@ -1,6 +1,13 @@
 import { Cover, Field, FormSuccesStatus } from "@/components/shared";
 import { Button } from "@/components/ui/button";
-import { Form } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 
 import { AnimatePresence, motion } from "motion/react";
 import {
@@ -17,7 +24,15 @@ import { useScrollTop } from "@/hooks/use-scroll-top";
 import { Language, useLangStore } from "@/store/lang";
 import { stendData } from "@/data/stend.data";
 import { useTranslate } from "@/hooks/use-translate";
-
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { useMasterClasses } from "@/hooks/tanstack/use-master-classes";
+import { cn } from "@/lib/utils";
 interface Props {
   className?: string;
 }
@@ -46,6 +61,10 @@ export const BecomeSponsor: FC<Props> = ({ className }) => {
 
   const { errors } = form.formState;
 
+  const { data } = useMasterClasses();
+
+  console.log(data);
+
   return (
     <div className={className}>
       <Cover
@@ -66,6 +85,48 @@ export const BecomeSponsor: FC<Props> = ({ className }) => {
               className="max-w-[828px] mx-auto px-5 md:mt-20 mt-10 mb-20 md:mb-[120px] flex flex-col gap-8"
               onSubmit={form.handleSubmit(onSubmit)}
             >
+              <FormField
+                control={form.control}
+                name="master_class"
+                render={({ field }) => (
+                  <FormItem className="relative">
+                    <FormLabel className="text-on_surface_v text-xl">
+                      {stendData[translate].master_classes}
+                    </FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue
+                            placeholder={
+                              lang === "ru"
+                                ? "Выберите опцию"
+                                : "Please select an option"
+                            }
+                          />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {data?.map((item) => (
+                          <SelectItem key={item.id} value={item.name}>
+                            {item.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormMessage
+                      className={cn(
+                        "absolute -bottom-5 left-0 text-xs font-medium leading-[130%]",
+                        Boolean(errors.master_class) && "text-error"
+                      )}
+                    >
+                      {errors.master_class ? errors.master_class.message : ""}
+                    </FormMessage>
+                  </FormItem>
+                )}
+              />
               <Field
                 label={stendData[translate].label_1}
                 name="company_name"

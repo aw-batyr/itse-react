@@ -11,6 +11,8 @@ export const stendData = [
       radio_2: "Оборудванный стенд",
     },
 
+    master_classes: "Мастер-классы:",
+
     label_1: "Название компании/организации",
     label_2: "Имя представителя",
     label_3: "Название должности/позиция",
@@ -38,6 +40,8 @@ export const stendData = [
       radio: "Stand Space only",
       radio_2: "Prefabricated stand",
     },
+
+    master_classes: "Masterclasseses",
 
     label_1: "Company/Organization Name",
     label_2: "Name of Representative",

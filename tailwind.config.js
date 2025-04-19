@@ -20,6 +20,7 @@ export default {
         secondary: "#495F89",
         on_secondary: "#ffffff",
         secondary_container: "#C7D0E1",
+        surface_container: "#EEEDF4",
         on_secondary_container: "#1D2637",
 
         teritary: "#FFAE2A",

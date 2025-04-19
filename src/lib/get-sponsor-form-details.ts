@@ -3,6 +3,7 @@ import { z } from "zod";
 export type SponsorFormType = z.infer<typeof sponsorFormSchema>;
 
 export const sponsorFormSchema = z.object({
+  master_class: z.string().min(3, "Выберите мастер-класс"),
   company_name: z
     .string()
     .min(3, { message: "Название компании должно быть не менее 3 символов" }),
@@ -31,6 +32,7 @@ export const sponsorFormSchema = z.object({
 });
 
 export const sponsorDefaultValues = {
+  master_class: "",
   company_name: "",
   rep_name: "",
   job_title: "",
