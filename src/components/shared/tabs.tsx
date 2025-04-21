@@ -2,25 +2,35 @@ import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import useEmblaCarousel from "embla-carousel-react";
 import { useMediaQuery } from "usehooks-ts";
+import { useLangStore } from "@/store/lang";
 
 interface Props {
   className?: string;
+  state: number;
+  setState: (val: number) => void;
 }
 
 const tabs = [
-  { id: 0, title: "Все участники" },
+  { id: 0, title: "Все компании", titleEn: "All companies" },
+  {
+    id: 3,
+    title: "Государственные учреждения ",
+    titleEn: "Government Institutions",
+  },
   {
     id: 1,
-    title: "Туркменские компании",
+    title: "Местные компании",
+    titleEn: "Local companies",
   },
   {
     id: 2,
     title: "Иностранные компании",
+    titleEn: "Foreign companies",
   },
 ];
 
-export const Tabs: FC<Props> = ({ className }) => {
-  const [activeTab, setActiveTab] = useState(0);
+export const Tabs: FC<Props> = ({ className, setState, state }) => {
+  const lang = useLangStore((state) => state.lang);
   const tab = useMediaQuery("(min-width: 550px)");
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -34,33 +44,35 @@ export const Tabs: FC<Props> = ({ className }) => {
 
     const onSelect = () => {
       const index = emblaApi.selectedScrollSnap();
-      setActiveTab(index);
+      setState(index);
     };
+
+    emblaApi.scrollTo(state);
 
     emblaApi.on("select", onSelect);
     return () => {
       emblaApi.off("select", onSelect);
     };
-  }, [emblaApi]);
+  }, [emblaApi, setState, state]);
 
   // Обновление позиции индикатора
   useEffect(() => {
-    const activeTabElement = tabRefs.current[activeTab];
+    const activeTabElement = tabRefs.current[state];
     if (activeTabElement) {
       const { offsetLeft, offsetWidth } = activeTabElement;
       setIndicatorStyle({ left: offsetLeft, width: offsetWidth });
     }
-  }, [activeTab]);
+  }, [setState, state]);
 
   // Обработчик клика по табу
   const handleTabClick = useCallback(
     (index: number) => {
       if (emblaApi) {
         emblaApi.scrollTo(index);
-        setActiveTab(index); // Для немедленного обновления состояния
+        setState(index); // Для немедленного обновления состояния
       }
     },
-    [emblaApi]
+    [emblaApi, setState]
   );
   return (
     <div
@@ -75,12 +87,12 @@ export const Tabs: FC<Props> = ({ className }) => {
             key={tab.id}
             role="tab"
             className={cn(
-              "embla__slide text-center h-12 mx-4 py-2 text-xs md:text-base w-fit transition-all",
-              activeTab === tab.id ? "text-primary" : "text-on_surface_v"
+              "embla__slide text-center  h-12 mx-4 py-2 text-sm md:text-base w-fit transition-all",
+              state === index ? "text-primary" : "text-on_surface_v"
             )}
-            onClick={() => (!tab ? handleTabClick(index) : setActiveTab(index))}
+            onClick={() => (!tab ? handleTabClick(index) : setState(index))}
           >
-            {tab.title}
+            {lang === "ru" ? tab.title : tab.titleEn}
           </button>
         ))}
       </div>
