@@ -38,7 +38,7 @@ export const Participants: FC<Props> = ({ className }) => {
 
   return (
     <Container>
-      <section className={cn("page-padding", className)}>
+      <section className={cn("page-padding overflow-x-hidden", className)}>
         <h1 className="text-center md:text-5xl text-3xl mb-4">
           {lang === "ru" ? "Список участников" : "List of participants"}
         </h1>
