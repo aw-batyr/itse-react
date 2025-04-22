@@ -17,7 +17,7 @@ export const btns = [
       },
       {
         title: "Мастер-классы <br> / семинары",
-        link: "/become-sponsor",
+        link: "/masterclasses",
       },
     ],
   },
@@ -40,7 +40,7 @@ export const btns = [
       },
       {
         title: "Masterclasses <br> / Seminars",
-        link: "/become-sponsor",
+        link: "/masterclasses",
       },
     ],
   },

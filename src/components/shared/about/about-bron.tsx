@@ -38,7 +38,7 @@ export const AboutBron: FC<Props> = ({ className }) => {
             </Button>
           </Link>
 
-          <Link to={"/become-sponsor"} className="w-full">
+          <Link to={"/masterclasses"} className="w-full">
             <Button className="bg-white w-full hover:bg-white/90 text-primary">
               {aboutBron[useTranslate(lang)].button2}
             </Button>
