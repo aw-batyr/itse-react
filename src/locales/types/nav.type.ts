@@ -11,4 +11,5 @@ export interface DropDownContent {
   link?: string;
   modal?: boolean;
   blank?: string;
+  pdf?: boolean;
 }

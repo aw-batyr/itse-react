@@ -38,7 +38,10 @@ export const Menu: FC<Props> = ({
       </PopoverTrigger>
 
       <PopoverContent
-        className={cn("w-fit px-0 py-2 cursor-pointer bg-slate-100", className)}
+        className={cn(
+          "max-w-[250px] min-w-[160px] px-0 py-2 cursor-pointer bg-slate-100",
+          className
+        )}
       >
         {dropDownContent &&
           dropDownContent.map((item) =>
@@ -48,13 +51,13 @@ export const Menu: FC<Props> = ({
                   setIsOpen(false);
                   setSheet(false);
                 }}
-                className="h-14 px-3 text-on_surface flex gap-3 items-center hover:bg-slate-300/50 transition-all"
+                className=" py-4 px-3 text-on_surface flex gap-3 items-center hover:bg-slate-300/50 transition-all"
                 key={item.text}
-                target={item.blank ? "_blank" : ""}
+                target={item.blank ? "_self" : ""}
                 to={item.link}
               >
                 {item.text}
-                {item.blank && <img src="/pdf.svg" />}
+                {item.pdf && <img src="/pdf.svg" />}
               </Link>
             ) : item.modal ? (
               <Modal key={item.text} title={item.text} />

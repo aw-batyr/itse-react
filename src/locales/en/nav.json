@@ -3,7 +3,8 @@
     {
       "title": "Travel Guide",
       "link": "https://itse.turkmenexpo.com/app/storage/app/media/travel_guide/Travel_guide_eng.pdf",
-      "blank": "blank"
+      "blank": "blank",
+      "pdf": true
     },
     {
       "title": "News",
@@ -39,13 +40,19 @@
           "link": "/participants"
         },
         {
+          "text": "International Standard Booths",
+          "link": "https://itse.turkmenexpo.com/app/storage/app/media/international_standard_booths/en.xlsx",
+          "blank": "blank"
+        },
+        {
           "text": "Programme",
           "link": ""
         },
         {
           "text": "Travel guide",
           "link": "https://itse.turkmenexpo.com/app/storage/app/media/travel_guide/Travel_guide_eng.pdf",
-          "blank": "blank"
+          "blank": "blank",
+          "pdf": true
         }
       ]
     },

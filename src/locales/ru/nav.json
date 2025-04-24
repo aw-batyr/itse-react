@@ -38,13 +38,19 @@
           "link": "/participants"
         },
         {
+          "text": "Стенды международного стандарта",
+          "link": "https://itse.turkmenexpo.com/app/storage/app/media/international_standard_booths/ru.xlsx",
+          "blank": "blank"
+        },
+        {
           "text": "Программа",
           "link": ""
         },
         {
           "text": "Путеводитель",
           "link": "https://itse.turkmenexpo.com/app/storage/app/media/travel_guide/Travel_guide_ru.pdf",
-          "blank": "blank"
+          "blank": "blank",
+          "pdf": true
         }
       ]
     },

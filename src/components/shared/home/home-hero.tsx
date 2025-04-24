@@ -29,7 +29,7 @@ export const HomeHero: FC = () => {
   return (
     <section className="flex flex-col gap-5">
       <div ref={embalRef} className="embla">
-        <div className="embla__container">
+        <div className="embla__container h-[600px]">
           <div className="embla__slide lg:max-h-[600px] lg:min-h-[320px]">
             <img
               src={getBanner()}
