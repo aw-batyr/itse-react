@@ -1,9 +1,21 @@
 {
-  "banners": {
-    "lg": "https://itse.turkmenexpo.com/app/storage/app/media/surat/ru/l.jpg",
-    "md": "https://itse.turkmenexpo.com/app/storage/app/media/surat/ru/m.jpg",
-    "sm": "https://itse.turkmenexpo.com/app/storage/app/media/surat/ru/s.jpg"
-  },
+  "banners": [
+    {
+      "lg": "https://itse.turkmenexpo.com/app/storage/app/media/surat/ru/l.jpg",
+      "md": "https://itse.turkmenexpo.com/app/storage/app/media/surat/ru/m.jpg",
+      "sm": "https://itse.turkmenexpo.com/app/storage/app/media/surat/ru/s.jpg"
+    },
+
+    {
+      "lg": "https://itse.turkmenexpo.com/app/storage/app/media/surat/new/1/WEB%20argus%20-%20RUS.jpg"
+    },
+    {
+      "lg": "https://itse.turkmenexpo.com/app/storage/app/media/surat/new/2/WEB%20ebay%20-%20RUS.jpg"
+    },
+    {
+      "lg": "https://itse.turkmenexpo.com/app/storage/app/media/surat/new/3/WEB%20messe%20-%20RUS.jpg"
+    }
+  ],
 
   "partners": {
     "title": "Партнёры",
