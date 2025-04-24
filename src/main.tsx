@@ -51,7 +51,7 @@ const router = createBrowserRouter([
       },
       {
         element: <BecomeSponsor />,
-        path: "become-sponsor",
+        path: "masterclasses",
       },
       {
         element: <Participants />,
