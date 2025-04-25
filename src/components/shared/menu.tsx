@@ -44,35 +44,56 @@ export const Menu: FC<Props> = ({
         )}
       >
         {dropDownContent &&
-          dropDownContent.map((item) =>
-            item.link ? (
-              <Link
-                onClick={() => {
-                  setIsOpen(false);
-                  setSheet(false);
-                }}
-                className=" py-4 px-3 text-on_surface flex gap-3 items-center hover:bg-slate-300/50 transition-all"
-                key={item.text}
-                target={item.blank ? "_self" : ""}
-                to={item.link}
-              >
-                {item.text}
-                {item.pdf && <img src="/pdf.svg" />}
-              </Link>
-            ) : item.modal ? (
+          dropDownContent.map((item) => {
+            const isFileLink = /\.(xlsx|xls|docx|doc)$/i.test(item.link || "");
+
+            if (item.link) {
+              return isFileLink ? (
+                // Для файлов: <a download> вместо <Link>
+                <a
+                  key={item.text}
+                  href={item.link}
+                  download
+                  className="py-4 px-3 text-on_surface flex gap-3 items-center hover:bg-slate-300/50 transition-all"
+                  onClick={() => {
+                    setIsOpen(false);
+                    setSheet(false);
+                  }}
+                >
+                  {item.text}
+                  {item.pdf && <img src="/pdf.svg" />}
+                </a>
+              ) : (
+                // Обычные ссылки остаются через рутер
+                <Link
+                  key={item.text}
+                  to={item.link}
+                  target={item.blank ? "_blank" : undefined}
+                  className="py-4 px-3 text-on_surface flex gap-3 items-center hover:bg-slate-300/50 transition-all"
+                  onClick={() => {
+                    setIsOpen(false);
+                    setSheet(false);
+                  }}
+                >
+                  {item.text}
+                  {item.pdf && <img src="/pdf.svg" />}
+                </Link>
+              );
+            }
+
+            // остальной код без изменений...
+            return item.modal ? (
               <Modal key={item.text} title={item.text} />
             ) : (
               <div
                 key={item.text}
                 className="h-14 px-3 text-on_surface flex items-center hover:bg-slate-300/50 transition-all"
-                onClick={() => {
-                  setIsOpen(false);
-                }}
+                onClick={() => setIsOpen(false)}
               >
                 {item.text}
               </div>
-            )
-          )}
+            );
+          })}
       </PopoverContent>
     </Popover>
   );

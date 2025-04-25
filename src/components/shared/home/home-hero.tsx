@@ -50,18 +50,32 @@ export const HomeHero: FC = () => {
     <section className="flex flex-col gap-5">
       <div ref={emblaRef} className="embla overflow-hidden">
         <div className="embla__container flex">
-          {banners.map((banner, index) => (
-            <div
-              key={index}
-              className="embla__slide min-w-full lg:max-h-[600px] lg:min-h-[320px]"
-            >
-              <img
-                src={getSrc(banner)}
-                alt={`banner-${index}`}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
+          {banners.map((banner, index) =>
+            index !== 0 ? (
+              <Link
+                to={"/masterclasses"}
+                key={index}
+                className="embla__slide min-w-full lg:max-h-[600px] lg:min-h-[320px]"
+              >
+                <img
+                  src={getSrc(banner)}
+                  alt={`banner-${index}`}
+                  className="w-full h-full object-cover"
+                />
+              </Link>
+            ) : (
+              <div
+                key={index}
+                className="embla__slide min-w-full lg:max-h-[600px] lg:min-h-[320px]"
+              >
+                <img
+                  src={getSrc(banner)}
+                  alt={`banner-${index}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )
+          )}
         </div>
       </div>
 
