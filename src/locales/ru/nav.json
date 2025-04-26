@@ -44,7 +44,8 @@
         },
         {
           "text": "Программа",
-          "link": "https://itse.turkmenexpo.com/app/storage/app/media/programme/programme_ru.docx"
+          "link": "https://itse.turkmenexpo.com/app/storage/app/media/programme/programme_ru.pdf",
+          "pdf": true
         },
         {
           "text": "Путеводитель",

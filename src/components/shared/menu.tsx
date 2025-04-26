@@ -68,7 +68,7 @@ export const Menu: FC<Props> = ({
                 <Link
                   key={item.text}
                   to={item.link}
-                  target={item.blank ? "_blank" : undefined}
+                  target={item.blank || item.pdf ? "_blank" : undefined}
                   className="py-4 px-3 text-on_surface flex gap-3 items-center hover:bg-slate-300/50 transition-all"
                   onClick={() => {
                     setIsOpen(false);

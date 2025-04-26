@@ -46,7 +46,8 @@
         },
         {
           "text": "Programme",
-          "link": "https://itse.turkmenexpo.com/app/storage/app/media/programme/programme_en.docx"
+          "link": "https://itse.turkmenexpo.com/app/storage/app/media/programme/programme_en.pdf",
+          "pdf": true
         },
         {
           "text": "Travel guide",
