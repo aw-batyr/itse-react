@@ -33,49 +33,32 @@ export const HomeHero: FC = () => {
   // На мобильных и планшете показываем только первый баннер
 
   // Функция выбора нужного размера картинки
-  const getSrc = (banner: Banner) => {
-    if (lg) return banner.lg;
-    if (md && banner.md) return banner.md;
-    if (!lg && banner.sm) return banner.sm;
-    return banner.lg;
-  };
 
-  useEffect(() => {
-    if (emblaApi) autoplay.current?.play();
-  }, [emblaApi]);
+  function getBanner() {
+    if (lg) return banners[0].lg;
+    else if (md) return banners[0].md;
+    else return banners[0].sm;
+  }
+
+  // useEffect(() => {
+  //   if (emblaApi) autoplay.current?.play();
+  // }, [emblaApi]);
 
   const translate = useTranslate(lang);
 
+  // console.log(getBanner());
+
   return (
     <section className="flex flex-col gap-5">
-      <div ref={emblaRef} className="embla overflow-hidden">
+      <div className="embla overflow-hidden">
         <div className="embla__container flex">
-          {banners.map((banner, index) =>
-            index !== 0 ? (
-              <Link
-                to={"/masterclasses"}
-                key={index}
-                className="embla__slide min-w-full lg:max-h-[600px] lg:min-h-[320px]"
-              >
-                <img
-                  src={getSrc(banner)}
-                  alt={`banner-${index}`}
-                  className="w-full h-full object-cover"
-                />
-              </Link>
-            ) : (
-              <div
-                key={index}
-                className="embla__slide min-w-full lg:max-h-[600px] lg:min-h-[320px]"
-              >
-                <img
-                  src={getSrc(banner)}
-                  alt={`banner-${index}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            )
-          )}
+          <div className="embla__slide min-w-full lg:max-h-[600px] lg:min-h-[320px]">
+            <img
+              src={getBanner()}
+              alt={`banner`}
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </div>
 
