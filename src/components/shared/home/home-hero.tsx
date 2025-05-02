@@ -1,5 +1,4 @@
-import useEmblaCarousel from "embla-carousel-react";
-import { FC, useEffect, useRef } from "react";
+import { FC } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "../";
 import { Button } from "@/components/ui/button";
@@ -8,8 +7,6 @@ import { useLangStore } from "@/store/lang";
 import { btns } from "@/data/home/home-hero.data";
 import { useTranslation } from "react-i18next";
 import { useTranslate } from "@/hooks/use-translate";
-import Autoplay from "embla-carousel-autoplay";
-
 interface Banner {
   lg: string;
   md?: string;
@@ -17,10 +14,6 @@ interface Banner {
 }
 
 export const HomeHero: FC = () => {
-  const autoplay = useRef(Autoplay({ delay: 5000, stopOnInteraction: false }));
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 75 }, [
-    autoplay.current,
-  ]);
   const lang = useLangStore((state) => state.lang);
   const { t } = useTranslation("home");
 
