@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -42,6 +42,15 @@ export const SubscribeForm: FC<Props> = ({ modal = false }) => {
 
   const submittedText = useLang("Отправлено", "Submitted");
   const submitText = useLang("Подписаться", "Subscribe");
+
+  useEffect(() => {
+    if (form.formState.errors.email) {
+      const timer = setTimeout(() => {
+        form.clearErrors("email");
+      }, 7000);
+      return () => clearTimeout(timer);
+    }
+  }, [form.formState.errors.email, form]);
 
   return (
     <form

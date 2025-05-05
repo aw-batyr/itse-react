@@ -182,12 +182,8 @@ export const getMasterClasses = async (lang: LangState["lang"]) => {
   return data;
 };
 
-export const getPhotos = async (lang: LangState["lang"]) => {
-  const data = axios_url<PhotoTypes>("photos", {
-    headers: {
-      "Accept-Language": lang,
-    },
-  });
+export const getPhotos = async (id: number) => {
+  const data = axios_url<PhotoTypes>("photos/category/" + id);
 
   return data;
 };

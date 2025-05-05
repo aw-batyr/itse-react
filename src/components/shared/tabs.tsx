@@ -123,7 +123,7 @@ export const Tabs: FC<Props> = ({
       className={cn("relative mx-auto", className)}
       style={{ width: "fit-content", maxWidth: "100%" }}
     >
-      <div ref={emblaRef} className="embla" role="tablist">
+      <div ref={isDesktop ? null : emblaRef} className="embla" role="tablist">
         <div className="flex">
           {data.map((tab, index) => (
             <button
