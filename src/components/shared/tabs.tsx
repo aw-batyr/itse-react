@@ -4,12 +4,6 @@ import useEmblaCarousel from "embla-carousel-react";
 import { useMediaQuery } from "usehooks-ts";
 import { useLangStore } from "@/store/lang";
 
-interface Props {
-  className?: string;
-  state: number;
-  setState: (val: number) => void;
-}
-
 const tabs = [
   { id: 0, title: "Все компании", titleEn: "All companies" },
   {
@@ -29,7 +23,19 @@ const tabs = [
   },
 ];
 
-export const Tabs: FC<Props> = ({ className, setState, state }) => {
+interface Props {
+  className?: string;
+  state: number;
+  setState: (val: number) => void;
+  data?: typeof tabs;
+}
+
+export const Tabs: FC<Props> = ({
+  className,
+  setState,
+  state,
+  data = tabs,
+}) => {
   const lang = useLangStore((state) => state.lang);
   const isDesktop = useMediaQuery("(min-width: 550px)");
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
@@ -117,18 +123,18 @@ export const Tabs: FC<Props> = ({ className, setState, state }) => {
       className={cn("relative mx-auto", className)}
       style={{ width: "fit-content", maxWidth: "100%" }}
     >
-      <div ref={emblaRef} className="" role="tablist">
+      <div ref={emblaRef} className="embla" role="tablist">
         <div className="flex">
-          {tabs.map((tab, index) => (
+          {data.map((tab, index) => (
             <button
               ref={(el) => (tabRefs.current[index] = el)}
               key={tab.id}
               role="tab"
               aria-selected={state === index}
               className={cn(
-                "shrink-0 text-center relative after:transition-all after:rounded after:w-full after:h-0.5 after:bg-primary after:opacity-0 after:absolute after:bottom-0 after:left-0 h-12 mx-4  py-2 text-sm md:text-base whitespace-nowrap transition-all",
+                "shrink-0 text-center relative md:after:opacity-0 after:transition-all after:rounded after:w-full after:h-0.5 after:bg-primary after:opacity-0 after:absolute after:bottom-0 after:left-0 h-12 mx-4  py-2 text-sm md:text-base whitespace-nowrap transition-all",
                 state === index
-                  ? "text-primary transition-all after:opacity-100"
+                  ? "text-primary transition-all md:after:opacity-0 after:opacity-100"
                   : "text-on_surface_v"
               )}
               onClick={() => handleTabClick(index)}
