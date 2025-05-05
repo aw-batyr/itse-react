@@ -77,6 +77,10 @@
     @apply pt-10 pb-20 md:pt-20 md:pb-[120px];
   }
 
+  .page-bottom {
+    @apply md:pb-[120px] pb-20;
+  }
+
   .nav-btn {
     @apply bg-[#D9D9D9] size-12 rounded-full flex items-center justify-center;
   }
