@@ -8,6 +8,7 @@ import {
   B2b,
   Contacts,
   Home,
+  Media,
   News,
   NewsInner,
   Participants,
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         element: <Participants />,
         path: "participants",
+      },
+      {
+        element: <Media />,
+        path: "media",
       },
     ],
   },
