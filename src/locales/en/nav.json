@@ -26,7 +26,7 @@
         { "text": "About exhibition", "link": "/about" },
         {
           "text": "Media",
-          "link": ""
+          "link": "/media"
         }
       ]
     },
