@@ -13,6 +13,7 @@ import { PartnersType } from "@/hooks/tanstack/use-partners";
 import { NewsInnerType, NewsType } from "./types/news.type";
 import { ParticipantsType } from "./types/participants.type";
 import { MasterTypes } from "./types/master.type";
+import { PhotoTypes } from "./types/photo.type";
 
 const axios_url = axios.create({
   baseURL: "https://itse.turkmenexpo.com/app/api/v1/",
@@ -173,6 +174,16 @@ export const getParticipants = async (lang: LangState["lang"]) => {
 
 export const getMasterClasses = async (lang: LangState["lang"]) => {
   const data = axios_url<MasterTypes>("master_classes", {
+    headers: {
+      "Accept-Language": lang,
+    },
+  });
+
+  return data;
+};
+
+export const getPhotos = async (lang: LangState["lang"]) => {
+  const data = axios_url<PhotoTypes>("photos", {
     headers: {
       "Accept-Language": lang,
     },
