@@ -14,6 +14,7 @@ import { NewsInnerType, NewsType } from "./types/news.type";
 import { ParticipantsType } from "./types/participants.type";
 import { MasterTypes } from "./types/master.type";
 import { PhotoTypes } from "./types/photo.type";
+import { VideoTypes } from "./types/videos.type";
 
 const axios_url = axios.create({
   baseURL: "https://itse.turkmenexpo.com/app/api/v1/",
@@ -184,6 +185,12 @@ export const getMasterClasses = async (lang: LangState["lang"]) => {
 
 export const getPhotos = async (id: number) => {
   const data = axios_url<PhotoTypes>("photos/category/" + id);
+
+  return data;
+};
+
+export const getVideos = async (id: number) => {
+  const data = axios_url<VideoTypes>("videos/category/" + id);
 
   return data;
 };

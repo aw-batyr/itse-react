@@ -37,38 +37,36 @@ export const Tabs: FC<Props> = ({
   data = tabs,
 }) => {
   const lang = useLangStore((state) => state.lang);
-  const isDesktop = useMediaQuery("(min-width: 550px)");
+  const isDesktop = useMediaQuery("(min-width: 768px)");
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    axis: "x",
-    align: "start",
-    containScroll: "trimSnaps",
-  });
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      axis: "x",
+      align: "start",
+      containScroll: "trimSnaps",
+    },
+    []
+  );
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Update indicator position based on active tab
   const updateIndicator = useCallback(() => {
     const activeTabElement = tabRefs.current[state];
     if (!activeTabElement) return;
 
-    if (isDesktop || !emblaApi) {
-      // For desktop or before emblaApi initializes
+    if (isDesktop) {
       setIndicatorStyle({
         left: activeTabElement.offsetLeft,
         width: activeTabElement.offsetWidth,
       });
-    } else {
-      // For mobile with carousel
+    } else if (emblaApi) {
       const emblaNode = emblaApi.rootNode();
       const emblaContainer = emblaApi.containerNode();
       if (!emblaNode || !emblaContainer) return;
 
-      // Calculate position based on scroll position
       const scrollLeft = emblaContainer.scrollLeft;
       const tabLeft = activeTabElement.offsetLeft;
 
-      // Set position relative to current scroll
       setIndicatorStyle({
         left: tabLeft - scrollLeft,
         width: activeTabElement.offsetWidth,
@@ -76,28 +74,20 @@ export const Tabs: FC<Props> = ({
     }
   }, [state, isDesktop, emblaApi]);
 
-  // Scroll to active tab when state changes
+  useEffect(() => {
+    if (!isDesktop && emblaApi) return;
+
+    emblaApi?.scrollTo(state);
+
+    updateIndicator();
+  }, [emblaApi, state, updateIndicator, isDesktop]);
+
   useEffect(() => {
     if (!emblaApi) return;
 
-    // Navigate to the selected tab
-    emblaApi.scrollTo(state);
-
-    // Update indicator after scrolling
-    const scrollTimer = setTimeout(updateIndicator, 300);
-    return () => clearTimeout(scrollTimer);
-  }, [emblaApi, state, updateIndicator]);
-
-  // Set up event listeners when emblaApi is ready
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    // Initial indicator update
     updateIndicator();
 
-    // Update indicator on scroll
     emblaApi.on("scroll", updateIndicator);
-    // Update indicator after resize
     emblaApi.on("resize", updateIndicator);
 
     return () => {
@@ -106,15 +96,14 @@ export const Tabs: FC<Props> = ({
     };
   }, [emblaApi, updateIndicator]);
 
-  // Handle tab click
   const handleTabClick = useCallback(
     (index: number) => {
       setState(index);
-      if (emblaApi) {
+      if (!isDesktop && emblaApi) {
         emblaApi.scrollTo(index);
       }
     },
-    [emblaApi, setState]
+    [emblaApi, setState, isDesktop]
   );
 
   return (
@@ -123,19 +112,17 @@ export const Tabs: FC<Props> = ({
       className={cn("relative mx-auto", className)}
       style={{ width: "fit-content", maxWidth: "100%" }}
     >
-      <div ref={isDesktop ? null : emblaRef} className="embla" role="tablist">
-        <div className="flex">
-          {data.map((tab, index) => (
+      {isDesktop ? (
+        <div className="flex" role="tablist">
+          {data?.map((tab, index) => (
             <button
               ref={(el) => (tabRefs.current[index] = el)}
               key={tab.id}
               role="tab"
               aria-selected={state === index}
               className={cn(
-                "shrink-0 text-center relative md:after:opacity-0 after:transition-all after:rounded after:w-full after:h-0.5 after:bg-primary after:opacity-0 after:absolute after:bottom-0 after:left-0 h-12 mx-4  py-2 text-sm md:text-base whitespace-nowrap transition-all",
-                state === index
-                  ? "text-primary transition-all md:after:opacity-0 after:opacity-100"
-                  : "text-on_surface_v"
+                "shrink-0 text-center relative h-12 mx-4 py-2 text-sm md:text-base whitespace-nowrap transition-all",
+                state === index ? "text-primary" : "text-on_surface_v"
               )}
               onClick={() => handleTabClick(index)}
             >
@@ -143,7 +130,30 @@ export const Tabs: FC<Props> = ({
             </button>
           ))}
         </div>
-      </div>
+      ) : (
+        <div ref={emblaRef} className="" role="tablist">
+          <div className="flex">
+            {data?.map((tab, index) => (
+              <button
+                ref={(el) => (tabRefs.current[index] = el)}
+                key={tab.id}
+                role="tab"
+                aria-selected={state === index}
+                className={cn(
+                  "shrink-0 text-center relative after:transition-all after:rounded after:w-full after:h-0.5 after:bg-primary after:opacity-0 after:absolute after:bottom-0 after:left-0 h-12 mx-4 py-2 text-sm md:text-base whitespace-nowrap transition-all",
+                  state === index
+                    ? "text-primary after:opacity-100"
+                    : "text-on_surface_v"
+                )}
+                onClick={() => handleTabClick(index)}
+              >
+                {lang === "ru" ? tab.title : tab.titleEn}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div
         className="absolute md:block hidden bottom-0 h-[3px] rounded-t-[2px] bg-primary transition-all duration-200"
         style={indicatorStyle}
