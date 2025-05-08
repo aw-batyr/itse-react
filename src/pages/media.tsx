@@ -106,10 +106,9 @@ export const Media: FC<Props> = ({ className }) => {
                           className="absolute group-hover:scale-125 transition-all duration-300 top-1/2 z-10 left-1/2 -translate-x-1/2 -translate-y-1/2 "
                         />
                         <div className="absolute top-0 left-0 size-full bg-[#2C57A752]/[32%]" />
-                        <video
-                          src={video?.video?.path ?? ""}
-                          poster={video?.video_photo?.path ?? ""}
-                          className="size-full object-contain"
+                        <img
+                          src={video?.video_photo?.path ?? ""}
+                          className="size-full object-cover"
                         />
                       </div>
                     ))}
