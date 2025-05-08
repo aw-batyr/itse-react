@@ -15,11 +15,11 @@ export const HomePartners: FC<Props> = ({ className }) => {
   const [emblaRef] = useEmblaCarousel(
     {
       loop: true,
-      align: "center",
+      align: "start",
       skipSnaps: true,
       duration: 40,
     },
-    [Autoplay({ delay: 2000, stopOnInteraction: false })]
+    [Autoplay({ stopOnInteraction: false, delay: 2000 })]
   );
 
   const { t } = useTranslation("home");

@@ -143,7 +143,7 @@ export const getHomeContacts = async (lang: LangState["lang"]) => {
 };
 
 export const getNews = async (lang: LangState["lang"]) => {
-  const data = axios_url<NewsType>("news", {
+  const data = axios_url<NewsType>("news?page=1&per_page=100", {
     headers: {
       "Accept-Language": lang,
     },

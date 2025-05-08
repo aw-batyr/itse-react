@@ -19,6 +19,7 @@ export { Loader } from "./loader";
 export { Modal } from "./modal";
 export { Radio } from "./radio";
 export { Tabs } from "./tabs";
+export { MediaModal } from "./media-modal";
 export { ParticipantItem } from "./participant-item";
 
 export * from "./home";

@@ -1,8 +1,11 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { cn } from "@/lib/utils";
-import { Container, Cover, Loader } from "@/components/shared";
-import { usePhotos } from "@/hooks/tanstack/use-photos";
 import { useLangStore } from "@/store/lang";
+import { Container, Cover, Loader, MediaModal } from "@/components/shared";
+import { AnimatePresence } from "motion/react";
+import { useTranslation } from "react-i18next";
+import { Button } from "@/components/ui/button";
+import { usePhotos } from "@/hooks/tanstack/use-photos";
 
 interface Props {
   className?: string;
@@ -22,52 +25,74 @@ interface Props {
 // ];
 
 export const Media: FC<Props> = ({ className }) => {
-  //   const [state, setState] = useState(0);
-  const { data, isPending, isError } = usePhotos(1);
-  // const [activeCategory, setActiveCategory] = useState("");
+  // const [state, setState] = useState(0);
+  const { data, isPending } = usePhotos(1);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState(0);
 
   const lang = useLangStore((state) => state.lang);
 
-  return (
-    <section className={cn("", className)}>
-      <Cover title={lang === "ru" ? "Моменты ITSE" : "Moments ITSE"} />
+  const onItem = (id: number) => {
+    setIsModalOpen(true);
+    setActiveItem(id);
+  };
 
-      <Container className="page-padding">
-        {isError ? (
-          <h1 className="text-4xl text-center">No information yet</h1>
-        ) : isPending ? (
-          <Loader />
-        ) : (
-          <>
-            {/* <Tabs
+  const { t } = useTranslation("main");
+
+  const [isCollapse, setIsCollapse] = useState(false);
+
+  return (
+    <>
+      <AnimatePresence>
+        {isModalOpen && (
+          <MediaModal activeItem={activeItem} setIsOpen={setIsModalOpen} />
+        )}
+      </AnimatePresence>
+
+      <section className={cn("", className)}>
+        <Cover title={lang === "ru" ? "Моменты ITSE" : "Moments ITSE"} />
+
+        <Container className="page-padding">
+          {isPending ? (
+            <Loader />
+          ) : (
+            <div className="flex justify-center flex-col">
+              {/* <Tabs
               state={state}
               setState={setState}
               data={momentsTabs}
               className="mb-6"
-            /> */}
-
-            {/* <Menu
-              title={activeCategory}
-              triggerClassName="md:text-3xl text-2xl medium mb-10 mt-6"
-              dropDownContent={data?.filter(
-                (item) => item.name !== activeCategory
-              ) || []}
-            /> */}
-
-            <div className="grid lg:grid-cols-4 lg:gap-y-4 lg:gap-x-6 md:gap-6 gap-4 grid-cols-2 place-items-center">
-              {data?.map((photo, i) => (
-                <div key={i} className=" size-full">
-                  <img
-                    src={photo?.photo?.path ?? ""}
-                    alt={photo?.photo?.file_name ?? "photo"}
-                    className="size-full object-cover"
-                  />
-                </div>
-              ))}
+              /> */}
+              <h3 className="text-3xl mb-6">2025 ITSE</h3>
+              <div className="grid lg:grid-cols-4 lg:gap-y-4 lg:gap-x-6 md:gap-6 gap-4 grid-cols-2 place-items-center">
+                {data?.slice(0, isCollapse ? 1000 : 16)?.map((photo, i) => (
+                  <div
+                    onClick={() => onItem(i)}
+                    key={i}
+                    className="cursor-pointer embla__slide basis-1/1"
+                  >
+                    <img
+                      src={photo?.photo?.path ?? ""}
+                      alt={photo?.photo?.file_name ?? "photo"}
+                      className="size-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+              {data?.length && data.length > 16 && !isCollapse && (
+                <Button
+                  onClick={() => setIsCollapse(true)}
+                  className="mx-auto w-[288px] mt-10 text-on_surface"
+                  size={"lg"}
+                  variant={"outline"}
+                >
+                  {t("media.button")}
+                </Button>
+              )}
             </div>
-          </>
-        )}
-      </Container>
-    </section>
+          )}
+        </Container>
+      </section>
+    </>
   );
 };
