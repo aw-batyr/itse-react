@@ -1,37 +1,49 @@
 export interface PhotoTypes {
   status: string;
-  data: Datum[];
+  data: Data;
 }
 
-export interface Datum {
+export interface Data {
   id: number;
   name: string;
   created_at: Date;
   updated_at: Date;
+  photos: PhotoElement[];
+}
+
+export interface PhotoElement {
+  id: number;
   category_photo_media_id: number;
-  photo: Photo;
-  category_photo_media: CategoryPhotoMedia;
-}
-
-export interface CategoryPhotoMedia {
-  id: number;
   name: string;
   created_at: Date;
   updated_at: Date;
+  photo: PhotoPhoto;
 }
 
-export interface Photo {
+export interface PhotoPhoto {
   id: number;
   disk_name: string;
   file_name: string;
   file_size: number;
-  content_type: string;
+  content_type: ContentType;
   title: null;
   description: null;
-  field: string;
+  field: Field;
   sort_order: number;
   created_at: Date;
   updated_at: Date;
   path: string;
-  extension: string;
+  extension: Extension;
+}
+
+export enum ContentType {
+  ImageWebp = "image/webp",
+}
+
+export enum Extension {
+  Webp = "webp",
+}
+
+export enum Field {
+  Photo = "photo",
 }

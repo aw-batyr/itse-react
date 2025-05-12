@@ -1,27 +1,27 @@
 export interface VideoTypes {
   status: string;
-  category: Category;
-  data: Datum[];
+  data: Data;
 }
 
-export interface Category {
+export interface Data {
   id: number;
   name: string;
   created_at: Date;
   updated_at: Date;
+  videos: VideoElement[];
 }
 
-export interface Datum {
+export interface VideoElement {
   id: number;
   name: string;
   category_video_media_id: number;
   created_at: Date;
   updated_at: Date;
-  video: Video;
-  video_photo: Video;
+  video: VideoPhotoClass;
+  video_photo: VideoPhotoClass;
 }
 
-export interface Video {
+export interface VideoPhotoClass {
   id: number;
   disk_name: string;
   file_name: string;
