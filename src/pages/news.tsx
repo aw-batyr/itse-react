@@ -1,4 +1,4 @@
-import { Container, Loader } from "@/components/shared";
+import { Container, Loading } from "@/components/shared";
 import { NewsCard } from "@/components/shared/news-card";
 import { useNews } from "@/hooks/tanstack/use-news";
 import { useScrollTop } from "@/hooks/use-scroll-top";

@@ -4,7 +4,7 @@ import { useLangStore } from "@/store/lang";
 import {
   Container,
   Cover,
-  Loader,
+  Loading,
   MediaModal,
   Tabs,
 } from "@/components/shared";

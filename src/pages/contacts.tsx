@@ -1,5 +1,5 @@
 import { ContactsForm } from "@/components/forms/contacts-form";
-import { Container, Loader } from "@/components/shared";
+import { Container, Loading } from "@/components/shared";
 import { useContacts } from "@/hooks/tanstack/use-contacts";
 import { useScrollTop } from "@/hooks/use-scroll-top";
 import { HOSTING } from "@/services/hosting";

@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { FC } from "react";
-import { Container, Loader } from "../";
+import { Container, Loading } from "../";
 import useEmblaCarousel from "embla-carousel-react";
 import { usePartners } from "@/hooks/tanstack/use-partners";
 import Autoplay from "embla-carousel-autoplay";

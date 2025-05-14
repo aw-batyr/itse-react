@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { cn } from "@/lib/utils";
 import { useLangStore } from "@/store/lang";
-import { Container, Loader, ParticipantItem, Tabs } from "@/components/shared";
+import { Container, Loading, ParticipantItem, Tabs } from "@/components/shared";
 import { useParticipants } from "@/hooks/tanstack/use-participants";
 
 interface Props {

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { AboutCard, Container, Loader } from "../";
+import { AboutCard, Container, Loading } from "../";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import useEmblaCarousel from "embla-carousel-react";

@@ -6,7 +6,7 @@ import { useLangStore } from "@/store/lang";
 import { useTranslate } from "@/hooks/use-translate";
 import { aboutTheme } from "@/data/about/about-theme.data";
 import { useIndustries } from "@/hooks/tanstack/use-industries";
-import { Loader } from "../loading";
+import { Loading } from "../loading";
 
 interface Props {
   className?: string;

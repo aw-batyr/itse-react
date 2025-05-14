@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { FC } from "react";
-import { ContactCard, Container, Loader, TimeCard } from "../";
+import { ContactCard, Container, Loading, TimeCard } from "../";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useTranslate } from "@/hooks/use-translate";

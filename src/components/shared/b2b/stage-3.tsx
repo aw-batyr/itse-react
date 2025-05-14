@@ -3,10 +3,10 @@ import { motion } from "motion/react";
 import { FieldError, useFormContext } from "react-hook-form";
 import { Field } from "../field";
 import { Button } from "@/components/ui/button";
-import { Loader } from "lucide-react";
 import { useLangStore } from "@/store/lang";
 import { b2bStage3 } from "@/data/b2b.data";
 import { useTranslate } from "@/hooks/use-translate";
+import { Loader } from "lucide-react";
 
 interface Props {
   className?: string;
@@ -93,7 +93,7 @@ export const Stage3: FC<Props> = () => {
         className="w-full mt-10"
       >
         {formState.isSubmitting ? (
-          <Loading className="animate-spin" />
+          <Loader className="animate-spin" />
         ) : (
           b2bStage3[useTranslate(lang)].button
         )}

@@ -25,6 +25,10 @@
       "dropDownContent": [
         { "text": "About exhibition", "link": "/about" },
         {
+          "text": "Presentations",
+          "link": "/presentations"
+        },
+        {
           "text": "Media",
           "link": "/media"
         }

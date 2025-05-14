@@ -7,7 +7,7 @@ import { times } from "@/data/home/home-time.data";
 import { useLangStore } from "@/store/lang";
 import { useTranslate } from "@/hooks/use-translate";
 import { useExhibitionTime } from "@/hooks/tanstack/use-exhibition-time";
-import { Loader } from "../";
+import { Loading } from "../";
 
 interface Props {
   className?: string;

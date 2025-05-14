@@ -22,6 +22,7 @@
       "drop": true,
       "dropDownContent": [
         { "text": "О выставке", "link": "/about" },
+        { "text": "Презентации", "link": "/presentations" },
         {
           "text": "Медиа",
           "link": "/media"

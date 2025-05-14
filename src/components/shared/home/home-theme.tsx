@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Container, Loader } from "..";
+import { Container, Loading } from "..";
 import { ThemeCard } from "../theme-card";
 import { homeTheme } from "@/data/home/home-theme.data";
 import { useTranslate } from "@/hooks/use-translate";

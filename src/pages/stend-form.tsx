@@ -17,13 +17,13 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Loader } from "lucide-react";
 import { postStend } from "@/services/service";
 import { useScrollTop } from "@/hooks/use-scroll-top";
 import { useLangStore } from "@/store/lang";
 import { stendData } from "@/data/stend.data";
 import { useTranslate } from "@/hooks/use-translate";
 import { cn } from "@/lib/utils";
+import { Loader } from "lucide-react";
 
 interface Props {
   className?: string;
@@ -280,7 +280,7 @@ export const StendForm: FC<Props> = ({ className }) => {
 
               <Button disabled={form.formState.isSubmitting} className="mt-5">
                 {form.formState.isSubmitting ? (
-                  <Loading className="animate-spin" />
+                  <Loader className="animate-spin" />
                 ) : (
                   stendData[translate].button
                 )}

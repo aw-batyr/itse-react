@@ -24,7 +24,7 @@ export const NewsCard: FC<Props> = ({
     <Link to={`/news/${id}`}>
       <article
         className={cn(
-          "bg-surface_container justify-between bg-surface_high h-[400px] flex flex-col gap-6",
+          "bg-surface_container justify-between h-[400px] flex flex-col gap-6",
           className
         )}
       >

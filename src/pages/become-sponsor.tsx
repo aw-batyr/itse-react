@@ -18,7 +18,6 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Loader } from "lucide-react";
 import { postSponsor } from "@/services/service";
 import { useScrollTop } from "@/hooks/use-scroll-top";
 import { Language, useLangStore } from "@/store/lang";
@@ -33,6 +32,7 @@ import {
 } from "@/components/ui/select";
 import { useMasterClasses } from "@/hooks/tanstack/use-master-classes";
 import { cn } from "@/lib/utils";
+import { Loader } from "lucide-react";
 interface Props {
   className?: string;
 }
@@ -215,7 +215,7 @@ export const BecomeSponsor: FC<Props> = ({ className }) => {
 
               <Button disabled={form.formState.isSubmitting} className="mt-5">
                 {form.formState.isSubmitting ? (
-                  <Loading className="animate-spin" />
+                  <Loader className="animate-spin" />
                 ) : (
                   stendData[translate].button
                 )}
