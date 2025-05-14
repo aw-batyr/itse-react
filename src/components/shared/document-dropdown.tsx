@@ -77,10 +77,18 @@ export const DocumentDropdown: FC<Props> = ({ className, name, files }) => {
                 "flex items-center justify-between gap-2.5 pb-4 cursor-pointer"
               )}
             >
-              <a target="_blank" download href={item.path} className="text-sm">
+              <a
+                target="_blank"
+                download
+                href={item.path}
+                className="text-sm flex-1"
+              >
                 {item?.file_name}
               </a>
-              <Download size={18} />
+              <Download
+                size={18}
+                className="md:flex-[0_0_18px] flex-[0_0_14px]"
+              />
             </div>
             {i !== files?.length - 1 && (
               <hr className="border-outline_v pt-4" />
