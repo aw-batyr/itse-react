@@ -215,7 +215,7 @@ export const BecomeSponsor: FC<Props> = ({ className }) => {
 
               <Button disabled={form.formState.isSubmitting} className="mt-5">
                 {form.formState.isSubmitting ? (
-                  <Loader className="animate-spin" />
+                  <Loading className="animate-spin" />
                 ) : (
                   stendData[translate].button
                 )}

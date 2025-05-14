@@ -19,7 +19,7 @@ export const HomeTime: FC<Props> = ({ className }) => {
   const { data, isPending } = useExhibitionTime();
   const { data: contacts } = useHomeContacts();
 
-  if (isPending) return <Loader />;
+  if (isPending) return <Loading />;
 
   return (
     <section className={cn("bg-surface_high pt-10 pb-20", className)}>

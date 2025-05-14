@@ -11,7 +11,7 @@ export const News: FC = () => {
 
   const { data, isPending } = useNews(lang);
 
-  if (isPending) return <Loader />;
+  if (isPending) return <Loading />;
 
   return (
     <Container className="page-padding">

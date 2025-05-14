@@ -1,9 +1,9 @@
 import { FC } from "react";
-import { Container, LangMenu, Logo, Menu } from "./";
+import { Container, LangMenu, Logo, Menu } from "../shared";
 import { ArrowUpRight, MapPin, Smartphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
-import { Burger } from "./burger";
+import { Burger } from "../shared/burger";
 import { useLangStore } from "@/store/lang";
 import { useTranslation } from "react-i18next";
 import { Navigation } from "@/locales/types/nav.type";

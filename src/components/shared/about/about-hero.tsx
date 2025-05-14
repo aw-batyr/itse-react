@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Container, Cover, Loader } from "../";
+import { Container, Cover, Loading } from "../";
 import { useTranslate } from "@/hooks/use-translate";
 import { Language, useLangStore } from "@/store/lang";
 import { aboutInfo } from "@/data/about/about-info";
@@ -27,7 +27,7 @@ export const AboutHero: FC<Props> = ({ className }) => {
       <Cover title={aboutInfo[useTranslate(lang)].cover} />
 
       {isPending ? (
-        <Loader className="my-40" />
+        <Loading className="my-40" />
       ) : (
         <Container className="flex flex-col md:my-20 my-10 gap-16">
           <div className="flex flex-col gap-6">

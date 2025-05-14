@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { FC } from "react";
-import { Container } from "../container";
+import { Container } from "../../layout/container";
 import { useLangStore } from "@/store/lang";
 import { aboutPlace } from "@/data/about/about-place";
 import { useTranslate } from "@/hooks/use-translate";

@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { FC } from "react";
-import { Container } from "../container";
+import { Container } from "../../layout/container";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useLangStore } from "@/store/lang";

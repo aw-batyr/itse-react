@@ -12,6 +12,7 @@ import {
   News,
   NewsInner,
   Participants,
+  Presentations,
   StendForm,
 } from "./pages";
 import { BecomeSponsor } from "./pages/become-sponsor.tsx";
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       {
         element: <Media />,
         path: "media",
+      },
+      {
+        element: <Presentations />,
+        path: "presentations",
       },
     ],
   },

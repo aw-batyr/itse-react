@@ -68,7 +68,7 @@ export const Media: FC<Props> = ({ className }) => {
 
         <Container className="page-bottom md:pt-10 pt-6">
           {isPending ? (
-            <Loader />
+            <Loading />
           ) : (
             <div className="flex justify-center flex-col">
               <Tabs

@@ -93,7 +93,7 @@ export const Stage3: FC<Props> = () => {
         className="w-full mt-10"
       >
         {formState.isSubmitting ? (
-          <Loader className="animate-spin" />
+          <Loading className="animate-spin" />
         ) : (
           b2bStage3[useTranslate(lang)].button
         )}

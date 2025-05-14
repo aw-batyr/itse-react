@@ -22,7 +22,7 @@ export const HomeAbout: FC = () => {
 
   const translate = useTranslate(lang);
 
-  if (isPending) return <Loader />;
+  if (isPending) return <Loading />;
 
   return (
     <section>
@@ -55,7 +55,7 @@ export const HomeAbout: FC = () => {
         <div ref={ebmblaRef} className="embla overflow-hidden">
           <div className="flex embla__container items-center gap-6">
             {statsLoading ? (
-              <Loader />
+              <Loading />
             ) : (
               stats?.map((item) => (
                 <AboutCard

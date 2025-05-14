@@ -29,7 +29,7 @@ export const Contacts: FC<Props> = () => {
           <ContactsForm />
 
           {isPending ? (
-            <Loader />
+            <Loading />
           ) : (
             <div className="p-6 bg-bg_surface_container rounded-[8px]">
               <h2 className="h2 mb-10 xl:mb-8">{data?.header}</h2>

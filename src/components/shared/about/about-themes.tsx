@@ -1,12 +1,12 @@
 import { cn } from "@/lib/utils";
 import { FC } from "react";
-import { Container } from "../container";
+import { Container } from "../../layout/container";
 import { ThemeCard } from "../theme-card";
 import { useLangStore } from "@/store/lang";
 import { useTranslate } from "@/hooks/use-translate";
 import { aboutTheme } from "@/data/about/about-theme.data";
 import { useIndustries } from "@/hooks/tanstack/use-industries";
-import { Loader } from "../loader";
+import { Loader } from "../loading";
 
 interface Props {
   className?: string;
@@ -29,7 +29,7 @@ export const AboutThemes: FC<Props> = ({ className }) => {
 
       <Container>
         {isPending ? (
-          <Loader />
+          <Loading />
         ) : (
           <>
             <h3 className="h2 mb-4"> {aboutTheme[useTranslate(lang)].title}</h3>

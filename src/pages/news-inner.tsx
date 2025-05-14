@@ -17,7 +17,7 @@ export const NewsInner: FC = () => {
   const { data, isPending } = useNewsInner(pageId, lang);
   const { data: news } = useNews(lang);
 
-  if (isPending) return <Loader className="my-40" />;
+  if (isPending) return <Loading className="my-40" />;
 
   console.log(data);
 

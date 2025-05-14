@@ -56,7 +56,7 @@ export const Participants: FC<Props> = ({ className }) => {
           </div>
 
           {isPending ? (
-            <Loader />
+            <Loading />
           ) : activeTab === 0 ? (
             splitedDatat?.map((item, index, arr) => (
               <ParticipantItem

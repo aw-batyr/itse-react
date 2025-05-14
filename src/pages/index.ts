@@ -7,3 +7,4 @@ export { Contacts } from "./contacts";
 export { NewsInner } from "./news-inner";
 export { Participants } from "./participants";
 export { Media } from "./media";
+export { Presentations } from "./presentations";

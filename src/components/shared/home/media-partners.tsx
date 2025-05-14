@@ -30,7 +30,7 @@ export const MediaPartners: FC<Props> = ({ className }) => {
     title: string;
   };
 
-  if (isPending) return <Loader />;
+  if (isPending) return <Loading />;
 
   return (
     <section className={cn("", className)}>

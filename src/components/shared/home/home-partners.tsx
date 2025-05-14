@@ -28,7 +28,7 @@ export const HomePartners: FC<Props> = ({ className }) => {
 
   const { title } = t("partners", { returnObjects: true }) as { title: string };
 
-  if (isPending) return <Loader />;
+  if (isPending) return <Loading />;
 
   return (
     <section className={cn("", className)}>

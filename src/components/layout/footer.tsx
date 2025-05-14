@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Container, Logo } from "./";
+import { Container, Logo } from "../shared";
 import { Language, useLangStore } from "@/store/lang";
 import { SubscribeForm } from "../forms/subscribe-form";
 import { Link } from "react-router-dom";

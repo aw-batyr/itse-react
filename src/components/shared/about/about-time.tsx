@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { FC } from "react";
-import { Container } from "../container";
+import { Container } from "../../layout/container";
 
 import { TimeCard } from "../time-card";
 import { times } from "@/data/home/home-time.data";
@@ -24,7 +24,7 @@ export const AboutTime: FC<Props> = ({ className }) => {
     >
       <Container>
         {isPending ? (
-          <Loader />
+          <Loading />
         ) : (
           <>
             <h2 className="h2 mb-6">{times[useTranslate(lang)].title}</h2>

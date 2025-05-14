@@ -1,13 +1,13 @@
 import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import { FC } from "react";
-import { Container } from "./container";
+import { Container } from "../layout/container";
 
 interface Props {
   className?: string;
 }
 
-export const Loader: FC<Props> = ({ className }) => {
+export const Loading: FC<Props> = ({ className }) => {
   return (
     <Container
       className={cn(

@@ -11,7 +11,7 @@ export const HomeTheme: FC = () => {
 
   const { data, isPending } = useIndustries();
 
-  if (isPending) return <Loader />;
+  if (isPending) return <Loading />;
 
   return (
     <section className="">
