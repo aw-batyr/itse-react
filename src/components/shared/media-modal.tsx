@@ -4,26 +4,31 @@ import { ChevronLeftIcon, ChevronRightIcon, X } from "lucide-react";
 import { motion } from "motion/react";
 import useEmblaCarousel from "embla-carousel-react";
 import { useScrollLock } from "usehooks-ts";
-import { usePhotos } from "@/hooks/tanstack/use-photos";
-import { useVideos } from "@/hooks/tanstack/use-videos";
+import { PhotoTypes } from "@/services/types/photo.type";
+import { VideoTypes } from "@/services/types/videos.type";
 
 interface Props {
   setIsOpen: (isOpen: boolean) => void;
   activeItem: { id: number; type: string };
   setActiveItem: ({ id, type }: { id: number; type: "string" }) => void;
   className?: string;
+  videoData?: VideoTypes["data"];
+  photoData?: PhotoTypes["data"];
 }
 
-export const MediaModal: FC<Props> = ({ className, setIsOpen, activeItem }) => {
+export const MediaModal: FC<Props> = ({
+  className,
+  setIsOpen,
+  activeItem,
+  videoData,
+  photoData,
+}) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "center",
     loop: false,
     dragFree: false,
     slidesToScroll: 1,
   });
-
-  const { data } = usePhotos(1);
-  const { data: videos } = useVideos(1);
 
   useScrollLock();
 
@@ -47,17 +52,17 @@ export const MediaModal: FC<Props> = ({ className, setIsOpen, activeItem }) => {
   }, [emblaApi]);
 
   useEffect(() => {
-    if (!emblaApi || !data) return;
+    if (!emblaApi || !photoData || !videoData) return;
 
     emblaApi.scrollTo(activeItem.id, true);
-  }, [emblaApi, data, activeItem.id]);
+  }, [emblaApi, photoData, videoData, activeItem.id]);
 
   const slides =
     activeItem.type === "photo"
-      ? data?.photos?.map((item) => (
+      ? photoData?.photos?.map((item) => (
           <div
             key={item.id}
-            className="embla__slide flex-[0_0_100%] h-[350px] md:h-[500px] lg:h-[700px] lg:px-[20%] flex items-center justify-center"
+            className="embla__slide flex-[0_0_100%] h-[80vh] lg:px-[20%] flex items-center justify-center"
           >
             <img
               src={item?.photo?.path}
@@ -66,10 +71,10 @@ export const MediaModal: FC<Props> = ({ className, setIsOpen, activeItem }) => {
             />
           </div>
         ))
-      : videos?.videos?.map((item) => (
+      : videoData?.videos?.map((item) => (
           <div
             key={item.id}
-            className="embla__slide flex-[0_0_100%] h-[350px] md:h-[500px] lg:h-[700px] lg:px-[20%] flex items-center justify-center"
+            className="embla__slide flex-[0_0_100%] h-[80vh] lg:px-[20%] flex items-center justify-center"
           >
             <video
               src={item?.video?.path ?? ""}
