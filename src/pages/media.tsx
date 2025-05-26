@@ -46,7 +46,6 @@ export const Media: FC<Props> = ({ className }) => {
     setActiveItem({ id, type });
   };
 
-  console.log(videos);
   const { t } = useTranslation("main");
 
   const [isCollapse, setIsCollapse] = useState(false);
@@ -56,6 +55,8 @@ export const Media: FC<Props> = ({ className }) => {
       <AnimatePresence>
         {isModalOpen && (
           <MediaModal
+            photoData={data}
+            videoData={videos}
             activeItem={activeItem}
             setActiveItem={setActiveItem}
             setIsOpen={setIsModalOpen}
