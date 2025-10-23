@@ -9,7 +9,6 @@ import {
   Tabs,
 } from "@/components/shared";
 import { AnimatePresence } from "motion/react";
-import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { usePhotos } from "@/hooks/tanstack/use-photos";
 import { useVideos } from "@/hooks/tanstack/use-videos";
@@ -41,12 +40,12 @@ export const Media: FC<Props> = ({ className }) => {
 
   const lang = useLangStore((state) => state.lang);
 
+  const showAll = lang === "en" ? "Show all" : "Показать все";
+
   const onItem = ({ id, type }: { id: number; type: string }) => {
     setIsModalOpen(true);
     setActiveItem({ id, type });
   };
-
-  const { t } = useTranslation("main");
 
   const [isCollapse, setIsCollapse] = useState(false);
 
@@ -82,12 +81,12 @@ export const Media: FC<Props> = ({ className }) => {
               <div className="grid lg:grid-cols-4 lg:gap-y-4 lg:gap-x-6 md:gap-6 gap-4 grid-cols-2 place-items-center">
                 {state === 0
                   ? data?.photos
-                      ?.slice(0, isCollapse ? 1000 : 16)
+                      ?.slice(0, isCollapse ? 300 : 16)
                       ?.map((photo, i) => (
                         <div
                           onClick={() => onItem({ id: i, type: "photo" })}
                           key={i}
-                          className="cursor-pointer embla__slide basis-1/1 overflow-hidden"
+                          className="cursor-pointer embla__slide basis-1/1 h-48 w-full overflow-hidden"
                         >
                           <img
                             src={photo?.photo?.path ?? ""}
@@ -126,7 +125,7 @@ export const Media: FC<Props> = ({ className }) => {
                     size={"lg"}
                     variant={"outline"}
                   >
-                    {t("media.button")}
+                    {showAll}
                   </Button>
                 )}
             </div>
