@@ -116,7 +116,8 @@ export const Media: FC<Props> = ({ className }) => {
                     ))}
               </div>
 
-              {data?.photos?.length &&
+              {state === 0 &&
+                data?.photos &&
                 data?.photos?.length > 16 &&
                 !isCollapse && (
                   <Button
