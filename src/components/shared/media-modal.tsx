@@ -59,7 +59,7 @@ export const MediaModal: FC<Props> = ({
 
   const slides =
     activeItem.type === "photo"
-      ? photoData?.photos?.map((item) => (
+      ? photoData?.map((item) => (
           <div
             key={item.id}
             className="embla__slide flex-[0_0_100%] h-[80vh] lg:px-[20%] flex items-center justify-center"

@@ -1,17 +1,9 @@
 export interface PhotoTypes {
   status: string;
-  data: Data;
+  data: Data[];
 }
 
 export interface Data {
-  id: number;
-  name: string;
-  created_at: Date;
-  updated_at: Date;
-  photos: PhotoElement[];
-}
-
-export interface PhotoElement {
   id: number;
   category_photo_media_id: number;
   name: string;

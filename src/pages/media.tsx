@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { usePhotos } from "@/hooks/tanstack/use-photos";
 import { useVideos } from "@/hooks/tanstack/use-videos";
 import { Play } from "lucide-react";
+import { useLang } from "@/hooks/use-lang";
 
 interface Props {
   className?: string;
@@ -33,7 +34,7 @@ const momentsTabs = [
 
 export const Media: FC<Props> = ({ className }) => {
   const [state, setState] = useState(0);
-  const { data, isPending } = usePhotos(1);
+  const { data, isPending } = usePhotos();
   const { data: videos } = useVideos(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeItem, setActiveItem] = useState({ id: 0, type: "photo" });
@@ -41,6 +42,7 @@ export const Media: FC<Props> = ({ className }) => {
   const lang = useLangStore((state) => state.lang);
 
   const showAll = lang === "en" ? "Show all" : "Показать все";
+  const gala = useLang("Gala ужин", "Gala dinner");
 
   const onItem = ({ id, type }: { id: number; type: string }) => {
     setIsModalOpen(true);
@@ -48,6 +50,17 @@ export const Media: FC<Props> = ({ className }) => {
   };
 
   const [isCollapse, setIsCollapse] = useState(false);
+
+  const firstBlock = data?.filter(
+    (item) => item?.category_photo_media_id === 1
+  );
+  const secondBlock = data?.filter(
+    (item) => item?.category_photo_media_id === 2
+  );
+
+  console.log(data);
+
+  const firstBlockLength = firstBlock?.length ? firstBlock.length : 0;
 
   return (
     <>
@@ -80,7 +93,7 @@ export const Media: FC<Props> = ({ className }) => {
               <h3 className="md:text-3xl text-2xl mb-6">2025 ITSE</h3>
               <div className="grid lg:grid-cols-4 lg:gap-y-4 lg:gap-x-6 md:gap-6 gap-4 grid-cols-2 place-items-center">
                 {state === 0
-                  ? data?.photos
+                  ? firstBlock
                       ?.slice(0, isCollapse ? 300 : 16)
                       ?.map((photo, i) => (
                         <div
@@ -99,7 +112,7 @@ export const Media: FC<Props> = ({ className }) => {
                       <div
                         onClick={() => onItem({ id: i, type: "video" })}
                         key={i}
-                        className="cursor-pointer group embla__slide basis-1/1 overflow-hidden relative"
+                        className="cursor-pointer group embla__slide basis-1/1 h-48 w-full overflow-hidden relative"
                       >
                         <Play
                           fill="white"
@@ -116,19 +129,43 @@ export const Media: FC<Props> = ({ className }) => {
                     ))}
               </div>
 
-              {state === 0 &&
-                data?.photos &&
-                data?.photos?.length > 16 &&
-                !isCollapse && (
-                  <Button
-                    onClick={() => setIsCollapse(true)}
-                    className="mx-auto w-[288px] mt-10 text-on_surface"
-                    size={"lg"}
-                    variant={"outline"}
-                  >
-                    {showAll}
-                  </Button>
-                )}
+              {state === 0 && data && data?.length > 16 && !isCollapse && (
+                <Button
+                  onClick={() => setIsCollapse(true)}
+                  className="mx-auto w-[288px] mt-10 text-on_surface"
+                  size={"lg"}
+                  variant={"outline"}
+                >
+                  {showAll}
+                </Button>
+              )}
+
+              {state === 0 && isCollapse && (
+                <>
+                  <h3 className="md:text-3xl mt-10 text-2xl mb-6">{gala}</h3>
+                  <div className="grid lg:grid-cols-4 lg:gap-y-4 lg:gap-x-6 md:gap-6 gap-4 grid-cols-2 place-items-center">
+                    {state === 0 &&
+                      secondBlock?.map((photo, i) => (
+                        <div
+                          onClick={() =>
+                            onItem({
+                              id: i + firstBlockLength,
+                              type: "photo",
+                            })
+                          }
+                          key={i}
+                          className="cursor-pointer embla__slide basis-1/1 h-48 w-full overflow-hidden"
+                        >
+                          <img
+                            src={photo?.photo?.path ?? ""}
+                            alt={photo?.photo?.file_name ?? "photo"}
+                            className="size-full object-cover hover:scale-105 duration-300 transition-all"
+                          />
+                        </div>
+                      ))}
+                  </div>
+                </>
+              )}
             </div>
           )}
         </Container>
